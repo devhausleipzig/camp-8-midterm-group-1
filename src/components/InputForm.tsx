@@ -28,47 +28,48 @@ export function InputForm() {
     <div className="w-screen h-screen flex justify-center items-center">
       <form
         id="form-placeholder"
-        className="w-[375px] h-[667px] bg-[#1C1C27] flex flex-col rounded-md"
+        className="w-[375px] h-[667px] bg-[#1C1C27] flex flex-col items-center gap- rounded-md"
         onSubmit={submitfunction}
       >
-        <div className="gap-5 flex flex-col text-slate-300">
-          <div>Welcome to Cine-Scape</div>
-          <div>
-            You need to log in to be able to make revervations and add movies to
-            your watchlist
+        <div className="flex flex-col">
+          <div className="gap-5 flex flex-col text-slate-300 items-center">
+            <div>Welcome to Cine-Scape</div>
+            <div className="w-[335px] ">
+              You need to log in to be able to make revervations and add movies
+              to your watchlist
+            </div>
+            <div>
+              <input
+                type="email"
+                name="email-address"
+                placeholder="Your@email.com"
+                className="rounded-md bg-[#363740] h-[48px] w-[335px]"
+              />
+            </div>
+            <div>
+              <input
+                type="password"
+                name="password"
+                placeholder="Enter your password"
+                className="rounded-md bg-[#363740] h-[48px] w-[335px]"
+              />
+            </div>
           </div>
-          <div>
-            <input
-              type="email"
-              name="email-address"
-              placeholder="Your@email.com"
-              className="rounded-md bg-[#363740] h-[48px] w-[335px]"
-            />
-          </div>
-          <div>
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter your password"
-              className="rounded-md bg-[#363740] h-[48px] w-[335px]"
-            />
-          </div>
-        </div>
-        {/* <input type="text" name="Name" placeholder="Name" /> */}
+          {/* <input type="text" name="Name" placeholder="Name" /> */}
 
-        {/* 
+          {/* 
 
         <input type="number" name="age" max="100" min="0" />
 
         <input type="date" name="birthday" /> */}
-        {/* <input
+          {/* <input
           id="checkbox"
           type="checkbox"
           name="Share data"
           checked
           value="true"
         /> */}
-        {/* <p>fav fruit</p>
+          {/* <p>fav fruit</p>
         <fieldset>
           <label htmlFor="fruta1">
             <input type="radio" value="pear" name="fruta" id="fruta" />
@@ -93,12 +94,15 @@ export function InputForm() {
           <option value="Cairo">Cairo</option>
           <option value="Roma">Roma</option>
         </select> */}
-        <button
-          type="submit"
-          className="rounded-md h-[48px] w-[335px] bg-[#FFB43A]"
-        >
-          Login
-        </button>
+          <div className="">
+            <button
+              type="submit"
+              className="rounded-md h-[48px] w-[335px] bg-[#FFB43A]"
+            >
+              Login
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   );
