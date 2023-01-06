@@ -2,8 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Home, Movies, Icon3, Icon4 } from "./routes";
+import { Home, Movies, Icon3, Icon4, Login } from "./routes";
 import { RootLayout } from "./layouts";
+import axios from "axios";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,11 @@ const router = createBrowserRouter([
       {
         path: "movies",
         element: <Movies />,
+      },
+
+      {
+        path: "login",
+        element: <Login />,
       },
 
       {

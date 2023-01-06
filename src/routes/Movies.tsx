@@ -1,3 +1,3 @@
 export function Movies() {
-  return <div>Movies</div>;
+  return <div>Movie</div>;
 }

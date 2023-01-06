@@ -13,6 +13,10 @@ const routes = [
     path: "/movies",
   },
   {
+    name: "Login",
+    path: "/login",
+  },
+  {
     name: "Icon3",
     path: "/icon3",
   },
