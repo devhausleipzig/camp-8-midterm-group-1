@@ -23,5 +23,25 @@ const routes = [
 ];
 
 export function RootLayout() {
-  return <div>RootLayout</div>;
+  return (
+    <div>
+      <footer className="bg-slate-600 flex justify-between p-3 text-white">
+        <span>Footer example</span>
+        <nav className="flex gap-3">
+          {routes.map((route) => (
+            <NavLink
+              className={({ isActive }) =>
+                clsx("hover:underline", isActive && "text-red-500")
+              }
+              key={route.name}
+              to={route.path}
+            >
+              {route.name}
+            </NavLink>
+          ))}
+        </nav>
+      </footer>
+      <Outlet />
+    </div>
+  );
 }

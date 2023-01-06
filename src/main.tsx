@@ -1,10 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Home, Movies, Icon3, Icon4 } from "./routes";
-import { RootLayout } from "./layouts/RootLayout";
+import { RootLayout } from "./layouts";
 
 const router = createBrowserRouter([
   {
@@ -12,7 +11,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       {
-        path: "/Home",
+        index: true,
         element: <Home />,
       },
 
@@ -22,12 +21,12 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "icon-3",
+        path: "icon3",
         element: <Icon3 />,
       },
 
       {
-        path: "icon-4",
+        path: "icon4",
         element: <Icon4 />,
       },
     ],
