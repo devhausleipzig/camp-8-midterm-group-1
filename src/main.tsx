@@ -2,8 +2,22 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Home, Movies, Icon3, Icon4 } from "./routes";
-import { RootLayout } from "./layouts";
+import {
+  Home,
+  Movies,
+  Genres,
+  Login,
+  MovDetail,
+  SelectDateTime,
+  SelectSeats,
+  Ticket,
+  Post,
+  Posts,
+  postsLoader,
+  postLoader,
+  CastCrew,
+} from "./routes";
+import { RootLayout, MovieDetailLayout } from "./layouts";
 
 const router = createBrowserRouter([
   {
@@ -17,17 +31,49 @@ const router = createBrowserRouter([
 
       {
         path: "movies",
-        element: <Movies />,
+        element: <MovieDetailLayout />,
+        children: [
+          {
+            index: true,
+            element: <Posts />,
+            loader: postsLoader,
+          },
+          {
+            path: ":postId",
+            element: <Post />,
+            loader: postLoader,
+          },
+          {
+            path: "castcrew",
+            element: <CastCrew />,
+          },
+          {
+            path: "selecttime",
+            element: <SelectDateTime />,
+            children: [
+              {
+                path: "selectseats",
+                element: <SelectSeats />,
+                children: [
+                  {
+                    path: "ticket",
+                    element: <Ticket />,
+                  },
+                ],
+              },
+            ],
+          },
+        ],
       },
 
       {
-        path: "icon3",
-        element: <Icon3 />,
+        path: "genres",
+        element: <Genres />,
       },
 
       {
-        path: "icon4",
-        element: <Icon4 />,
+        path: "login",
+        element: <Login />,
       },
     ],
   },

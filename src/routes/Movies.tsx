@@ -1,3 +1,10 @@
+import { NavigationBar } from "../components/NavigationBar";
+
 export function Movies() {
-  return <div>Movies</div>;
+  return (
+    <div>
+      <h1>Movies</h1>
+      <NavigationBar />
+    </div>
+  );
 }

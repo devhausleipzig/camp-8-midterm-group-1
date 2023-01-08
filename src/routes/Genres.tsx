@@ -1,8 +1,9 @@
 import { NavigationBar } from "../components/NavigationBar";
-export function Home() {
+
+export function Genres() {
   return (
     <div>
-      <h1>Home</h1>
+      <h1>Genres</h1>
       <NavigationBar />
     </div>
   );
