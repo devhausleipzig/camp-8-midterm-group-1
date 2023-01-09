@@ -6,20 +6,11 @@ const routes = [
     name: "Home",
     path: "/",
   },
-  {
-    name: "Movies",
-    path: "/movies",
 
-  },
   {
     name: "Genres",
     path: "/genres",
   },
-  {
-    name: "Login",
-    path: "/login",
-  },
-  
 ];
 
 export function RootLayout() {

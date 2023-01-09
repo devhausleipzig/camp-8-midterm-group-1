@@ -17,63 +17,56 @@ import {
   postLoader,
   CastCrew,
 } from "./routes";
-import { RootLayout, MovieDetailLayout } from "./layouts";
+import { RootLayout } from "./layouts/RootLayout";
+import { MovieDetailLayout } from "./layouts/MovieDetailLayout";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    element: <Login />,
+    index: true,
+  },
+
+  {
+    element: <Movies />,
+    path: "movies",
+  },
+
+  {
+    element: <MovDetail />,
+    path: "movdetail",
+  },
+
+  {
+    element: <CastCrew />,
+    path: "castcrew",
+  },
+
+  {
+    element: <SelectDateTime />,
+    path: "selectdatetime",
+  },
+
+  {
+    element: <SelectSeats />,
+    path: "selectseats",
+  },
+
+  {
+    element: <Ticket />,
+    path: "ticket",
+  },
+
+  {
     element: <RootLayout />,
+    path: "layout",
     children: [
       {
-        index: true,
         element: <Home />,
+        path: "home",
       },
-
       {
-        path: "movies",
-        element: <MovieDetailLayout />,
-        children: [
-          {
-            index: true,
-            element: <Posts />,
-            loader: postsLoader,
-          },
-          {
-            path: ":postId",
-            element: <Post />,
-            loader: postLoader,
-          },
-          {
-            path: "castcrew",
-            element: <CastCrew />,
-          },
-          {
-            path: "selecttime",
-            element: <SelectDateTime />,
-            children: [
-              {
-                path: "selectseats",
-                element: <SelectSeats />,
-                children: [
-                  {
-                    path: "ticket",
-                    element: <Ticket />,
-                  },
-                ],
-              },
-            ],
-          },
-        ],
-      },
-
-      {
-        path: "genres",
         element: <Genres />,
-      },
-
-      {
-        path: "login",
-        element: <Login />,
+        path: "genres",
       },
     ],
   },
