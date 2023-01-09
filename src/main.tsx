@@ -22,7 +22,11 @@ import { MovieDetailLayout } from "./layouts/MovieDetailLayout";
 
 const router = createBrowserRouter([
   {
-    element: <Login />,
+    path: "/",
+    element: <RootLayout />,
+    children: [
+  {
+    element: <Home />,
     index: true,
   },
 

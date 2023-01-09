@@ -6,10 +6,17 @@ const routes = [
     name: "Home",
     path: "/",
   },
-
   {
     name: "Movies",
     path: "/movies",
+  },
+  {
+    name: "Bookmark",
+    path: "/bookmark",
+  },
+  {
+    name: "Account",
+    path: "/account",
   },
 ];
 
