@@ -1,7 +1,7 @@
 export function Emogi() {
   return (
     <div>
-      <p>Hello World</p>
+      <p>Hello World Again</p>
     </div>
   );
 }

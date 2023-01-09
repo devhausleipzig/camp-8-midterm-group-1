@@ -1,9 +1,8 @@
 import React from "react";
 import { Emogi } from "../components/Emogi";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import "../index.css";
-
-type NewType = ComponentMeta<typeof Emogi>;
+type NewType = Meta<typeof Emogi>;
 
 export default {
   title: "Example/Emogi",
@@ -11,7 +10,7 @@ export default {
   argTypes: {},
 } as NewType;
 
-const Template: ComponentStory<typeof Emogi> = (args) => <Emogi />;
+const Template: StoryFn<typeof Emogi> = (args) => <Emogi />;
 
 export const Generic = Template.bind({});
 Generic.args = {};
