@@ -1,3 +1,4 @@
+import { Emogi } from "../components/Emogi";
 import { NavigationBar } from "../components/NavigationBar";
 export function Home() {
   return (
