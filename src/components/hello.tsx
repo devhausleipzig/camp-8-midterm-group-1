@@ -1,3 +1,3 @@
 export function Hello() {
-  return <p className="text-yellow-400">hdhdjsk</p>;
+  return <p className="text-slate-700">lets watch some movies?!</p>;
 }
