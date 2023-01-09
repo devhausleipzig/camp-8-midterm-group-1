@@ -5,8 +5,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
   Home,
   Movies,
-  Genres,
-  Login,
+  Bookmark,
+  Account,
   MovDetail,
   SelectDateTime,
   SelectSeats,
@@ -17,7 +17,8 @@ import {
   postLoader,
   CastCrew,
 } from "./routes";
-import { RootLayout, MovieDetailLayout } from "./layouts";
+import { RootLayout } from "./layouts/RootLayout";
+import { MovieDetailLayout } from "./layouts/MovieDetailLayout";
 
 const router = createBrowserRouter([
   {
@@ -30,50 +31,50 @@ const router = createBrowserRouter([
       },
 
       {
+        path: "bookmark",
+        element: <Bookmark />,
+      },
+      {
+        path: "account",
+        element: <Account />,
+      },
+      {
         path: "movies",
+        element: <Posts />,
+        loader: postsLoader,
+      },
+      {
+        path: "movie",
         element: <MovieDetailLayout />,
         children: [
-          {
-            index: true,
-            element: <Posts />,
-            loader: postsLoader,
-          },
           {
             path: ":postId",
             element: <Post />,
             loader: postLoader,
-          },
-          {
-            path: "castcrew",
-            element: <CastCrew />,
-          },
-          {
-            path: "selecttime",
-            element: <SelectDateTime />,
             children: [
               {
-                path: "selectseats",
-                element: <SelectSeats />,
+                path: ":postId/castcrew",
+                element: <CastCrew />,
+              },
+              {
+                path: "selecttime",
+                element: <SelectDateTime />,
                 children: [
                   {
-                    path: "ticket",
-                    element: <Ticket />,
+                    path: "selectseats",
+                    element: <SelectSeats />,
+                    children: [
+                      {
+                        path: "ticket",
+                        element: <Ticket />,
+                      },
+                    ],
                   },
                 ],
               },
             ],
           },
         ],
-      },
-
-      {
-        path: "genres",
-        element: <Genres />,
-      },
-
-      {
-        path: "login",
-        element: <Login />,
       },
     ],
   },

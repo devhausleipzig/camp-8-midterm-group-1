@@ -21,7 +21,7 @@ export function Posts() {
           <Link
             className="underline text-indigo-600"
             key={post.id}
-            to={`/Movies/${post.id}`}
+            to={`/movie/${post.id}`}
           >
             {post.title}
           </Link>

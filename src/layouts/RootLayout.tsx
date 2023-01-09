@@ -9,17 +9,15 @@ const routes = [
   {
     name: "Movies",
     path: "/movies",
-
   },
   {
-    name: "Genres",
-    path: "/genres",
+    name: "Bookmark",
+    path: "/bookmark",
   },
   {
-    name: "Login",
-    path: "/login",
+    name: "Account",
+    path: "/account",
   },
-  
 ];
 
 export function RootLayout() {
