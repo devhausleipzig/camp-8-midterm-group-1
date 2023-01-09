@@ -65,8 +65,8 @@ const router = createBrowserRouter([
         path: "home",
       },
       {
-        element: <Genres />,
-        path: "genres",
+        element: <Movies />,
+        path: "movies",
       },
     ],
   },

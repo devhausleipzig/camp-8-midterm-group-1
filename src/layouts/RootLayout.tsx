@@ -8,8 +8,8 @@ const routes = [
   },
 
   {
-    name: "Genres",
-    path: "/genres",
+    name: "Movies",
+    path: "/movies",
   },
 ];
 
