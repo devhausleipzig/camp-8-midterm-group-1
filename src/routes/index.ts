@@ -1,5 +1,5 @@
 export * from "./Home";
-export * from "./Movies";
+export * from "./MoviesList";
 export * from "./Bookmark";
 export * from "./Account";
 export * from "./MovDetail";
@@ -7,5 +7,6 @@ export * from "./Cast";
 export * from "./SelectDateTime";
 export * from "./SelectSeats";
 export * from "./Ticket";
-export * from "./Post";
-export * from "./Posts";
+export * from "./Login";
+export * from "./Movie";
+export * from "./Movies";

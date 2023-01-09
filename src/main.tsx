@@ -11,24 +11,28 @@ import {
   SelectDateTime,
   SelectSeats,
   Ticket,
-  Post,
-  Posts,
-  postsLoader,
-  postLoader,
   CastCrew,
+  Login,
+  MoviesLoader,
+  Movie,
+  movieLoader,
 } from "./routes";
 import { RootLayout } from "./layouts/RootLayout";
 import { MovieDetailLayout } from "./layouts/MovieDetailLayout";
 
 const router = createBrowserRouter([
   {
+    path: "login",
+    element: <Login />,
+  },
+  {
     path: "/",
     element: <RootLayout />,
     children: [
-  {
-    element: <Home />,
-    index: true,
-  },
+      {
+        element: <Home />,
+        index: true,
+      },
 
       {
         path: "bookmark",
@@ -40,41 +44,35 @@ const router = createBrowserRouter([
       },
       {
         path: "movies",
-        element: <Posts />,
-        loader: postsLoader,
+        element: <Movies />,
+        loader: MoviesLoader,
+      },
+    ],
+  },
+  {
+    path: "movie",
+    element: <MovieDetailLayout />,
+    children: [
+      {
+        path: ":movieId",
+        element: <Movie />,
+        loader: movieLoader,
       },
       {
-        path: "movie",
-        element: <MovieDetailLayout />,
-        children: [
-          {
-            path: ":postId",
-            element: <Post />,
-            loader: postLoader,
-            children: [
-              {
-                path: ":postId/castcrew",
-                element: <CastCrew />,
-              },
-              {
-                path: "selecttime",
-                element: <SelectDateTime />,
-                children: [
-                  {
-                    path: "selectseats",
-                    element: <SelectSeats />,
-                    children: [
-                      {
-                        path: "ticket",
-                        element: <Ticket />,
-                      },
-                    ],
-                  },
-                ],
-              },
-            ],
-          },
-        ],
+        path: ":movieId/castcrew",
+        element: <CastCrew />,
+      },
+      {
+        path: ":movieId/selecttime",
+        element: <SelectDateTime />,
+      },
+      {
+        path: ":movieId/selectseats",
+        element: <SelectSeats />,
+      },
+      {
+        path: ":movieId/ticket",
+        element: <Ticket />,
       },
     ],
   },
