@@ -1,3 +1,6 @@
+import { Input } from "../components/Input";
+import { SearchBar } from "../components/SearchBar";
+
 export function Home() {
-  return <div>Home</div>;
+  return <SearchBar></SearchBar>;
 }
