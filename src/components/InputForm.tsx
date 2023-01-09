@@ -38,6 +38,7 @@ export function InputForm() {
               You need to log in to be able to make revervations and add movies
               to your watchlist
             </div>
+            {/* put here the button/login components created by Regina */}
             <div>
               <input
                 type="email"
@@ -55,45 +56,6 @@ export function InputForm() {
               />
             </div>
           </div>
-          {/* <input type="text" name="Name" placeholder="Name" /> */}
-
-          {/* 
-
-        <input type="number" name="age" max="100" min="0" />
-
-        <input type="date" name="birthday" /> */}
-          {/* <input
-          id="checkbox"
-          type="checkbox"
-          name="Share data"
-          checked
-          value="true"
-        /> */}
-          {/* <p>fav fruit</p>
-        <fieldset>
-          <label htmlFor="fruta1">
-            <input type="radio" value="pear" name="fruta" id="fruta" />
-            Pear
-          </label>
-
-          <label htmlFor="fruta2">
-            <input type="radio" value="apple" name="hello" />
-            apple
-          </label>
-
-          <label htmlFor="fruta3">
-            <input type="radio" value="banana" name="hello" /> banana
-          </label>
-        </fieldset>
-
-        <label htmlFor="city-select">Choose a city</label>
-        <select name="city" id="city-select">
-          <option value="berlin">berlin</option>
-          <option value="Paris">Paris</option>
-          <option value="Temuco">Temuco</option>
-          <option value="Cairo">Cairo</option>
-          <option value="Roma">Roma</option>
-        </select> */}
           <div className="">
             <button
               type="submit"
