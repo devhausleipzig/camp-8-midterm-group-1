@@ -1,9 +1,5 @@
-import { InputForm } from "../components/InputForm";
+import { Input } from "../components/Input";
 
 export function Login() {
-  return (
-    <div>
-      <InputForm></InputForm>
-    </div>
-  );
+  return <Input></Input>;
 }

@@ -1,7 +1,8 @@
 import axios from "axios";
 import { redirect, useNavigate } from "react-router-dom";
+import { Button } from "./Button";
 
-export function InputForm() {
+export function Input() {
   const navigate = useNavigate();
   const submitfunction = async (event) => {
     event.preventDefault();
@@ -25,16 +26,16 @@ export function InputForm() {
   };
 
   return (
-    <div className="w-screen h-screen flex justify-center items-center">
+    <div className="w-screen h-screen flex justify-center">
       <form
         id="form-placeholder"
-        className="w-[375px] h-[667px] bg-[#1C1C27] flex flex-col items-center gap- rounded-md"
+        className="w-[375px] h-[667px] bg-[#1C1C27] flex flex-col gap-5 rounded-md"
         onSubmit={submitfunction}
       >
         <div className="flex flex-col">
-          <div className="gap-5 flex flex-col text-slate-300 items-center">
-            <div>Welcome to Cine-Scape</div>
-            <div className="w-[335px] ">
+          <div className="gap-5 text-slate-300 justify-center grid grid-rows-[1fr_1fr_1fr_8fr_1fr]">
+            <div className="flex items-end">Welcome to Cine-Scape</div>
+            <div className="w-[335px]">
               You need to log in to be able to make revervations and add movies
               to your watchlist
             </div>
@@ -55,14 +56,10 @@ export function InputForm() {
                 className="rounded-md bg-[#363740] h-[48px] w-[335px]"
               />
             </div>
-          </div>
-          <div className="">
-            <button
-              type="submit"
-              className="rounded-md h-[48px] w-[335px] bg-[#FFB43A]"
-            >
-              Login
-            </button>
+            <div className="flex items-end">
+              {/* Dummy button. Use the ones by Regina */}
+              <Button></Button>
+            </div>
           </div>
         </div>
       </form>

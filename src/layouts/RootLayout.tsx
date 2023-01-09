@@ -14,7 +14,7 @@ const routes = [
   },
   {
     name: "Login",
-    path: "/login",
+    path: "/Login",
   },
   {
     name: "Icon3",
