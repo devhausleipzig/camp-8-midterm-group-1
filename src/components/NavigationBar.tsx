@@ -5,9 +5,11 @@ export function NavigationBar() {
     <div>
       <nav className="bg-blue-900 flex justify-evenly p-2 text-white">
         <NavLink to="/"> Home </NavLink>
-        <NavLink to="/Genres"> Genres </NavLink>
-        <NavLink to="#"> </NavLink>
-        <NavLink to="#"> </NavLink>
+
+        <NavLink to="/movies"> Movies </NavLink>
+        <NavLink to="/Bookmark"> Bookmark </NavLink>
+        <NavLink to="/Account"> Account </NavLink>
+
       </nav>
     </div>
   );

@@ -5,8 +5,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
   Home,
   Movies,
-  Genres,
-  Login,
+  Bookmark,
+  Account,
   MovDetail,
   SelectDateTime,
   SelectSeats,
@@ -26,47 +26,51 @@ const router = createBrowserRouter([
     index: true,
   },
 
-  {
-    element: <Movies />,
-    path: "movies",
-  },
-
-  {
-    element: <MovDetail />,
-    path: "movdetail",
-  },
-
-  {
-    element: <CastCrew />,
-    path: "castcrew",
-  },
-
-  {
-    element: <SelectDateTime />,
-    path: "selectdatetime",
-  },
-
-  {
-    element: <SelectSeats />,
-    path: "selectseats",
-  },
-
-  {
-    element: <Ticket />,
-    path: "ticket",
-  },
-
-  {
-    element: <RootLayout />,
-    path: "layout",
-    children: [
       {
-        element: <Home />,
-        path: "home",
+        path: "bookmark",
+        element: <Bookmark />,
       },
       {
-        element: <Movies />,
+        path: "account",
+        element: <Account />,
+      },
+      {
         path: "movies",
+        element: <Posts />,
+        loader: postsLoader,
+      },
+      {
+        path: "movie",
+        element: <MovieDetailLayout />,
+        children: [
+          {
+            path: ":postId",
+            element: <Post />,
+            loader: postLoader,
+            children: [
+              {
+                path: ":postId/castcrew",
+                element: <CastCrew />,
+              },
+              {
+                path: "selecttime",
+                element: <SelectDateTime />,
+                children: [
+                  {
+                    path: "selectseats",
+                    element: <SelectSeats />,
+                    children: [
+                      {
+                        path: "ticket",
+                        element: <Ticket />,
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
       },
     ],
   },

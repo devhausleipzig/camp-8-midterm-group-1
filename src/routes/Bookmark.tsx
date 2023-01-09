@@ -1,8 +1,10 @@
 import { NavigationBar } from "../components/NavigationBar";
-export function Login() {
+
+export function Bookmark() {
   return (
     <div>
-      <h1>Login</h1>
+      <h1>Bookmark</h1>
+      <NavigationBar />
     </div>
   );
 }
