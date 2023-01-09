@@ -18,7 +18,7 @@ type MovieResponce = {
   crew: Person[];
 } & DataResponce;
 
-export class API {
+class API {
   state;
   constructor() {
     this.state = {
@@ -38,7 +38,7 @@ export class API {
     return <div style={{ backgroundColor: "red" }}>Check Console log</div>;
   }
 
-  NowPlayingArray(wrapper: string, element: string) {
+  NowPlayingArray() {
     const [Array, setArray] = useState<DataResponce[]>([]);
     async function BuildArray() {
       await axios
@@ -52,21 +52,25 @@ export class API {
 
     BuildArray();
     return (
-      <div className={wrapper}>
+      <div className="flex flex-row gap-8 overflow-x-auto super-width">
         {Array.map((film) => {
           return (
-            <div className={element} key={film.id}>
-              {/* <Link to={`/${film.id}`}> */}
-              <p>{film.id}</p>
-              <img
-                src={`https://image.tmdb.org/t/p/w500${film.poster_path}`}
-                alt=""
-              />
-              {/* </Link> */}
-            </div>
+            <img
+              src={`https://image.tmdb.org/t/p/w500${film.poster_path}`}
+              alt=""
+              className="w-44 h-56 rounded-lg flex-grow-0"
+            />
           );
         })}
       </div>
     );
   }
+}
+type Input = {
+  wrapper: string;
+  element: string;
+};
+export function APIImplement() {
+  const data = new API();
+  return <div>{data.NowPlayingArray()}</div>;
 }

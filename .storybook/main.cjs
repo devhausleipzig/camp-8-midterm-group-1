@@ -11,7 +11,13 @@ module.exports = {
     name: "@storybook/react-vite",
     options: {},
   },
+  core: {
+    builder: "@storybook/builder-vite",
+  },
   docs: {
     autodocs: "tag",
+  },
+  features: {
+    storyStoreV7: true,
   },
 };
