@@ -1,49 +1,14 @@
 import React, { useState } from "react";
 import "../index.css";
+import { Meta, StoryFn } from "@storybook/react";
 import { Button } from "../components/Button";
 
+type NewType = Meta<typeof Button>;
 
-export default: {
- title: "Button",
+export default {
+  title: "Example/Button",
   component: Button,
-
-  argTypes: {
-    variant: {
-      options: ['primary', 'secondary'],
-      control: { type: 'button' },
-    },
 };
+const Template: StoryFn<typeof Button> = (args) => <Button />;
 
-
-
- function () {
-  const [isButtonClicked, setIsButtonClicked] = useState(false);
-
-  return (
-    <div className="flex items-center">
-      <button
-        className="rounded-md border-2 border-transparent shadow-sm px-4 py-2 bg-yellow-400
-          text-base font-medium text-slate-700"
-        data-ripple-light="true"
-        onClick={() => setIsButtonClicked(!isButtonClicked)}
-      >
-        ButtonNormal
-      </button>
-      <button
-        className="rounded-md border-2 border-transparent shadow-sm px-4 py-2 bg-yellow-400 opacity-40
-          text-base font-medium text-slate-700"
-        data-ripple-light="true"
-        onClick={() => setIsButtonClicked(!isButtonClicked)}
-      >
-        ButtonActive
-      </button>
-    
-    </div>
-  );
-};
-
-
-
-
-
-
+export const Basic = Template.bind({});
