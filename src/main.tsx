@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Button } from "./stories/Button.stories";
+import { Button } from "./components/Button";
+
 import { Hello } from "./components/hello";
 import "./index.css";
 
