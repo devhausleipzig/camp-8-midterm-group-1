@@ -27,13 +27,6 @@ export default function Navigationsbar() {
           )}
           onClick={() => setSelected(1)}
         />
-        <UserIcon
-          className={clsx(
-            " w-16 h-16 mx-[2rem]",
-            selected == 2 ? "text-white" : "text-white-dimmed"
-          )}
-          onClick={() => setSelected(2)}
-        />
         <Bars4Icon
           className={clsx(
             " w-16 h-16 mx-[2rem]",
@@ -41,6 +34,14 @@ export default function Navigationsbar() {
           )}
           onClick={() => setSelected(3)}
         />
+        <UserIcon
+          className={clsx(
+            " w-16 h-16 mx-[2rem]",
+            selected == 2 ? "text-white" : "text-white-dimmed"
+          )}
+          onClick={() => setSelected(2)}
+        />
+
         {/* <NavLink
           className={({ isActive }) =>
             clsx(
