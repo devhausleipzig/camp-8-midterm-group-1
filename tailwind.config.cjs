@@ -3,22 +3,26 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    fontFamily: {
+      DEFAULT: ["Inter"],
+    },
     colors: {
-        dark:'#1C1C27',
-        white:'#FFFFFF',
-        darkLight:'#363740',
-        yellow:'#FFB43A',
-        red:'#EF4444',
-        green:'#22C55E',
-        black:'#000000',
-        background:'#353333',
-
+      dark: {
+        DEFAULT: "#1C1C27",
+        light: "#363740",
+      },
+      white: {
+        DEFAULT: "#FFFFFF",
+        dimmed: "rgba(255, 255, 255, 0.4)",
+        "dimmed-heavy": "rgba(255, 255, 255, 0.2)",
+      },
+      yellow: "#FFB43A",
+      red: "#EF4444",
+      green: "#22C55E",
+      black:'#000000',
+      background:'#353333'
     },
-    extend: {
-      fontFamily:{
-        Inter:['Inter', "sans-serif"],
-      }
-    },
+    extend: {},
   },
   plugins: [require("@tailwindcss/line-clamp")],
 };
