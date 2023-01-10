@@ -18,5 +18,3 @@ export const parameters = {
     },
   },
 };
-withRouter;
-export const decorators = [withRouter];
