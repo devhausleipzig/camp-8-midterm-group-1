@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 import "./index.css";
-import { Home, Movies, Icon3, Icon4, Login } from "./routes";
+import { Home, Movies, Icon3, Icon4 } from "./routes";
 import { RootLayout } from "./layouts";
 
 const router = createBrowserRouter([
@@ -20,11 +20,6 @@ const router = createBrowserRouter([
       {
         path: "movies",
         element: <Movies />,
-      },
-
-      {
-        path: "login",
-        element: <Login />,
       },
 
       {
