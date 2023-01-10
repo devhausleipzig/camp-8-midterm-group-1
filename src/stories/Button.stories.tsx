@@ -8,6 +8,12 @@ type NewType = Meta<typeof Button>;
 export default {
   title: "Example/Button",
   component: Button,
+  argTypes: {
+    varient: {
+      options: ["Normal", "Active", "Disabled"],
+      control: { type: "radio" },
+    },
+  },
 };
 const Template: StoryFn<typeof Button> = (args) => <Button />;
 
