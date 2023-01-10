@@ -15,6 +15,6 @@ export default {
     },
   },
 };
-const Template: StoryFn<typeof Button> = (args) => <Button />;
+const Template: StoryFn<typeof Button> = (args) => <Button {...args} />;
 
 export const Basic = Template.bind({});
