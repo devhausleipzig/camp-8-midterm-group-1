@@ -8,10 +8,17 @@ type NewType = Meta<typeof CastCrew>;
 export default {
   title: "Example/CastCrew",
   component: CastCrew,
-  argTypes: {},
+  argTypes: {
+    input: {
+      options: ["Cast", "Crew"],
+      control: { type: "radio" },
+    },
+  },
 } as NewType;
 
-const Template: StoryFn<typeof CastCrew> = (args) => <CastCrew />;
+const Template: StoryFn<typeof CastCrew> = (args) => <CastCrew {...args} />;
 
 export const Horizontal = Template.bind({});
-Horizontal.args = {};
+Horizontal.args = {
+  input: "Cast",
+};
