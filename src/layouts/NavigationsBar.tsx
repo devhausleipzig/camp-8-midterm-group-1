@@ -21,11 +21,26 @@ export default function Navigationsbar() {
         />
         {/*className= {({ isActive}) => clsx("hover: text-white", isActive && "text-white w-16 h-16")} />  */}
         <FilmIcon
-          className=" text-white-dimmed w-16 h-16 mx-[2rem]"
+          className={clsx(
+            " w-16 h-16 mx-[2rem]",
+            selected == 1 ? "text-white" : "text-white-dimmed"
+          )}
           onClick={() => setSelected(1)}
         />
-        <UserIcon className=" text-white-dimmed w-16 h-16 mx-[2rem]" />
-        <Bars4Icon className=" text-white-dimmed w-16 h-16 mx-[2rem]" />
+        <UserIcon
+          className={clsx(
+            " w-16 h-16 mx-[2rem]",
+            selected == 2 ? "text-white" : "text-white-dimmed"
+          )}
+          onClick={() => setSelected(2)}
+        />
+        <Bars4Icon
+          className={clsx(
+            " w-16 h-16 mx-[2rem]",
+            selected == 3 ? "text-white" : "text-white-dimmed"
+          )}
+          onClick={() => setSelected(3)}
+        />
         {/* <NavLink
           className={({ isActive }) =>
             clsx(
