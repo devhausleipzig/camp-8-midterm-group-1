@@ -9,7 +9,7 @@ export default {
   title: "Example/Button",
   component: Button,
   argTypes: {
-    varient: {
+    type: {
       options: ["Normal", "Active", "Disabled"],
       control: { type: "radio" },
     },
