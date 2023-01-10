@@ -1,5 +1,3 @@
-import { useState } from "react";
-import React from "react";
 import { Outlet, NavLink } from "react-router-dom";
 import clsx from "clsx";
 
@@ -13,24 +11,29 @@ const routes = [
     path: "/movies",
   },
   {
+<<<<<<< HEAD
     name: "Login",
     path: "/Login",
   },
   {
     name: "Icon3",
     path: "/icon3",
+=======
+    name: "Bookmark",
+    path: "/bookmark",
+>>>>>>> main
   },
   {
-    name: "Icon4",
-    path: "/icon4",
+    name: "Account",
+    path: "/account",
   },
 ];
 
 export function RootLayout() {
   return (
     <div>
-      <footer className="bg-slate-600 flex justify-between p-3 text-white">
-        <span>Footer example</span>
+      {/* <footer className="bg-blue-900  flex justify-evenly p-3 text-white">
+      
         <nav className="flex gap-3">
           {routes.map((route) => (
             <NavLink
@@ -44,7 +47,7 @@ export function RootLayout() {
             </NavLink>
           ))}
         </nav>
-      </footer>
+      </footer> */}
       <Outlet />
     </div>
   );

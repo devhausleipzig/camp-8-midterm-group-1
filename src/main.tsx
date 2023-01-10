@@ -1,40 +1,79 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-
 import "./index.css";
-import { Home, Movies, Icon3, Icon4, Login } from "./routes";
-import { RootLayout } from "./layouts";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  Home,
+  Movies,
+  Bookmark,
+  Account,
+  MovDetail,
+  SelectDateTime,
+  SelectSeats,
+  Ticket,
+  CastCrew,
+  Login,
+  MoviesLoader,
+  Movie,
+  movieLoader,
+} from "./routes";
+import { RootLayout } from "./layouts/RootLayout";
+import { MovieDetailLayout } from "./layouts/MovieDetailLayout";
 
 const router = createBrowserRouter([
+  {
+    path: "login",
+    element: <Login />,
+  },
   {
     path: "/",
     element: <RootLayout />,
     children: [
       {
-        index: true,
         element: <Home />,
+        index: true,
       },
 
+      {
+        path: "bookmark",
+        element: <Bookmark />,
+      },
+      {
+        path: "account",
+        element: <Account />,
+      },
       {
         path: "movies",
         element: <Movies />,
+        loader: MoviesLoader,
       },
-
+    ],
+  },
+  {
+    path: "movie",
+    element: <MovieDetailLayout />,
+    children: [
       {
-        path: "login",
-        element: <Login />,
+        path: ":movieId",
+        element: <Movie />,
+        loader: movieLoader,
       },
-
       {
-        path: "icon3",
-        element: <Icon3 />,
+        path: ":movieId/castcrew",
+        element: <CastCrew />,
       },
-
       {
-        path: "icon4",
-        element: <Icon4 />,
+        path: ":movieId/selecttime",
+        element: <SelectDateTime />,
+      },
+      {
+        path: ":movieId/selectseats",
+        element: <SelectSeats />,
+      },
+      {
+        path: ":movieId/ticket",
+        element: <Ticket />,
       },
     ],
   },
