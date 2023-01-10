@@ -10,7 +10,10 @@ export default {
   argTypes: {},
 } as NewType;
 
-const Template: StoryFn<typeof Emogi> = (args) => <Emogi />;
+const Template: StoryFn<typeof Emogi> = (args) => <Emogi {...args} />;
 
 export const Generic = Template.bind({});
-Generic.args = {};
+
+Generic.args = {
+  emojiName: "Adventure",
+};

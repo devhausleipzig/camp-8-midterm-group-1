@@ -18,6 +18,7 @@ specifiers:
   axios: ^1.2.2
   clsx: ^1.2.1
   date-fns: ^2.29.3
+  emojis: ^1.0.10
   postcss: ^8.4.20
   prettier: ^2.8.1
   prop-types: ^15.8.1
@@ -39,6 +40,7 @@ dependencies:
   axios: 1.2.2
   clsx: 1.2.1
   date-fns: 2.29.3
+  emojis: 1.0.10
   react: 18.2.0
   react-barcode: 1.4.6_react@18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -4277,6 +4279,10 @@ packages:
   /emoji-regex/8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
     dev: true
+
+  /emojis/1.0.10:
+    resolution: {integrity: sha512-uAdZVlwPFYJg5z4rmIUPRQSbXm3pPN+OZ6m+hxFtxAOsxLYRI6/zAblaJyK/xmxRf//y0edUyeIh5Rq5XiLwWA==}
+    dev: false
 
   /encodeurl/1.0.2:
     resolution: {integrity: sha512-TPJXq8JqFaVYm2CWmPvnP2Iyo4ZSM7/QKcSmuMLDObfpH5fi7RUGmd/rTDf+rut/saiDiQEeVTNgAmJEdAOx0w==}
