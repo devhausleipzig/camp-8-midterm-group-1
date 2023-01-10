@@ -1,0 +1,14 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "Movie-1",
+      "content": "Description of the movie "
+    },
+    {
+      "id": 2,
+      "title": "Movie-2",
+      "content": "Description of the movie 2 "
+    }
+  ]
+}
