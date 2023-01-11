@@ -25,6 +25,7 @@ export function Images({ number }: Input) {
 
   const toMap = Print(Info);
 
+  let previousvalue = 0;
   return toMap.map((card, index) => {
     let [isShowing, setIsShowing] = useState(true);
     return (
@@ -35,15 +36,19 @@ export function Images({ number }: Input) {
             enter="transition transform translate-x duration-[1000ms]"
             enterFrom={clsx(
               "opacity-5 scale-50",
-              number < index ? "-translate-x-60" : "translate-x-60"
+              number >= previousvalue ? "translate-x-60" : "-translate-x-60"
             )}
-            enterTo=""
+            enterTo="opacity-100 scale-100 translate-x-0"
             leave="transition transform duration-[1000ms]"
             leaveFrom=""
             leaveTo={clsx(
               "opacity-5 scale-50",
-              number < index ? "translate-x-60" : "-translate-x-60"
+              number >= previousvalue ? "-translate-x-60" : "translate-x-60"
             )}
+            afterLeave={() => {
+              previousvalue = index;
+              console.log(previousvalue);
+            }}
           >
             <div className="grid grid-rows-2 grid-cols-2 gap-x-5 gap-y-5">
               {card.map((card) => {
