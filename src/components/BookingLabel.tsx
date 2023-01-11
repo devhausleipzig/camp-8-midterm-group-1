@@ -19,8 +19,8 @@ export function BookingLabel({ type, label }: Input) {
         className={clsx(
           "text-center text-primary rounded-sm w-20 h-7 ",
           type === "Selected" ? "bg-yellow text-dark-light" : "",
-          type === "Available" ? "bg-yellow bg-opacity-50 text-dark-light" : "",
-          type === "Taken" ? "bg-dark-light text-white" : ""
+          type === "Available" ? " text-white opacity-50" : "",
+          type === "Taken" ? "text-body text-dark-light opacity-50" : ""
         )}
       >
         {label}

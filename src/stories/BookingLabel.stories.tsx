@@ -22,5 +22,5 @@ const Template: StoryFn<typeof BookingLabel> = (args) => (
 export const Basic = Template.bind({});
 Basic.args = {
   type: "Selected",
-  label: "Jan 11",
+  label: "date / time",
 };
