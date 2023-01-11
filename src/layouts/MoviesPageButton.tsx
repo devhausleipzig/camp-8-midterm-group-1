@@ -5,7 +5,7 @@ export default function Moviespagebutton() {
   const [button, setButton] = useState<number>(0);
   function Movies(Number: number) {
     return (
-      <div className="w-[72px] h-[124px] flex flex-col items-center justify-center gap-[1.25rem] bg-dark">
+      <div className="w-[72px] h-[124px] flex items-center justify-center gap-[2.75rem] bg-dark">
         <button
           className={clsx(
             "w-[32px] h-[32px] rounded-sm text-dark",
@@ -14,7 +14,6 @@ export default function Moviespagebutton() {
           )}
           onClick={() => {
             setButton(Number);
-            console.log("clicked", Number, button);
           }}
         >
           {String(Number + 1)}
@@ -24,7 +23,7 @@ export default function Moviespagebutton() {
   }
   return (
     <>
-      <div className="flex gap-4">
+      <div className="flex flex-row">
         {Movies(0)}
         {Movies(1)}
         {Movies(2)}
