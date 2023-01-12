@@ -1,22 +1,18 @@
 import axios from "axios";
-
-export type DataResponce = {
-  id: number;
-  poster_path: string;
-};
+import { Movie } from "../types/api";
 
 export class API {
   constructor() {}
 
-  async BuildArray(
-    setArray: React.Dispatch<React.SetStateAction<DataResponce[]>>
-  ) {
+  async buildArray() {
+    let returnArray: Movie[] = [];
     await axios
       .get(
         "https://api.themoviedb.org/3/movie/now_playing?api_key=5de0d3a9c085fde70b8c91f6f6a927f3"
       )
       .then((res) => {
-        setArray(res.data.results);
+        returnArray = res.data.results;
       });
+    return returnArray;
   }
 }
