@@ -1,8 +1,12 @@
 import clsx from "clsx";
 import { useState } from "react";
 
-export default function Moviespagebutton() {
-  const [button, setButton] = useState<number>(0);
+type Input = {
+  number: number;
+  setNumber: React.Dispatch<React.SetStateAction<number>>;
+};
+
+export default function Moviespagebutton({ number, setNumber }: Input) {
   function Movies(Number: number) {
     return (
       <div className="w-[72px] h-[124px] flex items-center justify-center gap-[2.75rem] bg-dark">
@@ -10,10 +14,10 @@ export default function Moviespagebutton() {
           className={clsx(
             "w-[32px] h-[32px] rounded-sm text-dark",
 
-            button == Number ? " bg-yellow" : " bg-white-dimmed"
+            number == Number ? " bg-yellow" : " bg-white-dimmed"
           )}
           onClick={() => {
-            setButton(Number);
+            setNumber(Number);
           }}
         >
           {String(Number + 1)}
@@ -23,7 +27,7 @@ export default function Moviespagebutton() {
   }
   return (
     <>
-      <div className="flex flex-row">
+      <div className="flex flex-row justify-center">
         {Movies(0)}
         {Movies(1)}
         {Movies(2)}
