@@ -1,12 +1,6 @@
 import { redirect, useNavigate } from "react-router-dom";
 
 export function SearchBar() {
-  // const navigate = useNavigate();
-  // const submitfunction = async (event: { preventDefault: () => void }) => {
-  //   event.preventDefault();
-  //   navigate("/");
-  // };
-
   return (
     <div className="">
       <form method="GET">
