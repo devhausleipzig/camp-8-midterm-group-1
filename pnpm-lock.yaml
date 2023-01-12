@@ -7,7 +7,7 @@ specifiers:
   '@storybook/addon-interactions': ^7.0.0-beta.19
   '@storybook/addon-links': ^7.0.0-beta.19
   '@storybook/blocks': ^7.0.0-beta.19
-  '@storybook/react': 7.0.0-beta.19
+  '@storybook/react': ^7.0.0-beta.19
   '@storybook/react-vite': ^7.0.0-beta.19
   '@storybook/testing-library': ^0.0.13
   '@tailwindcss/line-clamp': ^0.4.2
@@ -63,7 +63,7 @@ devDependencies:
   prettier: 2.8.1
   prop-types: 15.8.1
   storybook: 7.0.0-beta.19_biqbaboplfbrettd7655fr4n2y
-  storybook-addon-react-router-v6: 0.2.1_le7sxnhap2vngxfiewfijmlliy
+  storybook-addon-react-router-v6: 0.2.1_xk66qoqfmo7xqmofjkadl2v4uq
   tailwindcss: 3.2.4_postcss@8.4.20
   typescript: 4.9.4
   vite: 4.0.4
@@ -2372,6 +2372,24 @@ packages:
       util: 0.12.5
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@storybook/components/6.5.15_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-bHTT0Oa3s4g+MBMaLBbX9ofMtb1AW59AzIUNGrfqW1XqJMGuUHMiJ7TSo+i5dRSFpbFygnwMEG9LfHxpR2Z0Dw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@storybook/client-logger': 6.5.15
+      '@storybook/csf': 0.0.2--canary.4566f4d.1
+      '@storybook/theming': 6.5.15_biqbaboplfbrettd7655fr4n2y
+      core-js: 3.27.1
+      memoizerific: 1.11.3
+      qs: 6.11.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      regenerator-runtime: 0.13.11
+      util-deprecate: 1.0.2
     dev: true
 
   /@storybook/components/7.0.0-beta.19_biqbaboplfbrettd7655fr4n2y:
@@ -7280,7 +7298,7 @@ packages:
     resolution: {integrity: sha512-siT1RiqlfQnGqgT/YzXVUNsom9S0H1OX+dpdGN1xkyYATo4I6sep5NmsRD/40s3IIOvlCq6akxkqG82urIZW1w==}
     dev: true
 
-  /storybook-addon-react-router-v6/0.2.1_le7sxnhap2vngxfiewfijmlliy:
+  /storybook-addon-react-router-v6/0.2.1_xk66qoqfmo7xqmofjkadl2v4uq:
     resolution: {integrity: sha512-dwYLaE6/bsGnkTn1l5rb5SYIhv2xwwSeRkhWX86bihDWJjz/+NlWSN+r4Kp2WNMVN9vEhMleunXPiGJiFUn7Hg==}
     peerDependencies:
       '@storybook/addons': ^6.4.0
@@ -7298,9 +7316,15 @@ packages:
       react-dom:
         optional: true
     dependencies:
+      '@storybook/addons': 6.5.15_biqbaboplfbrettd7655fr4n2y
+      '@storybook/api': 6.5.15_biqbaboplfbrettd7655fr4n2y
+      '@storybook/components': 6.5.15_biqbaboplfbrettd7655fr4n2y
+      '@storybook/core-events': 6.5.15
+      '@storybook/theming': 6.5.15_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-inspector: 5.1.1_react@18.2.0
+      react-router: 6.6.1_react@18.2.0
       react-router-dom: 6.6.1_biqbaboplfbrettd7655fr4n2y
     dev: true
 
