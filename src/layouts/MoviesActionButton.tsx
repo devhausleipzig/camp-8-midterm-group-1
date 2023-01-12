@@ -4,7 +4,7 @@ export default function MoviesActionButton() {
       <div className="w-[64px] h-[64px] bg-white"></div>
       <div className="flex flex-col">
         <p className=" text-white">Actor Name</p>
-        <p className=" text-white-dimmed">Character</p>
+        <p className=" text-white-dimmed text-description">Character</p>
       </div>
     </div>
   );
