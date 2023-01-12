@@ -21,6 +21,7 @@ import {
 } from "./routes";
 import { RootLayout } from "./layouts/RootLayout";
 import { MovieDetailLayout } from "./layouts/MovieDetailLayout";
+import { getData, Images } from "./components/2by2Images";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,8 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       {
-        element: <Home />,
+        element: <Images />,
+        loader: getData,
         index: true,
       },
 

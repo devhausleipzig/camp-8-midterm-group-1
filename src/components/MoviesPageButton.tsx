@@ -9,25 +9,23 @@ type Input = {
 export default function Moviespagebutton({ number, setNumber }: Input) {
   function Movies(Number: number) {
     return (
-      <div className="w-[72px] h-[124px] flex items-center justify-center gap-[2.75rem] bg-dark">
-        <button
-          className={clsx(
-            "w-[32px] h-[32px] rounded-sm text-dark",
+      <button
+        className={clsx(
+          "w-8 h-8 rounded-sm text-dark",
 
-            number == Number ? " bg-yellow" : " bg-white-dimmed"
-          )}
-          onClick={() => {
-            setNumber(Number);
-          }}
-        >
-          {String(Number + 1)}
-        </button>
-      </div>
+          number == Number ? " bg-yellow" : " bg-white-dimmed"
+        )}
+        onClick={() => {
+          setNumber(Number);
+        }}
+      >
+        {String(Number + 1)}
+      </button>
     );
   }
   return (
     <>
-      <div className="flex flex-row justify-center">
+      <div className="flex w-screen justify-around">
         {Movies(0)}
         {Movies(1)}
         {Movies(2)}
