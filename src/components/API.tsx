@@ -1,10 +1,8 @@
 import axios from "axios";
 import { Movie } from "../types/api";
 
-export class API {
-  constructor() {}
-
-  async buildArray() {
+export const API = {
+  buildArray: async () => {
     let returnArray: Movie[] = [];
     await axios
       .get(
@@ -14,5 +12,5 @@ export class API {
         returnArray = res.data.results;
       });
     return returnArray;
-  }
-}
+  },
+};
