@@ -1,6 +1,5 @@
 import { Emogi } from "../components/Emogi";
 import { Meta, StoryFn } from "@storybook/react";
-import "../index.css";
 
 type NewType = Meta<typeof Emogi>;
 
