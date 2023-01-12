@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { API, DataResponce } from "./API";
 import { Transition } from "@headlessui/react";
 import clsx from "clsx";
+import Moviespagebutton from "./MoviesPageButton";
 
 type Input = {
   number: number;
@@ -58,6 +59,7 @@ export function Images({ number }: Input) {
               })}
             </div>
           </Transition>
+          <Moviespagebutton />
         </div>
       </div>
     );
