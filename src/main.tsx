@@ -21,6 +21,7 @@ import {
 } from "./routes";
 import { RootLayout } from "./layouts/RootLayout";
 import { MovieDetailLayout } from "./layouts/MovieDetailLayout";
+import { CastAndCrew, castLoader } from "./components/CastAndCrew";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,8 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       {
-        element: <Home />,
+        element: <CastAndCrew />,
+        loader: castLoader,
         index: true,
       },
 

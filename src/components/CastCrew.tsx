@@ -13,16 +13,18 @@ export function CastCrew({ input, setInput }: input) {
       <p
         className={clsx(
           "w-40 h-6 text-body border-2 rounded-md flex justify-center items-center",
-          input == "Cast" ? active : inactive
+          input == "cast" ? active : inactive
         )}
+        onClick={() => setInput("cast")}
       >
         Cast
       </p>
       <p
         className={clsx(
           "w-40 h-6 text-body border-2 rounded-md flex justify-center items-center",
-          input == "Crew" ? active : inactive
+          input == "crew" ? active : inactive
         )}
+        onClick={() => setInput("crew")}
       >
         Crew
       </p>
