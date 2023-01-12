@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
   Home,
   Movies,
