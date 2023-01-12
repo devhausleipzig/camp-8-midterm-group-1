@@ -11,17 +11,8 @@ const routes = [
     path: "/movies",
   },
   {
-<<<<<<< HEAD
-    name: "Login",
-    path: "/Login",
-  },
-  {
-    name: "Icon3",
-    path: "/icon3",
-=======
     name: "Bookmark",
     path: "/bookmark",
->>>>>>> main
   },
   {
     name: "Account",
