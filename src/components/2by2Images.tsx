@@ -12,8 +12,7 @@ export async function getData() {
 export function Images() {
   const API = useLoaderData() as Movie[][];
   const [number, setNumber] = useState(0);
-
-  let previousvalue = 0;
+  const [previousvalue, setpreviousvalue] = useState(0);
   return (
     <div className="relative bg-dark">
       {API.map((card, index) => {
@@ -24,25 +23,31 @@ export function Images() {
               <div className="absolute top-4">
                 <Transition
                   show={number == index}
-                  enter="transition transform translate-x duration-[1000ms]"
+                  enter="transition transform translate-x duration-[750ms]"
                   enterFrom={clsx(
                     "opacity-5 scale-50",
-                    number >= previousvalue
-                      ? "translate-x-60"
-                      : "-translate-x-60"
+                    index < previousvalue ? "-translate-x-60" : "translate-x-60"
                   )}
                   enterTo="opacity-100 scale-100 translate-x-0"
-                  leave="transition transform duration-[1000ms]"
+                  leave="transition transform duration-[750ms]"
                   leaveFrom=""
                   leaveTo={clsx(
                     "opacity-5 scale-50",
-                    number >= previousvalue
-                      ? "-translate-x-60"
-                      : "translate-x-60"
+                    number < previousvalue
+                      ? "translate-x-60"
+                      : "-translate-x-60"
                   )}
+                  beforeEnter={() => {
+                    console.log(
+                      "Enter",
+                      index < previousvalue ? "Decreasing" : "Increasing"
+                    );
+                  }}
+                  afterEnter={() => {
+                    setpreviousvalue(index);
+                  }}
                   afterLeave={() => {
-                    previousvalue = index;
-                    console.log(previousvalue);
+                    setpreviousvalue(index);
                   }}
                 >
                   <div className="grid grid-rows-2 grid-cols-2 gap-x-5 gap-y-5">
