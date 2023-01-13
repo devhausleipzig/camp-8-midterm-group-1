@@ -21,7 +21,6 @@ export const API = {
       )
       .then((res) => {
         returnArray = res.data.results;
-        console.log("Hello");
       });
     const ReturnArray1: Movie[][] = [[]];
     for (let index = 0; index < 5; index++) {
