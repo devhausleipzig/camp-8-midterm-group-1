@@ -11,7 +11,6 @@ import {
   Account,
   MovDetail,
   SelectDateTime,
-  SelectSeats,
   Ticket,
   CastCrew,
   Login,
@@ -21,6 +20,7 @@ import {
 } from "./routes";
 import { NavigationLayout } from "./layouts/NavigationLayout";
 import { MovieDetailLayout } from "./layouts/MovieDetailLayout";
+import { SelectSeats } from "./routes/SelectSeats";
 
 const router = createBrowserRouter([
   {
