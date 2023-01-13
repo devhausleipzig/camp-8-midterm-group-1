@@ -15,9 +15,7 @@ export default {
     },
   },
 };
-const Template: StoryFn<typeof selectionPage> = (args) => (
-  <selectionPage {...args} />
-);
+const Template: StoryFn<typeof selectionPage> = (args) => <selectionPage />;
 
 export const Selection = Template.bind({});
 Selection.args = {

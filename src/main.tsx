@@ -20,6 +20,7 @@ import {
 } from "./routes";
 import { NavigationLayout } from "./layouts/NavigationLayout";
 import { MovieDetailLayout } from "./layouts/MovieDetailLayout";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
