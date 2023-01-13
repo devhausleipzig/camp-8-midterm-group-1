@@ -33,7 +33,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       {
-        element: <CastAndCrew />,
+        element: <CastAndCrew id={500} />,
         loader: castLoader,
         index: true,
       },
