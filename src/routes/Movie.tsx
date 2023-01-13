@@ -1,20 +1,27 @@
-import { MoviesType } from "./Movies";
-import axios from "axios";
 import { LoaderFunctionArgs, useLoaderData } from "react-router-dom";
+import { MovieDetail } from "../types/api";
+import { API } from "../components/API";
 
 export async function movieLoader({ params }: LoaderFunctionArgs) {
-  const result = await axios.get<MoviesType>(
-    `http://localhost:3000/movies/${params.movieId}`
-  );
-  return result.data;
+  const result = API.movieDetail(Number(params.movieId));
+  return result;
 }
 
-export function Movie() {
-  const movie = useLoaderData() as MoviesType;
+export function MovieDetail() {
+  const mov = useLoaderData() as MovieDetail;
+
   return (
-    <div>
-      <h2>{movie.title}</h2>
-      <p>{movie.content}</p>
-    </div>
+    <>
+      <div>
+        <img src={"https://image.tmdb.org/t/p/w500" + mov.poster_path} alt="" />
+        <p>{mov.title}</p>
+        <div>{mov.release_date}</div>
+        <div>{mov.genres.map((x) => x.name)}</div>
+        <div>{mov.runtime}</div>
+        <div>{mov.vote_average}</div>
+        <div>{mov.overview}</div>
+        <div>{mov.backdrop_path}</div>
+      </div>
+    </>
   );
 }

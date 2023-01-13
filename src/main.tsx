@@ -19,7 +19,7 @@ import {
   Movie,
   movieLoader,
 } from "./routes";
-import { RootLayout } from "./layouts/RootLayout";
+import { NavigationLayout } from "./layouts/NavigationLayout";
 import { MovieDetailLayout } from "./layouts/MovieDetailLayout";
 
 const router = createBrowserRouter([
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <RootLayout />,
+    element: <NavigationLayout />,
     children: [
       {
         element: <Home />,
@@ -82,6 +82,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />{" "}
+    <div className=" bg-dark">
+      <RouterProvider router={router} />
+    </div>
   </React.StrictMode>
 );

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Movie } from "../types/api";
+import { Movie, MovieDetail } from "../types/api";
 
 export const API = {
   buildArray: async () => {
@@ -12,5 +12,13 @@ export const API = {
         returnArray = res.data.results;
       });
     return returnArray;
+  },
+
+  movieDetail: async (id: number) => {
+    return await axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${id}?api_key=5de0d3a9c085fde70b8c91f6f6a927f3`
+      )
+      .then((res) => res.data);
   },
 };
