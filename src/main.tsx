@@ -1,7 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Button } from "./components/Button";
-
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {

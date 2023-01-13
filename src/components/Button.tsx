@@ -10,11 +10,13 @@ type ButtonProps = {
 type Input = {
   type: string;
   label: string;
+  setFunction: React.Dispatch<React.SetStateAction<string>>;
 };
-export function Button({ type, label }: Input) {
+export function Button({ type, label, setFunction }: Input) {
   return (
     <div className="flex justify-center items-center">
       <button
+        onClick={() => setFunction("clicked")}
         type="button"
         className={clsx(
           "text-center text-primary rounded-lg w-80 h-10 ",
