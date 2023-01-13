@@ -8,16 +8,11 @@ type NewType = Meta<typeof selectionPage>;
 export default {
   title: "Example/selectionPage",
   component: selectionPage,
-  argTypes: {
-    type: {
-      options: ["Selected", "Available", "Taken"],
-      control: { type: "radio" },
-    },
-  },
-};
+  argTypes: {},
+} as NewType;
 const Template: StoryFn<typeof selectionPage> = (args) => <selectionPage />;
 
-export const Selection = Template.bind({});
-Selection.args = {
+export const Basic = Template.bind({});
+Basic.args = {
   type: "Normal",
 };

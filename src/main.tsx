@@ -21,6 +21,7 @@ import {
 import { NavigationLayout } from "./layouts/NavigationLayout";
 import { MovieDetailLayout } from "./layouts/MovieDetailLayout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { selectionPage } from "./components/selectionPage";
 
 const router = createBrowserRouter([
   {
