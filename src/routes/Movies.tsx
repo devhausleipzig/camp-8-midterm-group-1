@@ -4,7 +4,7 @@ import { Transition } from "@headlessui/react";
 import clsx from "clsx";
 import Moviespagebutton from "../components/MoviesPageButton";
 import { Movie } from "../types/api";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 export async function MoviesLoader() {
   return API.fourByFour();
@@ -47,12 +47,14 @@ export function Movies() {
                   <div className="grid grid-rows-2 grid-cols-2 gap-x-5 gap-y-5">
                     {card.map((card) => {
                       return (
-                        <img
-                          src={`https://image.tmdb.org/t/p/w500${card?.poster_path}`}
-                          alt=""
-                          className="w-40 h-60 rounded-lg flex-grow-0"
-                          key={card?.id}
-                        />
+                        <Link to={`movie/${String(card.id)}`}>
+                          <img
+                            src={`https://image.tmdb.org/t/p/w500${card?.poster_path}`}
+                            alt=""
+                            className="w-40 h-60 rounded-lg flex-grow-0"
+                            key={card?.id}
+                          />
+                        </Link>
                       );
                     })}
                   </div>
