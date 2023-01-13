@@ -14,13 +14,13 @@ export function Movies() {
   const [number, setNumber] = useState(0);
   const [previousvalue, setpreviousvalue] = useState(0);
   return (
-    <div className="relative bg-dark">
+    <div className="relative bg-dark overflow-hidden">
       {API.map((card, index) => {
         return (
-          <div className="flex flex-col">
+          <div className="flex flex-col ">
             <div className=" flex flex-col items-center">
-              <div className="h-28"></div>
-              <div className="absolute top-4">
+              <div className="h-28 "></div>
+              <div className="absolute top-4 ">
                 <Transition
                   show={number == index}
                   enter="transition transform translate-x duration-[750ms]"
@@ -37,12 +37,6 @@ export function Movies() {
                       ? "translate-x-60"
                       : "-translate-x-60"
                   )}
-                  beforeEnter={() => {
-                    console.log(
-                      "Enter",
-                      index < previousvalue ? "Decreasing" : "Increasing"
-                    );
-                  }}
                   afterEnter={() => {
                     setpreviousvalue(index);
                   }}
