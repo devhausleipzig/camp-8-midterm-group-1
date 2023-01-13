@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 
 import { useNavigate } from "react-router-dom";
@@ -10,15 +10,18 @@ export function MovieDetailLayout() {
   };
 
   return (
-    <div>
-      <nav className="w-[375px] h-[667px] bg-dark rounded-[1.5rem] flex">
-        <ChevronLeftIcon className="w-6 h-6" onClick={handleClick} />
-        <h3 className=" text-title text-white items-center justify-center pt-[2rem] px-[8.6rem]">
-          Movie Detail
-        </h3>
-      </nav>
-      <h1>Movies</h1>
+    <>
+      <div className="w-screen h-20 flex items-center justify-between px-6  bg-dark">
+        <ChevronLeftIcon
+          className="w-3 h-3  text-white"
+          onClick={handleClick}
+        />
+
+        <h2 className=" text-title text-white ">Movie Detail</h2>
+
+        <div className="w-3"></div>
+      </div>
       <Outlet />
-    </div>
+    </>
   );
 }
