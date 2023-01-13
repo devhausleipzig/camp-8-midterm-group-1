@@ -5,7 +5,7 @@ type input = {
   input: string;
   setInput: React.Dispatch<React.SetStateAction<string>>;
 };
-export function CastCrew({ input, setInput }: input) {
+export function CastCrewButtons({ input, setInput }: input) {
   const active = "text-white border-white bg-white-dimmed";
   const inactive = "text-white-dimmed bg-dark-light border-dark-light";
   return (

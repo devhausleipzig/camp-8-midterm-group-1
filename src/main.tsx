@@ -21,7 +21,7 @@ import {
 } from "./routes";
 import { NavigationLayout } from "./layouts/NavigationLayout";
 import { MovieDetailLayout } from "./layouts/MovieDetailLayout";
-import { CastAndCrew, castLoader } from "./components/CastAndCrew";
+import { castLoader } from "./routes/Cast";
 
 const router = createBrowserRouter([
   {
@@ -33,8 +33,7 @@ const router = createBrowserRouter([
     element: <NavigationLayout />,
     children: [
       {
-        element: <CastAndCrew id={500} />,
-        loader: castLoader,
+        element: <Home />,
         index: true,
       },
 
@@ -65,6 +64,7 @@ const router = createBrowserRouter([
       {
         path: ":movieId/castcrew",
         element: <CastCrew />,
+        loader: castLoader,
       },
       {
         path: ":movieId/selecttime",
