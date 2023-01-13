@@ -10,7 +10,7 @@ export default {
   component: BookingLabel,
   argTypes: {
     type: {
-      options: ["Selected", "Available", "Taken"],
+      options: ["Selected", "Unselected", "Disabled"],
       control: { type: "radio" },
     },
   },
@@ -21,6 +21,6 @@ const Template: StoryFn<typeof BookingLabel> = (args) => (
 
 export const Basic = Template.bind({});
 Basic.args = {
-  type: "Selected",
+  type: "",
   label: "date / time",
 };
