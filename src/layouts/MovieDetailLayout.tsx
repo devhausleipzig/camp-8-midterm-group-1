@@ -8,8 +8,19 @@ export function MovieDetailLayout() {
   const handleClick = () => {
     navigate(-1);
   };
-
-  console.log(useLocation().pathname.split("/"));
+  let where: string = "";
+  const path = useLocation().pathname.split("/");
+  if (path[path.length - 1] == "castcrew") {
+    where = "Cast & Crew";
+  } else if (path[path.length - 1] == "selecttime") {
+    where = "Select Time & Place";
+  } else if (path[path.length - 1] == "selectseats") {
+    where = "Select Seats";
+  } else if (path[path.length - 1] == "ticket") {
+    where = "Ticket";
+  } else {
+    where = "Movie Details";
+  }
 
   return (
     <>
@@ -19,7 +30,7 @@ export function MovieDetailLayout() {
           onClick={handleClick}
         />
 
-        <h2 className=" text-title text-white ">Movie Detail</h2>
+        <h2 className=" text-title text-white ">{where}</h2>
 
         <div className="w-3"></div>
       </div>
