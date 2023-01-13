@@ -1,11 +1,11 @@
 import clsx from "clsx";
 import { PropsWithChildren, useState } from "react";
 
-type Input = {
+type InputProps = {
   input: string;
   setInput: React.Dispatch<React.SetStateAction<string>>;
 } & PropsWithChildren;
-export function CastCrewButtons({ input, setInput }: Input) {
+export function CastCrewButtons({ input, setInput }: InputProps) {
   const active = "text-white border-white bg-white-dimmed";
   const inactive = "text-white-dimmed bg-dark-light border-dark-light";
   return (
