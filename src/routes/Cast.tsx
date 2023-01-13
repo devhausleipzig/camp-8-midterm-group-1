@@ -4,7 +4,7 @@ import { Transition } from "@headlessui/react";
 import { useState } from "react";
 import { Credits } from "../types/api";
 import { CastCrewButtons } from "../components/CastCrew";
-import MoviesActionButton from "../components/MoviesActionButton";
+import MoviesActionButton from "../components/CreditsProfile";
 
 export async function castLoader({ params }: LoaderFunctionArgs) {
   const result = API.castAndCrew(Number(params.movieId));
