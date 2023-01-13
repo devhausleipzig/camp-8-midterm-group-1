@@ -39,7 +39,7 @@ export function Emogi({ emojiName }: { emojiName: EmojiLib }) {
   const emoji = Emojis[emojiName];
   return (
     <div className="gap-2 flex flex-col justify-center w-14">
-      <p className="text-3xl flex justify-center items-center w-14 h-14 bg-dark-light rounded-xl">
+      <p className="text-secondary flex justify-center items-center w-14 h-14 bg-dark-light rounded-xl">
         {emoji}
       </p>
       <p className="text-white-dimmed text-secondary flex justify-center">
