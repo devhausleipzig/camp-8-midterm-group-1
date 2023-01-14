@@ -23,6 +23,8 @@ export type MovieDetail = {
     name: string;
   }[];
   runtime: number | null;
+  writer: string;
+  director: string;
 } & Omit<Movie, "genre_ids">;
 
 export type Person = {

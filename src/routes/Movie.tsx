@@ -1,20 +1,19 @@
-import { LoaderFunctionArgs, useLoaderData } from "react-router-dom";
-import { MovieDetail } from "../types/api";
+import { Link, LoaderFunctionArgs, useLoaderData } from "react-router-dom";
+import { Credits, MovieDetail } from "../types/api";
 import { API } from "../components/API";
 import clsx from "clsx";
 
 export async function movieLoader({ params }: LoaderFunctionArgs) {
-  const result = API.movieDetail(Number(params.movieId));
-  return result;
+  return API.movieDetail(Number(params.movieId));
 }
 
 export function Movie() {
   function minutesToHours(minutes: number) {
     const hours = Math.floor(minutes / 60);
     const Minutes = minutes % 60;
-
     return `${hours}h ${Minutes}m`;
   }
+
   const mov = useLoaderData() as MovieDetail;
   const score = Math.floor(mov.vote_average * 10);
 
@@ -23,7 +22,7 @@ export function Movie() {
       <div className="flex flex-col h-screen pl-5 pr-5 ">
         <div className="flex flex-col gap-y-6">
           <img
-            className="w-80 h-52 border rounded-lg object-cover"
+            className="w-full h-52 border rounded-lg object-cover"
             src={"https://image.tmdb.org/t/p/w500" + mov.poster_path}
           />
           <p className="text-supertitle text-white pb-3">{mov.title}</p>
@@ -47,12 +46,30 @@ export function Movie() {
           <p
             className={clsx(
               "text-description",
-              score > 50 ? "text-green" : "text-red"
+              score > 70 ? "text-green" : "text-red"
             )}
           >
             {String(score) + "%"}{" "}
             <span className="text-white-dimmed">Score</span>
           </p>
+        </div>
+        <div className="grid grid-cols-2 pb-4">
+          <div className="flex gap-3 text-secondary">
+            <div className="flex flex-col gap-2 text-white-dimmed-heavy">
+              <p>Director:</p>
+              <p>Writer:</p>
+            </div>
+            <div className="flex flex-col gap-3 text-white">
+              <p>{mov.director}</p>
+              <p className="text-description text-white">{mov.writer}</p>
+            </div>
+          </div>
+          <Link
+            to="castcrew"
+            className="w-full flex justify-center bg-dark-light text-white text-secondary rounded-lg py-3"
+          >
+            Cast and Crew
+          </Link>
         </div>
 
         <div className=" border border-1 border-white-dimmed"> </div>
