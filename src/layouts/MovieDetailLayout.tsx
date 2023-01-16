@@ -16,8 +16,6 @@ export function MovieDetailLayout() {
     where = "Select Time & Place";
   } else if (path[path.length - 1] == "selectseats") {
     where = "Select Seats";
-  } else if (path[path.length - 1] == "ticket") {
-    where = "Ticket";
   } else {
     where = "Movie Details";
   }
