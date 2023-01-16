@@ -40,4 +40,11 @@
     font-weight: 700;
     line-height: 24px;
   }
+
+  .image-center{
+    object-fit: cover;
+    object-position: 25% 25%;
+
+    
+  }
 }
