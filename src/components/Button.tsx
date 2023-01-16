@@ -20,11 +20,15 @@ interface ButtonProps
   type?: "submit" | "button";
 }
 
-export function Button({ type, label, variant }: ButtonProps) {
+export function Button({
+  type = "button",
+  label,
+  variant,
+  ...props
+}: ButtonProps) {
   return (
     <div className="flex justify-center items-center">
       <button
-        type="button"
         className={clsx(
           "text-center text-primary rounded-lg w-80 h-10 disabled:opacity-50 disabled:cursor-not-allowed",
           variant == ButtonVariant.primary
@@ -33,6 +37,7 @@ export function Button({ type, label, variant }: ButtonProps) {
             ? "bg-dark-light bg-opacity-50 text-white"
             : ""
         )}
+        {...props}
       >
         {label}
       </button>
