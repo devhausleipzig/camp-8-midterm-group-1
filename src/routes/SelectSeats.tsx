@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { SeatSquares } from "../components/SeatSquares";
 
 export function SelectSeats() {
   useEffect(() => {
@@ -44,7 +45,7 @@ export function SelectSeats() {
           ></div>
         </div>
       </div>
-
+      <SeatSquares square="Available" />
       <Outlet />
     </>
   );
