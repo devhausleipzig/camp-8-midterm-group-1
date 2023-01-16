@@ -25,6 +25,7 @@ export type MovieDetail = {
   runtime: number | null;
   writer: string;
   director: string;
+  imdb_id: string;
 } & Omit<Movie, "genre_ids">;
 
 export type Person = {

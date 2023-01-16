@@ -15,6 +15,7 @@ export function Movie() {
   }
 
   const mov = useLoaderData() as MovieDetail;
+
   const score = Math.floor(mov.vote_average * 10);
 
   return (
@@ -76,7 +77,10 @@ export function Movie() {
         <div className="flex flex-col pt-4 ">
           <p className="text-white text-primary">Synopsis</p>
           <p className=" text-body text-white-dimmed pt-3">{mov.overview}</p>
-          <a className="text-yellow text-body underline pt-1" href="">
+          <a
+            className="text-yellow text-body underline pt-1"
+            href={`https://www.imdb.com/title/${mov.imdb_id}/`}
+          >
             Read more
           </a>
         </div>
