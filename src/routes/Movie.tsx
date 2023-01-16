@@ -23,7 +23,7 @@ export function Movie() {
       <div className="flex flex-col h-screen pl-5 pr-5 ">
         <div className="flex flex-col gap-y-6">
           <img
-            className="w-full h-52 border rounded-lg object-cover"
+            className="w-full h-52 border rounded-lg image-center"
             src={"https://image.tmdb.org/t/p/w500" + mov.poster_path}
           />
           <p className="text-supertitle text-white pb-3">{mov.title}</p>
@@ -56,7 +56,7 @@ export function Movie() {
         </div>
         <div className="grid grid-cols-2 pb-4">
           <div className="flex gap-3 text-secondary">
-            <div className="flex flex-col gap-2 text-white-dimmed-heavy">
+            <div className="flex flex-col gap-3 text-white-dimmed-heavy">
               <p>Director:</p>
               <p>Writer:</p>
             </div>
@@ -67,7 +67,7 @@ export function Movie() {
           </div>
           <Link
             to="castcrew"
-            className="w-full flex justify-center bg-dark-light text-white text-secondary rounded-lg py-3"
+            className="w-full flex justify-center h-9 bg-dark-light text-white text-secondary rounded-lg py-3"
           >
             Cast and Crew
           </Link>
