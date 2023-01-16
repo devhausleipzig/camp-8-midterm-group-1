@@ -20,7 +20,7 @@ import {
 } from "./routes";
 import { NavigationLayout } from "./layouts/NavigationLayout";
 import { MovieDetailLayout } from "./layouts/MovieDetailLayout";
-import { populateSeats, SelectSeats } from "./routes/SelectSeats";
+import { SelectSeats } from "./routes/SelectSeats";
 
 const router = createBrowserRouter([
   {
@@ -71,7 +71,6 @@ const router = createBrowserRouter([
       {
         path: ":movieId/selectseats",
         element: <SelectSeats />,
-        loader: populateSeats,
       },
       {
         path: ":movieId/ticket",
