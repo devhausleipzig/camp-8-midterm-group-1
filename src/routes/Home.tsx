@@ -1,4 +1,3 @@
-import { NavigationBar } from "../components/NavigationBar";
 export function Home() {
   return (
     <div className="bg-slate-800 w-[335px] h-screen grid grid-rows-6">
@@ -15,7 +14,7 @@ export function Home() {
         UpComing movies
       </div>
       <div className="grid row-start-6 content-center">
-        <NavigationBar />
+        {/* <NavigationBar /> */}
       </div>
     </div>
   );
