@@ -2,7 +2,7 @@ import { useState } from "react";
 import { API } from "../components/API";
 import { Transition } from "@headlessui/react";
 import clsx from "clsx";
-import Moviespagebutton from "../components/MoviesPageButton";
+import MoviesPageButton from "../components/MoviesPageButton";
 import { Movie } from "../types/api";
 import { Link, useLoaderData } from "react-router-dom";
 
@@ -64,7 +64,7 @@ export function Movies() {
           </div>
         );
       })}
-      <Moviespagebutton number={number} setNumber={setNumber} />
+      <MoviesPageButton number={number} setNumber={setNumber} />
     </div>
   );
 }

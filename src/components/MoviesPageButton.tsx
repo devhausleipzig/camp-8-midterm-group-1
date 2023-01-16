@@ -5,7 +5,7 @@ type InputProps = {
   setNumber: React.Dispatch<React.SetStateAction<number>>;
 };
 
-export default function moviesPageButton({ number, setNumber }: InputProps) {
+export default function MoviesPageButton({ number, setNumber }: InputProps) {
   function Movies(Number: number) {
     return (
       <button
