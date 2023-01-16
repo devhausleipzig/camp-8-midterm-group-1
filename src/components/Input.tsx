@@ -15,7 +15,6 @@ export function Input() {
             You need to log in to be able to make revervations and add movies to
             your watchlist
           </div>
-          {/* put here the button/login components created by Regina */}
           <div className="relative">
             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
               <button
@@ -75,7 +74,6 @@ export function Input() {
             />
           </div>
         </div>
-        <Button />
       </div>
     </form>
   );
