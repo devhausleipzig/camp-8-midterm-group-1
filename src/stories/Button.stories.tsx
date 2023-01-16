@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../index.css";
 import { Meta, StoryFn } from "@storybook/react";
-import { Button } from "../components/Button";
+import { Button, ButtonVariant } from "../components/Button";
 
 type NewType = Meta<typeof Button>;
 
@@ -9,8 +9,8 @@ export default {
   title: "Example/Button",
   component: Button,
   argTypes: {
-    type: {
-      options: ["Normal", "Active", "Disabled"],
+    Button: {
+      options: ["primary", "secodary"],
       control: { type: "radio" },
     },
   },
@@ -19,6 +19,6 @@ const Template: StoryFn<typeof Button> = (args) => <Button {...args} />;
 
 export const Basic = Template.bind({});
 Basic.args = {
-  type: "Normal",
-  label: "Button",
+  label: "Click Me",
+  variant: ButtonVariant.primary,
 };
