@@ -10,12 +10,12 @@ export async function MoviesLoader() {
   return API.fourByFour();
 }
 export function Movies() {
-  const API = useLoaderData() as Movie[][];
+  const movies = useLoaderData() as Movie[][];
   const [number, setNumber] = useState(0);
   const [previousvalue, setpreviousvalue] = useState(0);
   return (
     <div className="relative bg-dark overflow-hidden">
-      {API.map((card, index) => {
+      {movies.map((card, index) => {
         return (
           <div className="flex flex-col ">
             <div className=" flex flex-col items-center">

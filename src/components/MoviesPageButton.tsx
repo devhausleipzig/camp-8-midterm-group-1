@@ -1,12 +1,11 @@
 import clsx from "clsx";
-import { useState } from "react";
 
-type Input = {
+type InputProps = {
   number: number;
   setNumber: React.Dispatch<React.SetStateAction<number>>;
 };
 
-export default function Moviespagebutton({ number, setNumber }: Input) {
+export default function moviesPageButton({ number, setNumber }: InputProps) {
   function Movies(Number: number) {
     return (
       <button
