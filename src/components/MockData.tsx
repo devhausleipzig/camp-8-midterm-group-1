@@ -1,8 +1,9 @@
-type InputProps = {
+export type InputProps = {
   dateTolerance: number;
 };
 type Checker = {
-  isFull:()=> boolean}
+  isFull: () => boolean;
+};
 type Times =
   | "14:30"
   | "15:00"
@@ -12,40 +13,39 @@ type Times =
   | "18:30"
   | "19:00"
   | "22:00";
-type Seats = {
-  seat:string,
-  ocupied:boolean
-}
+type SeatsType = {
+  seat: string;
+  ocupied: boolean;
+};
 type Showings = {
   time: Times;
-  seats:Seats[]
-}
-
-type DayType = {
+  seats: SeatsType[];
   isFull: () => boolean;
-  Times: TimeFilm[];
+};
+type DayType = {
+  date: string;
+  screenings: Showings[];
+  isFull: () => boolean;
 };
 
-
-class Screening {
-  seats:Seats[]
+class Seats {
+  seats: SeatsType[];
   seatnum = 4;
-  constructor(){
-    this.seats = this.populateSeats()
+  constructor() {
+    this.seats = this.populateSeats();
   }
-  populateSeats(){
-    let returnObject:Seats[] = []
+  populateSeats() {
+    let returnObject: SeatsType[] = [];
     for (let i = 0; i < this.seatnum; i++) {
-      returnObject.push({seat:String(i), ocupied:false})
+      returnObject.push({ seat: String(i), ocupied: false });
     }
-    return returnObject
+    return returnObject;
   }
-  isFull(){
-    return this.seats.every(x=>x.ocupied == true)
-  };
-  
+  isFull() {
+    return this.seats.every((x) => x.ocupied == true);
+  }
 }
-class TimeFilm {
+export class Screening {
   times = [
     "14:30",
     "15:00",
@@ -56,13 +56,18 @@ class TimeFilm {
     "19:00",
     "22:00",
   ];
-  showings:Screening[] = []
-  constructor(){
-    this.showings.push(this.times.map((x)=>{
-      const bla = new Screening();
-  populateShowings(){
-
+  showings: Showings[] = [];
+  constructor() {
+    this.times.map((time) => {
+      const newseats = new Seats();
+      this.showings.push({
+        time: time as Times,
+        seats: newseats.seats,
+        isFull: () => {
+          return newseats.seats.every((x) => x.ocupied == true);
+        },
+      });
+    });
   }
 }
-
-
+class Days {}

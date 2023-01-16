@@ -1,7 +1,8 @@
-import { MockData } from "../components/MockData";
+import { Screening } from "../components/MockData";
 
 export function Home() {
-  console.log(MockData.availableDays());
+  const data = new Screening();
+  console.log(data.showings[0].isFull());
 
   return (
     <div>
