@@ -1,12 +1,4 @@
 import clsx from "clsx";
-import React, { useState } from "react";
-
-type SeatsProps = {
-  primary: boolean;
-  backgroundColor: string;
-  size: "large";
-};
-
 type Input = {
   square: "Available" | "Reserved" | "Selected";
 };
