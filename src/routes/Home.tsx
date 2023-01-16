@@ -1,10 +1,7 @@
-import { SetStateAction } from "react";
-import { Button } from "../components/Button";
-import { NavigationBar } from "../components/NavigationBar";
 export function Home() {
   return (
     <div>
-      <NavigationBar />
+      <h1>Home</h1>
     </div>
   );
 }
