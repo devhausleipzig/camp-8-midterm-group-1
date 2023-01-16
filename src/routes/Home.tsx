@@ -1,20 +1,20 @@
+import { SearchBar } from "../components/SearchBar";
+import { UserInfo } from "../components/UserInfo";
+
 export function Home() {
   return (
-    <div className="bg-slate-800 w-[335px] h-screen grid grid-rows-6">
-      <div className="w-full h-24 bg-slate-800 text-white text-2xl flex justify-center items-center">
-        UserInfo
+    <div className="w-96 grid grid-rows-6">
+      <div className="w-full h-24 text-white text-2xl flex justify-center items-center">
+        <UserInfo name={""} image={""}></UserInfo>
       </div>
-      <div className="w-full h-24 bg-slate-800 text-white text-2xl flex justify-center items-center">
-        SearchInput
+      <div className="w-full h-24 text-white text-2xl flex justify-center items-center">
+        <SearchBar></SearchBar>
       </div>
-      <div className="w-full h-24 bg-slate-800 text-white text-2xl flex justify-center items-center">
+      <div className="w-full h-24 text-white text-2xl flex justify-center items-center">
         Icon buttons
       </div>
-      <div className="w-full h-24 bg-slate-800 text-white text-2xl flex justify-center items-center">
+      <div className="w-full h-24 text-white text-2xl flex justify-center items-center">
         UpComing movies
-      </div>
-      <div className="grid row-start-6 content-center">
-        {/* <NavigationBar /> */}
       </div>
     </div>
   );

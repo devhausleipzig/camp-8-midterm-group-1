@@ -29,7 +29,7 @@ const routes = [
 export function NavigationLayout() {
   return (
     <>
-      <main className="flex-1">
+      <main className="flex justify-center">
         <Outlet />
       </main>
       <nav className=" flex justify-center py-8 gap-12">
