@@ -1,5 +1,3 @@
-import { Days } from "../components/MockData";
-
 export function Home() {
   return (
     <div>
