@@ -1,8 +1,9 @@
-import { Screening } from "../components/MockData";
+import { Days } from "../components/MockData";
 
 export function Home() {
-  const data = new Screening();
-  console.log(data.showings[0].isFull());
+  const data = new Days();
+  console.log(data.days);
+  console.log(data.days.map((day) => day.isFull()));
 
   return (
     <div>
