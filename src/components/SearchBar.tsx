@@ -1,29 +1,39 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { API } from "./API";
 import { Combobox, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
+import { EmojiIcons } from "./Emogi";
 type APIResponce = {
   title: string;
-  genre: number;
+  genre: number[];
   id: number;
 };
+
 export function SearchBar() {
-  const [selectedPerson, setSelectedPerson] = useState("Hello World");
-  const [query, setQuery] = useState("");
   const [result, setResult] = useState<APIResponce[]>([
     {
       title: "PLaceholder",
-      genre: 0,
+      genre: [0],
       id: 0,
     },
   ]);
+
+  function checkGenres(inputs: number[]) {
+    const keys = Object.keys(EmojiIcons);
+    let returnIcon = "420";
+    inputs.reverse().map((number) => {
+      if (keys.includes(String(number))) {
+        returnIcon = String(number);
+      }
+    });
+    return returnIcon;
+  }
   async function searchResults(event: React.ChangeEvent<HTMLInputElement>) {
     setResult(await API.searchResult(event.target.value));
-    setQuery(event.target.value);
   }
   return (
     <div className="text-white-dimmed relative">
-      <Combobox value="Search" onChange={setSelectedPerson}>
+      <Combobox value="Search">
         <Combobox.Input
           onChange={(event) => searchResults(event)}
           className="rounded-full w-full h-12 bg-dark-light text-body text-white-dimmed px-16"
@@ -42,7 +52,7 @@ export function SearchBar() {
           </svg>
         </Combobox.Button>
         <div className="absolute">
-          <Combobox.Options className="mt-1 max-h-60 w-full overflow-auto rounded-md bg-dark-light py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm flex flex-col gap-2">
+          <Combobox.Options className="mt-1 max-h-60 w-full overflow-auto rounded-lg bg-dark-light py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm flex flex-col gap-2">
             {result
               .filter((_, i) => i < 5)
               .map((film) => {
@@ -50,9 +60,11 @@ export function SearchBar() {
                   <Combobox.Option value={""} key={film.id}>
                     <Link
                       to={`/movie/${String(film.id)}`}
-                      className="flex pl-6 gap-5 bg-dark-light"
+                      className="flex pl-6 gap-5 bg-dark-light w-full"
                     >
-                      <p>Im</p>
+                      <p className="text-white">
+                        {EmojiIcons[checkGenres(film.genre)].icon}
+                      </p>
                       <p>{film.title}</p>
                     </Link>
                   </Combobox.Option>
