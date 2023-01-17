@@ -1,31 +1,31 @@
 import React, { useState } from "react";
 import "../index.css";
 import { Meta, StoryFn } from "@storybook/react";
-import { BookingLabel } from "../components/BookingLabel";
+import { SelectButton } from "../components/SelectButton";
 import clsx from "clsx";
 
-type NewType = Meta<typeof BookingLabel>;
+type NewType = Meta<typeof SelectButton>;
 
 export default {
   title: "Example/BookingLabel",
 
-  component: BookingLabel,
+  component: SelectButton,
 
   argTypes: {
     BookingLabel: {
       control: { type: "radio" },
-      type: ["selected", "disabled"],
+      variant: ["selected", "disabled"],
     },
   },
 };
 
-const Template: StoryFn<typeof BookingLabel> = (args) => (
-  <BookingLabel {...args} />
+const Template: StoryFn<typeof SelectButton> = (args) => (
+  <SelectButton {...args} />
 );
 
 export const Basic = Template.bind({});
 
 Basic.args = {
   label: "",
-  type: "disabled",
+  variant: "selected",
 };

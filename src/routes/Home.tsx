@@ -1,12 +1,12 @@
-import { BookingLabel } from "../components/BookingLabel";
+import { SelectButton } from "../components/SelectButton";
 import { NavigationBar } from "../components/NavigationBar";
 export function Home() {
   return (
     <div>
       <h1>Home</h1>
       <NavigationBar />
-      <BookingLabel type={"selected"} label={"selected"} />
-      <BookingLabel type={"disabled"} label={"cannot"} />
+      <SelectButton variant={"selected"} label={"selected"} />
+      <SelectButton variant={"disabled"} label={"cannot"} />
     </div>
   );
 }
