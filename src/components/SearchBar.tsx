@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { API } from "./API";
-import { Combobox, Transition } from "@headlessui/react";
+import { Combobox } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import { EmojiIcons } from "./Emogi";
 type APIResponce = {
