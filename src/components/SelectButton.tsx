@@ -5,23 +5,46 @@ import React, {
   useState,
 } from "react";
 
-type Input = {
-  variant: "selected" | "disabled";
-  label: string;
-};
-export function SelectButton({ variant, label }: Input) {
+export enum SelectButtonVariant {
+  primary = "unselected",
+  secondary = "selected",
+  tertiary = "disabled",
+}
+
+interface SelectButtonProps
+  extends DetailedHTMLProps<
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
+  label?: string;
+  variant: SelectButtonVariant;
+  type: "submit" | "button";
+}
+
+export function SelectButton({
+  type = "submit",
+  label,
+  variant,
+  ...props
+}: SelectButtonProps) {
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex justify-center items-center">
       <button
         type="button"
         className={clsx(
-          "rounded-md w-16 h-7 text-description text-white-dimmed bg-background",
-          variant === "selected"
+          "text-center rounded-md w-16 h-7",
+          variant == SelectButtonVariant.primary
+            ? "text-description bg-dark text-white-dimmed"
+            : "",
+
+          variant == SelectButtonVariant.secondary
             ? "text-description bg-yellow text-dark-light"
-            : variant === "disabled"
-            ? "text-description text-white-dimmed-heavy bg-background"
+            : "",
+          variant == SelectButtonVariant.tertiary
+            ? "disabled:curser-not-allowed text-description bg-dark text-white-dimmed-heavy "
             : ""
         )}
+        {...props}
       >
         {label}
       </button>
