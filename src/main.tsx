@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Button } from "./components/Button";
+
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 import "./index.css";
 import {

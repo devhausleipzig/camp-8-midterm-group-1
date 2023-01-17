@@ -1,27 +1,43 @@
 import clsx from "clsx";
-import React, { useState } from "react";
+import React, {
+  ButtonHTMLAttributes,
+  DetailedHTMLProps,
+  useState,
+} from "react";
 
-type ButtonProps = {
-  primary: boolean;
-  backgroundColor: string;
-  size: "large";
-};
+export enum ButtonVariant {
+  primary = "primary",
+  secondary = "secondary",
+}
 
-type Input = {
-  type: string;
-  label: string;
-};
-export function Button({ type, label }: Input) {
+interface ButtonProps
+  extends DetailedHTMLProps<
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
+  label?: string;
+  variant: ButtonVariant;
+  type?: "submit" | "button";
+}
+
+export function Button({
+  type = "button",
+  label,
+  variant,
+  ...props
+}: ButtonProps) {
   return (
     <div className="flex justify-center items-center">
       <button
-        type="button"
         className={clsx(
-          "text-center text-primary rounded-lg w-80 h-10 ",
-          type === "Active" ? "bg-yellow text-dark-light" : "",
-          type === "Inactive" ? "bg-yellow bg-opacity-50 text-dark-light" : "",
-          type === "Dark" ? "bg-dark-light text-white" : ""
+          "text-center text-primary rounded-lg w-80 h-10 disabled:opacity-50 disabled:cursor-not-allowed",
+          variant == ButtonVariant.primary
+            ? "bg-yellow text-dark-light"
+            : variant == ButtonVariant.secondary
+            ? "bg-dark-light bg-opacity-50 text-white"
+            : ""
         )}
+        {...props}
       >
         {label}
       </button>
