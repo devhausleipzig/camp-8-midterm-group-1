@@ -14,7 +14,7 @@ export default {
   argTypes: {
     BookingLabel: {
       control: { type: "radio" },
-      variant: ["selected", "unselected", "disabled"],
+      type: ["selected", "disabled"],
     },
   },
 };
@@ -27,4 +27,5 @@ export const Basic = Template.bind({});
 
 Basic.args = {
   label: "",
+  type: "disabled",
 };
