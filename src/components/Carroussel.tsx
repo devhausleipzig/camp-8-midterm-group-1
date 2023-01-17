@@ -10,7 +10,10 @@ export function Carroussel({ selection }: InputProps) {
     <div className="flex flex-row gap-8 overflow-x-auto snap-x scrollbar-hide">
       {selection.map((film) => {
         return (
-          <Link to={String(film.id)} className="object-cover snap-center">
+          <Link
+            to={"/movie/" + String(film.id)}
+            className="object-cover snap-center"
+          >
             <div className="w-44 h-56 rounded-lg flex-grow-0">
               <img
                 src={`https://image.tmdb.org/t/p/w500${film.poster_path}`}
