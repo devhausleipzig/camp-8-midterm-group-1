@@ -42,7 +42,7 @@ export function Emogi({ emojiName }: { emojiName: EmojiLib }) {
       <p className="flex justify-center items-center w-14 h-14 text-2xl bg-dark-light rounded-xl">
         {emoji}
       </p>
-      <p className="text-white-dimmed text-secondary flex justify-center">
+      <p className="text-secondary flex justify-center">
         {emojiName}
       </p>
     </div>
