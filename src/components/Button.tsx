@@ -30,7 +30,7 @@ export function Button({
     <div className="flex justify-center items-center">
       <button
         className={clsx(
-          "text-center text-primary rounded-lg w-80 h-10 disabled:opacity-50 disabled:cursor-not-allowed",
+          "text-center text-primary rounded-lg w-full h-10 disabled:opacity-50 disabled:cursor-not-allowed",
           variant == ButtonVariant.primary
             ? "bg-yellow text-dark-light"
             : variant == ButtonVariant.secondary
