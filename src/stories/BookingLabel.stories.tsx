@@ -2,25 +2,29 @@ import React, { useState } from "react";
 import "../index.css";
 import { Meta, StoryFn } from "@storybook/react";
 import { BookingLabel } from "../components/BookingLabel";
+import clsx from "clsx";
 
 type NewType = Meta<typeof BookingLabel>;
 
 export default {
-  title: "Example/Bookinglabel",
+  title: "Example/BookingLabel",
+
   component: BookingLabel,
+
   argTypes: {
-    type: {
-      options: ["Selected", "Unselected", "Disabled"],
+    BookingLabel: {
       control: { type: "radio" },
+      variant: ["selected", "unselected", "disabled"],
     },
   },
 };
+
 const Template: StoryFn<typeof BookingLabel> = (args) => (
   <BookingLabel {...args} />
 );
 
 export const Basic = Template.bind({});
+
 Basic.args = {
-  type: "",
-  label: "date / time",
+  label: "",
 };
