@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -34,5 +34,12 @@
     font-size: 12px;
     line-height: 15px;
     @apply text-white-dimmed;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }

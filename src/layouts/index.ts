@@ -1,2 +1,2 @@
-export * from "./RootLayout";
+export * from "./NavigationLayout";
 export * from "./MovieDetailLayout";
