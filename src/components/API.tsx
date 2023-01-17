@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Movie, MovieDetail } from "../types/api";
+import { Movie } from "../types/api";
 
 export const API = {
   buildArray: async () => {
