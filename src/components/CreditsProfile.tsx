@@ -5,7 +5,7 @@ type Input = {
 };
 export default function MoviesActionButton({ image, name, role }: Input) {
   return (
-    <div className="flex items-center gap-[1.25rem]">
+    <div className="flex items-center gap-5">
       <img
         src={image}
         alt=""
