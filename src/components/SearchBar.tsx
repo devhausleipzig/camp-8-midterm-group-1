@@ -1,6 +1,10 @@
-import { redirect, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { API } from "./API";
 
 export function SearchBar() {
+  useEffect(() => {
+    API.searchResult("Mad Max");
+  }, []);
   return (
     <div className="">
       <form method="GET">
