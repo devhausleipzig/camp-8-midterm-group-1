@@ -1,11 +1,21 @@
+import { Carroussel } from "../components/Carroussel";
 import { Emogi } from "../components/Emogi";
 import { SearchBar } from "../components/SearchBar";
 import { UserInfo } from "../components/UserInfo";
+import { LoaderFunctionArgs, useLoaderData } from "react-router-dom";
+import { API } from "../components/API";
+import { Movie, UpcomingMovies } from "../types/api";
+import { MoviesType } from "./Movies";
 
-export function Home() {
+export async function movieLoader({params}:LoaderFunctionArgs){
+  return API.buildArray()
+  }
+
+export function Home() {  
+  const data = useLoaderData() as Movie[] 
   return (
-    <div className="w-96 h-[667px] grid grid-rows-[1fr_1fr_1.5fr_3fr]">
-      <div className="w-full text-white text-2xl flex justify-center items-center">
+    <div className="w-96 h-[667px] grid grid-rows-[1fr_1fr_1.5fr_0.5fr_3fr] gap-5">
+      <div className="w-full text-white text-2xl flex justify-center items-center mt-5">
         <UserInfo name={""} image={""}></UserInfo>
       </div>
       <div className="w-full text-white text-2xl flex justify-center items-center">
@@ -34,10 +44,13 @@ export function Home() {
           <a href=""><Emogi emojiName={"Drama"}></Emogi></a>
         </div> 
       </div>
-
-      <div className="w-full text-title flex justify-center items-start">
-        <div className="w-80 flex flex-start">UpComing movies</div>
-        
+      <div className="w-96 flex justify-center">
+        <div className="w-80 flex text-title">Upcoming movies</div>
+      </div>
+      <div className="w-full text-title flex justify-start items-center flex-col">
+        <div className="w-80">
+          <Carroussel selection={data}></Carroussel>
+          </div> 
       </div>
     </div>
   );

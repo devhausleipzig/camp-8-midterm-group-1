@@ -34,6 +34,7 @@ const router = createBrowserRouter([
       {
         element: <Home />,
         index: true,
+        loader: movieLoader,
       },
 
       {
