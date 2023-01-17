@@ -28,7 +28,7 @@ const routes = [
 
 export function NavigationLayout() {
   return (
-    <>
+    <div className="h-screen flex flex-col justify-between">
       <main className="flex justify-center">
         <Outlet />
       </main>
@@ -45,6 +45,6 @@ export function NavigationLayout() {
           </NavLink>
         ))}
       </nav>
-    </>
+    </div>
   );
 }

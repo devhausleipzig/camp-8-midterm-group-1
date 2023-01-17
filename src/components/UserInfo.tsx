@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { redirect, useNavigate } from "react-router-dom";
 
 type Input = {
@@ -11,11 +12,12 @@ export function UserInfo({ name, image }: Input) {
       <div className="flex w-80 justify-between content-between">
         <div className="flex flex-col justify-between">
           <div className="flex items-start flex-row gap-2">
-            <div className="text-secondary text-white-dimmed">Welcome {name} </div>
-            {/* <div className="">👋</div> */}
+            <div className="text-secondary text-white-dimmed">
+              Welcome {name}{" "}
+            </div>
             <div>
-              <img className="h-[15px]" src="public\icons8-waving-hand-emoji-48.png" alt="" />
-              </div>
+              <p className="text-sm">👋</p>
+            </div>
           </div>
 
           <div className="text-primary text-white">
@@ -23,7 +25,10 @@ export function UserInfo({ name, image }: Input) {
           </div>
         </div>
         <div>
-          <img className="w-10 h-10 border rounded-3xl" src={image} />
+          <img
+            className="w-10 h-10 border rounded-3xl"
+            src="https://wallpapers.com/images/hd/cool-neon-blue-profile-picture-u9y9ydo971k9mdcf.jpg"
+          />
         </div>
       </div>
     </>
