@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Movie, MovieDetail } from "../types/api";
+import { Movie } from "../types/api";
 
 export const API = {
   buildArray: async () => {
@@ -38,6 +38,12 @@ export const API = {
       ...b,
       writer: a[0],
       director: a[0],
-    };
+    }},
+  castAndCrew: async (id: number) => {
+    return await axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${id}/credits?api_key=5de0d3a9c085fde70b8c91f6f6a927f3&language=en-US`
+      )
+      .then((response) => response.data);
   },
 };

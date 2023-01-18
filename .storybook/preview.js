@@ -1,5 +1,4 @@
-import { withRouter } from "storybook-addon-react-router-v6";
-
+import "tailwindcss/tailwind.css";
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   backgrounds: {
