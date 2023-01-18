@@ -9,7 +9,7 @@ export default function MoviesPageButton({
   inputNumber,
   setInputNumber,
 }: InputProps) {
-  function Movies(iconNumber: number) {
+  function movies(iconNumber: number) {
     return (
       <button
         className={clsx(
@@ -28,11 +28,11 @@ export default function MoviesPageButton({
   return (
     <>
       <div className="flex w-screen justify-around">
-        {Movies(0)}
-        {Movies(1)}
-        {Movies(2)}
-        {Movies(3)}
-        {Movies(4)}
+        {movies(0)}
+        {movies(1)}
+        {movies(2)}
+        {movies(3)}
+        {movies(4)}
       </div>
     </>
   );

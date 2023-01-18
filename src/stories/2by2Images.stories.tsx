@@ -1,21 +1,17 @@
 import React from "react";
-import { Images } from "../components/2by2Images";
+import { Movies } from "../routes/Movies";
 import { Meta, StoryFn } from "@storybook/react";
 import "../index.css";
 
-type NewType = Meta<typeof Images>;
+type NewType = Meta<typeof Movies>;
 
 export default {
   title: "Example/2by2",
-  component: Images,
-  argTypes: {
-    number: { control: { type: "number" } },
-  },
+  component: Movies,
+  argTypes: {},
 } as NewType;
 
-const Template: StoryFn<typeof Images> = (args) => <Images {...args} />;
+const Template: StoryFn<typeof Movies> = (args) => <Movies />;
 
 export const Horizontal = Template.bind({});
-Horizontal.args = {
-  number: 1,
-};
+Horizontal.args = {};

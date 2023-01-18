@@ -6,13 +6,13 @@ import MoviesPageButton from "../components/MoviesPageButton";
 import { Movie } from "../types/api";
 import { Link, useLoaderData } from "react-router-dom";
 
-export async function MoviesLoader() {
+export async function moviesLoader() {
   return API.fourByFour();
 }
 export function Movies() {
   const movies = useLoaderData() as Movie[][];
   const [number, setNumber] = useState(0);
-  const [previousvalue, setpreviousvalue] = useState(0);
+  const [previousValue, setPreviousValue] = useState(0);
   return (
     <div className="relative bg-dark overflow-hidden">
       {movies.map((card, index) => {
@@ -26,22 +26,22 @@ export function Movies() {
                   enter="transition transform translate-x duration-[750ms]"
                   enterFrom={clsx(
                     "opacity-5 scale-50",
-                    index < previousvalue ? "-translate-x-60" : "translate-x-60"
+                    index < previousValue ? "-translate-x-60" : "translate-x-60"
                   )}
                   enterTo="opacity-100 scale-100 translate-x-0"
                   leave="transition transform duration-[750ms]"
                   leaveFrom=""
                   leaveTo={clsx(
                     "opacity-5 scale-50",
-                    number < previousvalue
+                    number < previousValue
                       ? "translate-x-60"
                       : "-translate-x-60"
                   )}
                   afterEnter={() => {
-                    setpreviousvalue(index);
+                    setPreviousValue(index);
                   }}
                   afterLeave={() => {
-                    setpreviousvalue(index);
+                    setPreviousValue(index);
                   }}
                 >
                   <div className="grid grid-rows-2 grid-cols-2 gap-x-5 gap-y-5">
@@ -64,7 +64,7 @@ export function Movies() {
           </div>
         );
       })}
-      <MoviesPageButton inputNumber={number} setNumber={setNumber} />
+      <MoviesPageButton inputNumber={number} setInputNumber={setNumber} />
     </div>
   );
 }
