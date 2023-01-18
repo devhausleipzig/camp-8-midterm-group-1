@@ -1,7 +1,6 @@
 import axios from "axios";
 import { redirect, useNavigate } from "react-router-dom";
-import { EnvelopeIcon, KeyIcon } from '@heroicons/react/24/outline'
-
+import { EnvelopeIcon, KeyIcon } from "@heroicons/react/24/outline";
 
 export function Input() {
   return (
@@ -12,8 +11,7 @@ export function Input() {
             type="submit"
             className="px-4 focus:outline-none focus:shadow-outline text-body"
           >
-
-          <EnvelopeIcon className="h-6 w-6"/>
+            <EnvelopeIcon className="h-6 w-6" />
           </button>
         </span>
         <input
@@ -29,12 +27,12 @@ export function Input() {
             type="submit"
             className="px-4 focus:outline-none focus:shadow-outline text-body"
           >
-          <KeyIcon className="h-6 w-6"/>
+            <KeyIcon className="h-6 w-6" />
           </button>
         </span>
         <input
-          type="email"
-          name="email-address"
+          type="password"
+          name="password"
           placeholder="Enter your password"
           className="rounded-md bg-dark-light text-body h-12 w-full hover:border-2 hover:border-white-dimmed-heavy  hover:text-white pl-16"
         />
