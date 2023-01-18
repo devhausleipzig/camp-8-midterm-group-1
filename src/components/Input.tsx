@@ -1,42 +1,18 @@
-import axios from "axios";
-import { redirect, useNavigate } from "react-router-dom";
-import { EnvelopeIcon, KeyIcon } from "@heroicons/react/24/outline";
+import React from "react";
 
-export function Input() {
+type Props = { icon: JSX.Element } & React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+>;
+
+export function Input({ icon, ...props }: Props) {
   return (
-    <div className="flex flex-col gap-5 items-center">
-      <div className="relative">
-        <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-          <button
-            type="submit"
-            className="px-4 focus:outline-none focus:shadow-outline text-body"
-          >
-            <EnvelopeIcon className="h-6 w-6" />
-          </button>
-        </span>
-        <input
-          type="email"
-          name="email-address"
-          placeholder="Your@email.com"
-          className="rounded-md bg-dark-light text-body h-12 w-full hover:border-2 hover:border-white-dimmed-heavy hover:text-white pl-16"
-        />
-      </div>
-      <div className="relative">
-        <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-          <button
-            type="submit"
-            className="px-4 focus:outline-none focus:shadow-outline text-body"
-          >
-            <KeyIcon className="h-6 w-6" />
-          </button>
-        </span>
-        <input
-          type="password"
-          name="password"
-          placeholder="Enter your password"
-          className="rounded-md bg-dark-light text-body h-12 w-full hover:border-2 hover:border-white-dimmed-heavy  hover:text-white pl-16"
-        />
-      </div>
-    </div>
+    <label className="flex body items-center bg-dark-light py-3 px-5 rounded-md gap-5 border-2 border-transparent focus-within:border-white-dimmed-heavy">
+      {React.cloneElement(icon, { className: "w-6 h-6 text-white-dimmed" })}
+      <input
+        className="bg-dark-light flex-1 placeholder:text-white-dimmed text-white outline-none"
+        {...props}
+      />
+    </label>
   );
 }
