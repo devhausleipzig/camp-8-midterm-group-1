@@ -22,7 +22,7 @@ export function Movie() {
       <div className="flex flex-col h-screen pl-5 pr-5 ">
         <div className="flex flex-col gap-y-6">
           <img
-            className="w-full h-52 border rounded-lg image-center"
+            className="w-full h-52 border rounded-lg object-fit "
             src={"https://image.tmdb.org/t/p/w500" + mov.poster_path}
           />
           <p className="text-supertitle text-white pb-3">{mov.title}</p>
@@ -75,7 +75,9 @@ export function Movie() {
         <div className=" border border-1 border-white-dimmed"> </div>
         <div className="flex flex-col pt-4 ">
           <p className="text-white text-primary">Synopsis</p>
-          <p className=" text-body text-white-dimmed pt-3">{mov.overview}</p>
+          <p className=" leading-loose text-body text-white-dimmed pt-3">
+            {mov.overview}
+          </p>
           <a className="text-yellow text-body underline pt-1" href="">
             Read more
           </a>
