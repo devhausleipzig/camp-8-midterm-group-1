@@ -64,7 +64,7 @@ export function Movies() {
           </div>
         );
       })}
-      <MoviesPageButton number={number} setNumber={setNumber} />
+      <MoviesPageButton inputNumber={number} setNumber={setNumber} />
     </div>
   );
 }
