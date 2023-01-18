@@ -21,8 +21,7 @@ import {
 } from "./routes";
 import { NavigationLayout } from "./layouts/NavigationLayout";
 import { MovieDetailLayout } from "./layouts/MovieDetailLayout";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { selectionPage } from "./components/selectionPage";
+import { SelectTimeScreen } from "./components/SelectTimeScreen";
 
 const router = createBrowserRouter([
   {
@@ -34,7 +33,7 @@ const router = createBrowserRouter([
     element: <NavigationLayout />,
     children: [
       {
-        element: <Home />,
+        element: <SelectTimeScreen />,
         index: true,
       },
 
