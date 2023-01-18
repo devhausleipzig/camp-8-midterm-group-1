@@ -1,12 +1,9 @@
-import { useState } from "react";
-import { redirect, useNavigate } from "react-router-dom";
-
 type Input = {
   name: string;
   image: string;
 };
 
-export function UserInfo({ name, image }: Input) {
+export function UserInfo({ name }: Input) {
   return (
     <>
       <div className="flex w-80 justify-between content-between">

@@ -4,8 +4,8 @@ import { SearchBar } from "../components/SearchBar";
 import { UserInfo } from "../components/UserInfo";
 import { LoaderFunctionArgs, useLoaderData } from "react-router-dom";
 import { API } from "../components/API";
-import { Movie, UpcomingMovies } from "../types/api";
-import { MoviesType } from "./Movies";
+import { Movie } from "../types/api";
+import { ChevronRightIcon } from "@heroicons/react/24/solid";
 
 export async function movieLoader({ params }: LoaderFunctionArgs) {
   return API.buildArray();
@@ -14,7 +14,7 @@ export async function movieLoader({ params }: LoaderFunctionArgs) {
 export function Home() {
   const data = useLoaderData() as Movie[];
   return (
-    <div className="w-screen h-full grid grid-rows-6 gap-5">
+    <div className="w-screen h-full grid grid-rows-6">
       <div className="w-full text-white text-2xl flex justify-center items-center mt-5 ">
         <UserInfo name={""} image={""}></UserInfo>
       </div>
@@ -22,7 +22,7 @@ export function Home() {
         <SearchBar></SearchBar>
       </div>
 
-      <div className="w-full h-full flex justify-around items-center flex-col ">
+      <div className="w-full h-full flex justify-around items-center flex-col gap-4">
         <div className="flex flex-row w-full px-5 justify-between">
           <div className="text-title text-white-dimmed">Genre</div>
           <div className="">
@@ -32,20 +32,7 @@ export function Home() {
             >
               <div>See all</div>
               <div className="">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  className="w-4 h-4"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                  />
-                </svg>
+                <ChevronRightIcon className="h-4" />
               </div>
             </a>
           </div>

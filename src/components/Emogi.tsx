@@ -1,5 +1,3 @@
-import { BellAlertIcon } from "@heroicons/react/24/solid";
-
 export type EmojiLib =
   | "Romance"
   | "Crime"
@@ -18,11 +16,11 @@ export type EmojiLib =
   | "Science Fiction"
   | "Thriller"
   | "Unknown";
-type Em = {
+type Emoji = {
   name: string;
   icon: string;
 };
-export const EmojiIcons: Record<string, Em> = {
+export const emojiIcons: Record<string, Emoji> = {
   "28": {
     name: "Action",
     icon: "🧨",
@@ -99,10 +97,10 @@ export function Emogi({ id }: InputProps) {
   return (
     <div className="gap-2 flex flex-col justify-center w-14">
       <p className="text-3xl flex justify-center items-center w-14 h-14 bg-dark-light rounded-xl">
-        {EmojiIcons[id].icon}
+        {emojiIcons[id].icon}
       </p>
       <p className="text-white-dimmed text-secondary flex justify-center">
-        {EmojiIcons[id].name}
+        {emojiIcons[id].name}
       </p>
     </div>
   );
