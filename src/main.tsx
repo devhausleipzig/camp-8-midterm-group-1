@@ -18,6 +18,7 @@ import {
   MoviesLoader,
   Movie,
   movieLoader,
+  ticketLoader,
 } from "./routes";
 import { NavigationLayout } from "./layouts/NavigationLayout";
 import { MovieDetailLayout } from "./layouts/MovieDetailLayout";
@@ -75,6 +76,7 @@ const router = createBrowserRouter([
       {
         path: ":movieId/ticket",
         element: <Ticket />,
+        loader: ticketLoader,
       },
     ],
   },
