@@ -21,7 +21,7 @@ import {
 } from "./routes";
 import { NavigationLayout } from "./layouts/NavigationLayout";
 import { MovieDetailLayout } from "./layouts/MovieDetailLayout";
-import { SelectTimeScreen } from "./components/SelectTimeScreen";
+import { castLoader } from "./routes/Cast";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +64,7 @@ const router = createBrowserRouter([
       {
         path: ":movieId/castcrew",
         element: <CastCrew />,
+        loader: castLoader,
       },
       {
         path: ":movieId/selecttime",
