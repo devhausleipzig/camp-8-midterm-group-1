@@ -14,6 +14,13 @@ export function SelectSeats() {
     }
   }, []);
 
+  /*
+   const arr[] = [];
+    for(let i=0; i<54; i++){
+      const newArr = (arr[i]);
+      console.log(newArr);
+    }   */
+
   const navigate = useNavigate();
   const handleClick = () => {
     navigate(-1);
@@ -39,8 +46,7 @@ export function SelectSeats() {
           className="grid grid-cols-9 grid-rows-6 gap-3 gap-y-3 mt-4 rounded"
           id="seatcontainer"
         >
-          {/* First Row */}
-          <div className=" bg-dark"></div>
+          {/*     <div className=" bg-dark"></div>
           <SeatSquares square="Available" />
           <SeatSquares square="Selected" />
           <SeatSquares square="Reserved" />
@@ -49,28 +55,6 @@ export function SelectSeats() {
           <SeatSquares square="Available" />
           <SeatSquares square="Available" />
           <div className=" bg-dark"></div>
-          {/* Second Row */}
-
-          <SeatSquares square="Available" />
-          <SeatSquares square="Available" />
-          <SeatSquares square="Available" />
-          <SeatSquares square="Available" />
-          <div className=" bg-dark"></div>
-          <SeatSquares square="Available" />
-          <SeatSquares square="Available" />
-          <SeatSquares square="Reserved" />
-          <SeatSquares square="Available" />
-          {/* Third Row */}
-          <SeatSquares square="Available" />
-          <SeatSquares square="Reserved" />
-          <SeatSquares square="Reserved" />
-          <SeatSquares square="Available" />
-          <div className=" bg-dark"></div>
-          <SeatSquares square="Available" />
-          <SeatSquares square="Selected" />
-          <SeatSquares square="Selected" />
-          <SeatSquares square="Available" />
-          {/* Fourth Row */}
 
           <SeatSquares square="Available" />
           <SeatSquares square="Available" />
@@ -82,7 +66,26 @@ export function SelectSeats() {
           <SeatSquares square="Reserved" />
           <SeatSquares square="Available" />
 
-          {/* Fifth Row */}
+          <SeatSquares square="Available" />
+          <SeatSquares square="Reserved" />
+          <SeatSquares square="Reserved" />
+          <SeatSquares square="Available" />
+          <div className=" bg-dark"></div>
+          <SeatSquares square="Available" />
+          <SeatSquares square="Selected" />
+          <SeatSquares square="Selected" />
+          <SeatSquares square="Available" />
+
+          <SeatSquares square="Available" />
+          <SeatSquares square="Available" />
+          <SeatSquares square="Available" />
+          <SeatSquares square="Available" />
+          <div className=" bg-dark"></div>
+          <SeatSquares square="Available" />
+          <SeatSquares square="Available" />
+          <SeatSquares square="Reserved" />
+          <SeatSquares square="Available" />
+
           <SeatSquares square="Available" />
           <SeatSquares square="Reserved" />
           <SeatSquares square="Reserved" />
@@ -92,7 +95,7 @@ export function SelectSeats() {
           <SeatSquares square="Reserved" />
           <SeatSquares square="Reserved" />
           <SeatSquares square="Reserved" />
-          {/* Sixth Row */}
+
           <div className=" bg-dark"></div>
           <SeatSquares square="Available" />
           <SeatSquares square="Available" />
@@ -101,7 +104,7 @@ export function SelectSeats() {
           <SeatSquares square="Reserved" />
           <SeatSquares square="Selected" />
           <SeatSquares square="Selected" />
-          <div className=" bg-dark"></div>
+          <div className=" bg-dark"></div> */}
         </div>
       </div>
 
