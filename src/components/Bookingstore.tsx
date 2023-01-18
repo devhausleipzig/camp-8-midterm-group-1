@@ -1,25 +1,26 @@
 import Barcode from 'react-barcode'; //https://www.npmjs.com/package/react-barcode
 import { LoaderFunctionArgs } from 'react-router-dom';
 import { API } from './API';
+import { useTicketStore } from './Ticket';
 
-type Input = {
-  movieID: number,
-  title: string
-  date: string,
-  time: string,
-  seats: string[],
-  totalPrice: number 
+// type Input = {
+//   movieID: number,
+//   title: string
+//   date: string,
+//   time: string,
+//   seats: string[],
+//   totalPrice: number 
 
-};
-
-
-export async function Loader({ params }: LoaderFunctionArgs) {
-  const result = API.buildArray();
-  return result;
-}
+// };
 
 
-export default function BookingStore({ movieID, title, date, time, seats, totalPrice }: Input) {
+// export async function Loader({ params }: LoaderFunctionArgs) {
+//   const result = API.buildArray();
+//   return result;
+// }
+
+
+export default function BookingStore() {
     return (
       <div className="w-80 h-[530px]">
         <div className="bg-white-dimmed grid grid-rows-[2fr_4fr_0.1fr_1fr] h-full w-72">
@@ -34,11 +35,13 @@ export default function BookingStore({ movieID, title, date, time, seats, totalP
               <div className="text-secondary text-black justify-self-start">Date</div>
               <div className="text-secondary text-black justify-self-start">Time</div>
               <div className="text-secondary text-black justify-self-start">Price</div>
-              <div className="text-primary text-white justify-self-start">{date}18.01.</div>
-              <div className="text-primary text-white justify-self-start">{time}20:00</div>
-              <div className="text-primary text-white justify-self-start">{totalPrice}12€</div>
+
+              <div className="text-primary text-white justify-self-start"> {useTicketStore.setMovieID} 18.01.</div>
+              <div className="text-primary text-white justify-self-start">20:00</div>
+              <div className="text-primary text-white justify-self-start">12€</div>
+
               <div className="text-secondary text-black">Seats</div>
-              <div className="row-start-4 col-start-1 col-end-3 text-primary text-white">{seats}C-3, C-5, A-4</div>
+              <div className="row-start-4 col-start-1 col-end-3 text-primary text-white">C-3, C-5, A-4</div>
 
          
             </div>
