@@ -41,11 +41,10 @@
     line-height: 24px;
   }
 
-  .image-center{
+  .image-center {
     object-fit: cover;
     object-position: 25% 25%;
   }
-    
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }

@@ -14,13 +14,6 @@ export const API = {
     return returnArray;
   },
 
-  // movieDetail: async (id: number) => {
-  //   return await axios
-  //     .get(
-  //       `https://api.themoviedb.org/3/movie/${id}?api_key=5de0d3a9c085fde70b8c91f6f6a927f3`
-  //     )
-  //     .then((res) => res.data);
-  // },
   movieDetail: async (id: number) => {
     const a = await axios
       .get(

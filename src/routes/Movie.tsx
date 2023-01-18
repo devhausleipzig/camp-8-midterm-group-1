@@ -2,6 +2,7 @@ import { Link, LoaderFunctionArgs, useLoaderData } from "react-router-dom";
 import { Credits, MovieDetail } from "../types/api";
 import { API } from "../components/API";
 import clsx from "clsx";
+import { Button, ButtonVariant } from "../components/Button";
 
 export async function movieLoader({ params }: LoaderFunctionArgs) {
   return API.movieDetail(Number(params.movieId));
@@ -15,11 +16,12 @@ export function Movie() {
   }
 
   const mov = useLoaderData() as MovieDetail;
+
   const score = Math.floor(mov.vote_average * 10);
 
   return (
-    <>
-      <div className="flex flex-col h-screen pl-5 pr-5 ">
+    <div className="flex flex-col justify-between h-screen px-5 py-6">
+      <div className="flex flex-col ">
         <div className="flex flex-col gap-y-6">
           <img
             className="w-full h-52 border rounded-lg object-fit "
@@ -83,6 +85,7 @@ export function Movie() {
           </a>
         </div>
       </div>
-    </>
+      <Button variant={ButtonVariant.primary} label="Get Reservation" />
+    </div>
   );
 }
