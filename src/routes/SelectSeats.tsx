@@ -1,8 +1,10 @@
 import { Outlet } from "react-router-dom";
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
-import { useEffect } from "react";
+// import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SeatSquares } from "../components/SeatSquares";
+
+// const[seatDetails, setSeatDetails] = useState<Seats>();
 
 export function SelectSeats() {
   const navigate = useNavigate();
@@ -13,11 +15,24 @@ export function SelectSeats() {
     fill: boolean;
     id: string;
   };
+  /*  useEffect(() => {
+    if (!fill) {
+      clearSelectedSeats();
+    }
+  }, []); */
   let arrayofseats: SeatInfo[] = [];
-
+  function seatFill(i: number) {
+    if (i == 0 || i == 45 || i == 8 || i == 53) {
+      return false;
+    } else if (i == 4 || i == 13 || i == 22 || i == 31 || i == 40 || i == 49) {
+      return false;
+    } else {
+      return true;
+    }
+  }
   for (let i = 0; i < 54; i++) {
     arrayofseats.push({
-      fill: i == 0 || i == 53 ? false : true,
+      fill: i == 0 || i == 53 || i == 4 || i == 49 ? false : true,
       id: `${i}`,
     });
   }
