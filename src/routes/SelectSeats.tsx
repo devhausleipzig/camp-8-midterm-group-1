@@ -5,26 +5,22 @@ import { useNavigate } from "react-router-dom";
 import { SeatSquares } from "../components/SeatSquares";
 
 export function SelectSeats() {
-  useEffect(() => {
-    const wrapper = document.querySelector("#seatcontainer") as HTMLElement;
-    //console.log(wrapper);
-    for (let i = 0; i < 54; i++) {
-      const square = document.createElement("div");
-      wrapper.appendChild(square);
-    }
-  }, []);
-
-  /*
-   const arr[] = [];
-    for(let i=0; i<54; i++){
-      const newArr = (arr[i]);
-      console.log(newArr);
-    }   */
-
   const navigate = useNavigate();
   const handleClick = () => {
     navigate(-1);
   };
+  type SeatInfo = {
+    fill: boolean;
+    id: string;
+  };
+  let arrayofseats: SeatInfo[] = [];
+
+  for (let i = 0; i < 54; i++) {
+    arrayofseats.push({
+      fill: i == 0 || i == 53 ? false : true,
+      id: `${i}`,
+    });
+  }
   return (
     <>
       <div className="w-screen h-20 flex items-center justify-between px-6  bg-dark">
@@ -46,65 +42,13 @@ export function SelectSeats() {
           className="grid grid-cols-9 grid-rows-6 gap-3 gap-y-3 mt-4 rounded"
           id="seatcontainer"
         >
-          {/*     <div className=" bg-dark"></div>
-          <SeatSquares square="Available" />
-          <SeatSquares square="Selected" />
-          <SeatSquares square="Reserved" />
-          <div className=" bg-dark"></div>
-          <SeatSquares square="Available" />
-          <SeatSquares square="Available" />
-          <SeatSquares square="Available" />
-          <div className=" bg-dark"></div>
-
-          <SeatSquares square="Available" />
-          <SeatSquares square="Available" />
-          <SeatSquares square="Available" />
-          <SeatSquares square="Available" />
-          <div className=" bg-dark"></div>
-          <SeatSquares square="Available" />
-          <SeatSquares square="Available" />
-          <SeatSquares square="Reserved" />
-          <SeatSquares square="Available" />
-
-          <SeatSquares square="Available" />
-          <SeatSquares square="Reserved" />
-          <SeatSquares square="Reserved" />
-          <SeatSquares square="Available" />
-          <div className=" bg-dark"></div>
-          <SeatSquares square="Available" />
-          <SeatSquares square="Selected" />
-          <SeatSquares square="Selected" />
-          <SeatSquares square="Available" />
-
-          <SeatSquares square="Available" />
-          <SeatSquares square="Available" />
-          <SeatSquares square="Available" />
-          <SeatSquares square="Available" />
-          <div className=" bg-dark"></div>
-          <SeatSquares square="Available" />
-          <SeatSquares square="Available" />
-          <SeatSquares square="Reserved" />
-          <SeatSquares square="Available" />
-
-          <SeatSquares square="Available" />
-          <SeatSquares square="Reserved" />
-          <SeatSquares square="Reserved" />
-          <SeatSquares square="Available" />
-          <div className=" bg-dark"></div>
-          <SeatSquares square="Available" />
-          <SeatSquares square="Reserved" />
-          <SeatSquares square="Reserved" />
-          <SeatSquares square="Reserved" />
-
-          <div className=" bg-dark"></div>
-          <SeatSquares square="Available" />
-          <SeatSquares square="Available" />
-          <SeatSquares square="Available" />
-          <div className=" bg-dark"></div>
-          <SeatSquares square="Reserved" />
-          <SeatSquares square="Selected" />
-          <SeatSquares square="Selected" />
-          <div className=" bg-dark"></div> */}
+          {arrayofseats.map((seat) => {
+            return seat.fill == true ? (
+              <SeatSquares square="Available" key={seat.id} />
+            ) : (
+              <div></div>
+            );
+          })}
         </div>
       </div>
 
