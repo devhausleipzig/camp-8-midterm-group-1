@@ -68,25 +68,24 @@ export class Screening {
   }
 }
 export class Days {
-  daysinfuture = 14;
-  longmonths = [1, 3, 5, 7, 8, 10, 12];
-  shortmonths = [4, 6, 9, 11];
-  Today: string;
-  daysavailable: string[];
+  daysInFuture = 14;
+  shortMonths = [4, 6, 9, 11];
+  today: string;
+  daysAvailable: string[];
   days: DayType[];
   constructor() {
-    this.Today = this.today();
-    this.daysavailable = this.buildDays();
+    this.today = this.todaySet();
+    this.daysAvailable = this.buildDays();
     this.days = this.createDays();
   }
-  today() {
+  todaySet() {
     const Today = new Date();
     const [month, day, year] = Today.toLocaleString().split(",")[0].split("/");
     return `${day}-${month}-${year}`;
   }
   buildDays() {
-    const returnArray: string[] = [this.Today];
-    for (let i = 0; i < this.daysinfuture; i++) {
+    const returnArray: string[] = [this.today];
+    for (let i = 0; i < this.daysInFuture; i++) {
       let [day, month, year] = returnArray[returnArray.length - 1]
         .split("-")
         .map((x) => Number(x));
@@ -94,7 +93,7 @@ export class Days {
       if (day == 29 && month == 2) {
         day = 1;
         month = 3;
-      } else if (day == 31 && this.shortmonths.includes(month)) {
+      } else if (day == 31 && this.shortMonths.includes(month)) {
         day = 1;
         month += 1;
       } else if (day == 32) {
@@ -110,7 +109,7 @@ export class Days {
   }
   createDays() {
     const returnArray: DayType[] = [];
-    this.daysavailable.map((day) => {
+    this.daysAvailable.map((day) => {
       const newDay = new Screening();
       returnArray.push({
         date: day,
