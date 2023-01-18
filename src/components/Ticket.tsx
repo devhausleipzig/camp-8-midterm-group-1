@@ -1,7 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-
 type TicketStore = {
   movieID: number,
   date: string,
@@ -9,9 +8,9 @@ type TicketStore = {
   seats: string[],
   totalPrice: number 
   setMovieID:(movieSelected:number)=>void;
-  setDate:(dateSelected:number)=>void;
-  setTime:(timeSelected:number)=>void;
-  setSeats:(seatsSelected:number)=>void;
+  setDate:(dateSelected:string)=>void;
+  setTime:(timeSelected:string)=>void;
+  setSeats:(seatsSelected:string[])=>void;
   setTotalPrice:(totalPriceSelected:number)=>void;
 };
 
