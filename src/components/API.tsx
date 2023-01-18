@@ -22,13 +22,13 @@ export const API = {
       .then((res) => {
         returnArray = res.data.results;
       });
-    const ReturnArray1: Movie[][] = [[]];
+    const returnArray1: Movie[][] = [[]];
     for (let index = 0; index < 5; index++) {
       for (let j = 0; j < 4; j++) {
-        ReturnArray1[index].push(returnArray[index * 4 + j]);
+        returnArray1[index].push(returnArray[index * 4 + j]);
       }
-      ReturnArray1.push([]);
+      returnArray1.push([]);
     }
-    return ReturnArray1.filter((x) => x.length > 0);
+    return returnArray1.filter((x) => x.length > 0);
   },
 };
