@@ -1,24 +1,27 @@
 import clsx from "clsx";
 
 type InputProps = {
-  number: number;
+  inputNumber: number;
   setNumber: React.Dispatch<React.SetStateAction<number>>;
 };
 
-export default function MoviesPageButton({ number, setNumber }: InputProps) {
-  function Movies(Number: number) {
+export default function MoviesPageButton({
+  inputNumber,
+  setNumber,
+}: InputProps) {
+  function Movies(iconNumber: number) {
     return (
       <button
         className={clsx(
           "w-8 h-8 rounded-sm text-dark",
 
-          number == Number ? " bg-yellow" : " bg-white-dimmed"
+          inputNumber == iconNumber ? " bg-yellow" : " bg-white-dimmed"
         )}
         onClick={() => {
-          setNumber(Number);
+          setNumber(iconNumber);
         }}
       >
-        {String(Number + 1)}
+        {String(iconNumber + 1)}
       </button>
     );
   }
