@@ -8,5 +8,5 @@ export * from "./SelectDateTime";
 export * from "./SelectSeats";
 export * from "./Ticket";
 export * from "./Login";
-export {Movie} from "./Movie";
+export * from "./Movie";
 export * from "./Movies";

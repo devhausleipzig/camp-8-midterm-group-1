@@ -27,6 +27,7 @@ export const API = {
         `https://api.themoviedb.org/3/movie/${id}?api_key=5de0d3a9c085fde70b8c91f6f6a927f3`
       )
       .then((res) => res.data);
+
     return {
       ...b,
       writer: a[0],

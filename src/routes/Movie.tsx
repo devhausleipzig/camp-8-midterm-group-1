@@ -4,7 +4,7 @@ import {
   useLoaderData,
   useNavigate,
 } from "react-router-dom";
-import { Credits, MovieDetail } from "../types/api";
+import { MovieDetail } from "../types/api";
 import { API } from "../components/API";
 import clsx from "clsx";
 import { Button, ButtonVariant } from "../components/Button";
@@ -90,18 +90,15 @@ export function Movie() {
             {mov.overview}
           </p>
           <a className="text-yellow text-body underline">Read more</a>
-       
         </div>
-
       </div>
       <div className="mb-6">
-      <Button
+        <Button
           variant={ButtonVariant.primary}
           label="Get Reservation"
           onClick={() => navigate("selecttime")}
         />
       </div>
-    
     </div>
   );
 }

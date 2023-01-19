@@ -7,12 +7,13 @@ import { API } from "../components/API";
 import { Movie } from "../types/api";
 import { ChevronRightIcon } from "@heroicons/react/24/solid";
 
-export async function movieLoader({ params }: LoaderFunctionArgs) {
+export async function moviesLoader({ params }: LoaderFunctionArgs) {
   return API.buildArray();
 }
 
 export function Home() {
   const data = useLoaderData() as Movie[];
+
   return (
     <div className="w-screen h-full grid grid-rows-6 scrollbar-hide">
       <div className="w-full text-white text-2xl flex justify-center items-center mt-5 ">
