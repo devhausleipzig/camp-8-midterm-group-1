@@ -1,8 +1,18 @@
 import clsx from "clsx";
-type Input = {
-  square: "Available" | "Reserved" | "Selected";
+type Options = "Available" | "Reserved" | "Selected";
+type InputProps = {
+  square: Options;
+  setSquare: React.Dispatch<React.SetStateAction<Options>>;
 };
-export function SeatSquares({ square }: Input) {
+export function SeatSquares({ square, setSquare }: InputProps) {
+  function clickFunction() {
+    if (square === "Available") {
+      setSquare("Selected");
+    }
+    if (square === "Selected") {
+      setSquare("Available");
+    }
+  }
   return (
     <div
       className={clsx(
@@ -17,6 +27,7 @@ export function SeatSquares({ square }: Input) {
           ? "flex-none w-7 h-7 bg-yellow rounded-sm justify-center items-center"
           : ""
       )}
+      onClick={clickFunction}
     ></div>
   );
 }
