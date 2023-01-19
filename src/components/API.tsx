@@ -13,6 +13,28 @@ export const API = {
       });
     return returnArray;
   },
+
+  movieDetail: async (id: number) => {
+    const a = await axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${id}/credits?api_key=5de0d3a9c085fde70b8c91f6f6a927f3`
+      )
+      .then((res) => {
+        return [res.data.crew[0].name, res.data.crew[1].name];
+      });
+    const b = await axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${id}?api_key=5de0d3a9c085fde70b8c91f6f6a927f3`
+      )
+      .then((res) => res.data);
+
+    return {
+      ...b,
+      writer: a[0],
+      director: a[0],
+    };
+  },
+
   searchResult: async (input: string) => {
     const info: Movie[] = await axios
       .get(
@@ -26,6 +48,7 @@ export const API = {
     });
     return returnObject;
   },
+
   genresList: async () => {
     return await axios
       .get(
@@ -35,6 +58,7 @@ export const API = {
         return res.data.genres;
       });
   },
+
   fourByFour: async () => {
     let returnArray: Movie[] = [];
     await axios
@@ -53,6 +77,7 @@ export const API = {
     }
     return returnArray1.filter((x) => x.length > 0);
   },
+
   castAndCrew: async (id: number) => {
     return await axios
       .get(

@@ -15,6 +15,7 @@ import {
   moviesLoader,
   Movie,
   movieLoader,
+  moviesArrayLoader,
 } from "./routes";
 import { NavigationLayout } from "./layouts/NavigationLayout";
 import { MovieDetailLayout } from "./layouts/MovieDetailLayout";
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
       {
         element: <Home />,
         index: true,
-        loader: movieLoader,
+        loader: moviesLoader,
       },
 
       {
@@ -46,7 +47,7 @@ const router = createBrowserRouter([
       {
         path: "movies",
         element: <Movies />,
-        loader: moviesLoader,
+        loader: moviesArrayLoader,
       },
     ],
   },
