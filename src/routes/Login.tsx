@@ -17,9 +17,13 @@ export function Login() {
           <Input
             icon={<EnvelopeIcon />}
             type="email"
-            placeholder="address@gmail.com"
+            placeholder="your@email.com"
           />
-          <Input icon={<KeyIcon />} placeholder="Password" type="password" />
+          <Input
+            icon={<KeyIcon />}
+            placeholder="Enter your Password"
+            type="password"
+          />
         </div>
       </div>
       <Button variant={ButtonVariant.primary} label="Login" type="submit" />
