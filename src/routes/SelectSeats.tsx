@@ -3,6 +3,7 @@ import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 // import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SeatSquares } from "../components/SeatSquares";
+import { useEffect } from "react";
 
 // const[seatDetails, setSeatDetails] = useState<Seats>();
 
@@ -15,16 +16,17 @@ export function SelectSeats() {
     fill: boolean;
     id: string;
   };
-  /*  useEffect(() => {
+/*   useEffect(() => {
     if (!fill) {
       clearSelectedSeats();
     }
   }, []); */
-  let arrayofseats: SeatInfo[] = [];
+  let arrayofseats = [];
+
   function seatFill(i: number) {
     if (i == 0 || i == 45 || i == 8 || i == 53) {
       return false;
-    } else if (i == 4 || i == 13 || i == 22 || i == 31 || i == 40 || i == 49) {
+    } else if ((i - 4) % 9 == 0) {
       return false;
     } else {
       return true;
@@ -32,10 +34,11 @@ export function SelectSeats() {
   }
   for (let i = 0; i < 54; i++) {
     arrayofseats.push({
-      fill: i == 0 || i == 53 || i == 4 || i == 49 ? false : true,
-      id: `${i}`,
+      fill: seatFill(i),
+      id: seatFill(i) ? String(i) : NaN,
     });
   }
+
   return (
     <>
       <div className="w-screen h-20 flex items-center justify-between px-6  bg-dark">
