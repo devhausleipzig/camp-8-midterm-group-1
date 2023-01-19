@@ -1,26 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-
 import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
   Home,
   Movies,
   Bookmark,
   Account,
-  MovDetail,
   SelectDateTime,
   SelectSeats,
   Ticket,
   CastCrew,
   Login,
-  MoviesLoader,
+  moviesLoader,
   Movie,
   movieLoader,
 } from "./routes";
 import { NavigationLayout } from "./layouts/NavigationLayout";
 import { MovieDetailLayout } from "./layouts/MovieDetailLayout";
+import { castLoader } from "./routes/Cast";
 
 const router = createBrowserRouter([
   {
@@ -48,7 +46,7 @@ const router = createBrowserRouter([
       {
         path: "movies",
         element: <Movies />,
-        loader: MoviesLoader,
+        loader: moviesLoader,
       },
     ],
   },
@@ -64,6 +62,7 @@ const router = createBrowserRouter([
       {
         path: ":movieId/castcrew",
         element: <CastCrew />,
+        loader: castLoader,
       },
       {
         path: ":movieId/selecttime",
