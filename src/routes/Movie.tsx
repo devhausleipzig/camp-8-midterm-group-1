@@ -86,7 +86,7 @@ export function Movie() {
         <div className=" border border-1 border-white-dimmed"> </div>
         <div className="flex flex-col pt-4 ">
           <p className="text-white text-primary">Synopsis</p>
-          <p className=" leading-6 text-body text-white-dimmed pt-3">
+          <p className="leading-6 line-clamp-3 text-body text-white-dimmed pt-3">
             {mov.overview}
           </p>
           <a className="text-yellow text-body underline">Read more</a>
