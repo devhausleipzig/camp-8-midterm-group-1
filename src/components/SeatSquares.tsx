@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { Button } from "./Button";
 type Options = "Available" | "Reserved" | "Selected";
 type InputProps = {
   square: Options;
@@ -14,7 +15,8 @@ export function SeatSquares({ square, setSquare }: InputProps) {
     }
   }
   return (
-    <div
+    <button
+      disabled={square === "Reserved" ? true : false}
       className={clsx(
         "flex gap-2 ",
         square === "Available"
@@ -28,6 +30,6 @@ export function SeatSquares({ square, setSquare }: InputProps) {
           : ""
       )}
       onClick={clickFunction}
-    ></div>
+    ></button>
   );
 }
