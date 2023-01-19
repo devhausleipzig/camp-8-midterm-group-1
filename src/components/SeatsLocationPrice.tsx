@@ -15,7 +15,9 @@ const Object: Record<Input, number> = {
 //   );
 // }
 
-// const map1 = new Map<string, string | number>([
+export function 
+
+//const map1 = new Map<string, string | number>([
 //   ['name', 'Tom'],
 //   ['country', 'Germany'],
 //   ['age', 30],
