@@ -21,10 +21,10 @@ export const API = {
       .then((res) => {
         return res.data.results;
       });
-    const returnStuff = info.map((x) => {
+    const returnObject = info.map((x) => {
       return { title: x.title, genre: x.genre_ids, id: x.id };
     });
-    return returnStuff;
+    return returnObject;
   },
   genresList: async () => {
     return await axios
