@@ -22,7 +22,7 @@ interface SelectButtonProps
 }
 
 export function SelectButton({
-  type = "submit",
+  type,
   label,
   variant,
   ...props

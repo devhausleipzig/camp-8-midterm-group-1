@@ -29,7 +29,13 @@ export function SelectTimeScreen() {
             <br />
             <div className="grid grid-flow-row-dense gap-x-2 gap-y-3 grid-cols-4 p-2 text-description text-center ">
               {data.days.map((day) => {
-                return <div>{day.date}</div>;
+                return (
+                  <SelectButton
+                    type="button"
+                    variant={SelectButtonVariant.primary}
+                    label={day.date}
+                  />
+                );
               })}
             </div>
           </div>
