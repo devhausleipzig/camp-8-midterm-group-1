@@ -25,7 +25,7 @@ export default function BookingStore() {
       <div className="w-80 h-[530px]">
         <div className="bg-white-dimmed grid grid-rows-[2fr_4fr_0.1fr_1fr] h-full w-72">
 
-        <div className="">{movieID}Movietitle</div>
+        <div className="">Movietitle</div>
 
         <div className="w-64 h-full justify-self-center">
             <div className="font-bold text-2xl leading-8 text-white py-5">
@@ -36,7 +36,7 @@ export default function BookingStore() {
               <div className="text-secondary text-black justify-self-start">Time</div>
               <div className="text-secondary text-black justify-self-start">Price</div>
 
-              <div className="text-primary text-white justify-self-start"> {useTicketStore.setMovieID} 18.01.</div>
+              <div className="text-primary text-white justify-self-start">18.01.</div>
               <div className="text-primary text-white justify-self-start">20:00</div>
               <div className="text-primary text-white justify-self-start">12€</div>
 
