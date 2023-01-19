@@ -5,7 +5,7 @@ import { useAuthStore } from "./authStore";
 
 export function Login() {
   const { token } = useAuthStore();
-  if (!token) return <Navigate to="/home" replace />;
+  if (token) return <Navigate to="/" replace />;
   return (
     <div>
       <h1>Login</h1>
