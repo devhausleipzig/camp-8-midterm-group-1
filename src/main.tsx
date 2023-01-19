@@ -19,6 +19,7 @@ import {
 import { NavigationLayout } from "./layouts/NavigationLayout";
 import { MovieDetailLayout } from "./layouts/MovieDetailLayout";
 import { castLoader } from "./routes/Cast";
+import { SelectTimeScreen } from "./routes/SelectTimeScreen";
 
 const router = createBrowserRouter([
   {
@@ -27,10 +28,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <NavigationLayout />,
+    element: <SelectTimeScreen />,
+    // <NavigationLayout />,
     children: [
       {
-        element: <SelectTimeScreen />,
+        element: <Home />,
         index: true,
       },
 
