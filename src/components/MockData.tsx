@@ -21,6 +21,20 @@ type DayType = {
   screenings: Showings[];
   isFull: () => boolean;
 };
+const monthsInWords = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
 
 class Seats {
   seats: SeatsType[];
@@ -105,7 +119,10 @@ export class Days {
       }
       returnArray.push(`${String(day)}-${String(month)}-${String(year)}`);
     }
-    return returnArray;
+    return returnArray.map((day) => {
+      const variable = day.split("-");
+      return `${variable[0]} ${monthsInWords[Number(variable[1]) - 1]}`;
+    });
   }
   createDays() {
     const returnArray: DayType[] = [];
