@@ -1,11 +1,16 @@
 import clsx from "clsx";
-import { Button } from "./Button";
+import { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 type Options = "Available" | "Reserved" | "Selected";
-type InputProps = {
+
+interface ButtonProps
+  extends DetailedHTMLProps<
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
   square: Options;
   setSquare: React.Dispatch<React.SetStateAction<Options>>;
-};
-export function SeatSquares({ square, setSquare }: InputProps) {
+}
+export function SeatSquares({ square, setSquare, ...props }: ButtonProps) {
   function clickFunction() {
     if (square === "Available") {
       setSquare("Selected");
