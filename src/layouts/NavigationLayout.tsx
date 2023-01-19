@@ -28,11 +28,11 @@ const routes = [
 
 export function NavigationLayout() {
   return (
-    <div className="h-screen flex flex-col justify-between">
-      <main className="flex justify-center">
+    <div className="h-screen flex flex-col">
+      <main className="flex h-full">
         <Outlet />
       </main>
-      <nav className=" flex justify-center py-8 gap-12">
+      <nav className=" flex justify-center py-8 gap-12 bg-dark">
         {routes.map((item) => (
           <NavLink
             className={({ isActive }) =>

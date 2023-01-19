@@ -14,7 +14,7 @@ export async function movieLoader({ params }: LoaderFunctionArgs) {
 export function Home() {
   const data = useLoaderData() as Movie[];
   return (
-    <div className="w-screen h-full grid grid-rows-6">
+    <div className="w-screen h-full grid grid-rows-6 scrollbar-hide">
       <div className="w-full text-white text-2xl flex justify-center items-center mt-5 ">
         <UserInfo name={""} image={""}></UserInfo>
       </div>
@@ -27,10 +27,10 @@ export function Home() {
           <div className="text-title text-white-dimmed">Genre</div>
           <div className="">
             <a
-              className="text-description text-yellow flex flex-row items-center gap-4"
+              className="text-description text-yellow flex flex-row items-center gap-4 opacity-50"
               href=""
             >
-              <div>See all</div>
+              <div>See All</div>
               <div className="">
                 <ChevronRightIcon className="h-4" />
               </div>
