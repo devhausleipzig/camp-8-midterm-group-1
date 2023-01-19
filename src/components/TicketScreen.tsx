@@ -1,7 +1,6 @@
 import Barcode from 'react-barcode'; //https://www.npmjs.com/package/react-barcode
 import { LoaderFunctionArgs } from 'react-router-dom';
 import { API } from './API';
-import { useTicketStore } from './Ticket';
 
 // type Input = {
 //   movieID: number,
@@ -20,7 +19,7 @@ import { useTicketStore } from './Ticket';
 // }
 
 
-export default function BookingStore() {
+export default function TicketScreen() {
     return (
       <div className="w-80 h-[530px]">
         <div className="bg-white-dimmed grid grid-rows-[2fr_4fr_0.1fr_1fr] h-full w-72">

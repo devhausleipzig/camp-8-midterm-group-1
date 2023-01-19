@@ -1,6 +1,6 @@
 import "../index.css";
 import { StoryObj, Meta } from "@storybook/react";
-import BookingStore from "../components/Bookingstore";
+import TicketScreen from "../components/TicketScreen";
 
 //👇 This default export determines where your story goes in the story list
 const meta = {
@@ -8,12 +8,12 @@ const meta = {
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
-  title: "BookingStories",
-  component: BookingStore,
-} as Meta<typeof BookingStore>;
+  title: "TicketScreen",
+  component: TicketScreen,
+} as Meta<typeof TicketScreen>;
 
 export default meta;
-type Story = StoryObj<typeof BookingStore>;
+type Story = StoryObj<typeof TicketScreen>;
 
 export const FirstStory: Story = {
   args: {
