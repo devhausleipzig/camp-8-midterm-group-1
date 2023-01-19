@@ -1,7 +1,5 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
-
-import { useNavigate } from "react-router-dom";
 
 export function MovieDetailLayout() {
   const navigate = useNavigate();
