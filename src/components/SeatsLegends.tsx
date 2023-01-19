@@ -1,13 +1,4 @@
-type SeatsProps = {
-  primary: boolean;
-  backgroundColor: string;
-  size: "large";
-};
-
-type Input = {
-  circle: "Available" | "Reserved" | "Selected";
-};
-export function SelectSeats({ circle }: Input) {
+export function SeatsLegends() {
   return (
     <>
       <div className="flex gap-6 ">
