@@ -32,6 +32,7 @@ const router = createBrowserRouter([
       {
         element: <Home />,
         index: true,
+        loader: movieLoader,
       },
 
       {
@@ -81,7 +82,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <div className=" bg-dark">
+    <div className="bg-dark">
       <RouterProvider router={router} />
     </div>
   </React.StrictMode>
