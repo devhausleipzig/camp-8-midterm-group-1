@@ -4,7 +4,7 @@ import { Input } from "../components/Input";
 
 export function Login() {
   return (
-    <div className="h-screen flex flex-col justify-between py-8 px-5">
+    <form className="h-screen flex flex-col justify-between py-8 px-5">
       <div className="flex flex-col gap-8">
         <div className="flex flex-col gap-3">
           <p className="text-title">Welcome to Cine-Scape</p>
@@ -14,11 +14,15 @@ export function Login() {
           </p>
         </div>
         <div className="flex flex-col gap-5">
-          <Input icon={<EnvelopeIcon />} />
-          <Input icon={<KeyIcon />} />
+          <Input
+            icon={<EnvelopeIcon />}
+            type="email"
+            placeholder="address@gmail.com"
+          />
+          <Input icon={<KeyIcon />} placeholder="Password" type="password" />
         </div>
       </div>
-      <Button variant={ButtonVariant.primary} label="Login" />
-    </div>
+      <Button variant={ButtonVariant.primary} label="Login" type="submit" />
+    </form>
   );
 }
