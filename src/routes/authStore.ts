@@ -1,40 +1,31 @@
 import create from "zustand";
 import { persist } from "zustand/middleware";
-import zustand from "zustand";
 
+type Infos = {
+  hash: string;
+  email: string;
+  salt: string;
+  avatar: string;
+};
 type AuthStore = {
-  user: User;
-  token: string;
-  setUser: (inputUser: User) => void;
-  setToken: (tokenResponse: string) => void;
+  infos: Infos;
   setInfos: (inputInfos: Infos) => void;
   clearAuth: () => void;
 };
 
-type Infos = {
-  password: string;
-  email: string;
-}
-
-type User = {
-  username: string;
-  avatar: string;
-};
-
 const initState = {
-  user: { username: "", avatar: "" },
-  token: "",
-  infos: { password:"", email: ""},
+  infos: { hash: "", email: "", salt: "asdfkjasdfkj$slkjfval", avatar: "" },
 };
 export const useAuthStore = create<AuthStore>()(
   persist(
     (set) => ({
-      user: { username: "", avatar: "" },
-      token: "",
-      infos: { password: "", email: ""},
-      setUser: (inputUser: User) => set({ user: inputUser }),
-      setToken: (tokenResponse: string) => set({ token: tokenResponse }),
-      setInfos: (inputInfos: Infos) => set ({infos: inputInfos}),
+      infos: {
+        hash: "$2a$10$8dEUsmfvVx6VB1ibcKTWre1rBOmKumuZhguEemKompS77GPOCMLR.",
+        email: "dan@devhausleipzig.de",
+        salt: "asdfkjasdfkj",
+        avatar: "",
+      },
+      setInfos: (inputInfos: Infos) => set({ infos: inputInfos }),
       clearAuth: () => set({ ...initState }),
     }),
     {
