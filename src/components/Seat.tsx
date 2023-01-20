@@ -7,16 +7,16 @@ interface SeatProps
     HTMLButtonElement
   > {
   selected: boolean;
-  available: boolean;
+  reserved: boolean;
   id: string;
 }
-export function Seat({ id, selected, available, ...props }: SeatProps) {
+export function Seat({ id, selected, reserved, ...props }: SeatProps) {
   return (
     <button
-      disabled={!available}
+      disabled={reserved}
       className={clsx(
         "w-7 aspect-square rounded-md",
-        selected ? "bg-yellow" : available ? "bg-dark-light" : "bg-white"
+        selected ? "bg-yellow" : !reserved ? "bg-dark-light" : "bg-white"
       )}
       {...props}
     ></button>
