@@ -1,8 +1,12 @@
 import { EnvelopeIcon, KeyIcon } from "@heroicons/react/24/solid";
+import { Navigate } from "react-router-dom";
 import { Button, ButtonVariant } from "../components/Button";
 import { Input } from "../components/Input";
+import { useAuthStore } from "../stores/authStore";
 
 export function Login() {
+  const { token } = useAuthStore();
+  if (token) return <Navigate to="/" replace />;
   return (
     <form className="h-screen flex flex-col justify-between py-8 px-5">
       <div className="flex flex-col gap-8">
