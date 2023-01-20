@@ -1,37 +1,70 @@
-import { redirect, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { API } from "./API";
+import { Combobox } from "@headlessui/react";
+import { Link } from "react-router-dom";
+import { emojiIcons } from "./Emogi";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+
+type APIResponce = {
+  title: string;
+  genre: number[];
+  id: number;
+};
 
 export function SearchBar() {
+  const [result, setResult] = useState<APIResponce[]>([
+    {
+      title: "PLaceholder",
+      genre: [0],
+      id: 0,
+    },
+  ]);
+
+  function checkGenres(inputs: number[]) {
+    const keys = Object.keys(emojiIcons);
+    let returnIcon = "420";
+    inputs.reverse().map((number) => {
+      if (keys.includes(String(number))) {
+        returnIcon = String(number);
+      }
+    });
+    return returnIcon;
+  }
+  async function searchResults(event: React.ChangeEvent<HTMLInputElement>) {
+    setResult(await API.searchResult(event.target.value));
+  }
   return (
-    <div className="">
-      <form method="GET">
-        <div className="relative focus-within:text-body">
-          <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-            <button
-              type="submit"
-              className="px-4 focus:outline-none focus:shadow-outline text-body"
-            >
-              <svg
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                className="w-6 h-6"
-              >
-                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-              </svg>
-            </button>
-          </span>
-          <input
-            type="search"
-            name="q"
-            className="py-2 text-body rounded-full bg-dark-light h-12 w-80 hover:border-2 hover:border-white-dimmed-heavy pl-16 focus:outline-none"
-            placeholder="Search"
-            autoComplete="off"
-          ></input>
+    <div className="text-white-dimmed relative w-screen px-5">
+      <Combobox value="Search">
+        <Combobox.Input
+          onChange={(event) => searchResults(event)}
+          className="rounded-full w-full h-12 bg-dark-light text-body text-white-dimmed px-16"
+        />
+        <MagnifyingGlassIcon className="text-white-dimmed h-6 top-3 left-10 absolute" />
+
+        <Combobox.Button className="absolute top-3 left-10 flex items-center pr-2"></Combobox.Button>
+        <div className="absolute">
+          <Combobox.Options className="mt-1 max-h-60 w-full overflow-auto rounded-lg bg-dark-light py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none flex flex-col gap-1">
+            {result
+              .filter((_, i) => i < 5)
+              .map((film) => {
+                return (
+                  <Combobox.Option value={""} key={film.id} className="w-full">
+                    <Link
+                      to={`/movie/${String(film.id)}`}
+                      className="flex pl-6 gap-5 bg-dark-light w-72"
+                    >
+                      <p className="text-white">
+                        {emojiIcons[checkGenres(film.genre)].icon}
+                      </p>
+                      <p>{film.title}</p>
+                    </Link>
+                  </Combobox.Option>
+                );
+              })}
+          </Combobox.Options>
         </div>
-      </form>
+      </Combobox>
     </div>
   );
 }
