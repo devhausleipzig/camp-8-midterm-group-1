@@ -1,8 +1,18 @@
+import { Button, ButtonVariant } from "../components/Button";
+import { useAuthStore } from "../stores/authStore";
+
 export function Account() {
+  const { clearAuth } = useAuthStore();
+
   return (
     <div>
-      <h1>Login</h1>
-      <h1>Account</h1>
+      <div className="flex justify-center">
+        <Button
+          variant={ButtonVariant.secondary}
+          label="Log Out"
+          onClick={clearAuth}
+        />
+      </div>
     </div>
   );
 }

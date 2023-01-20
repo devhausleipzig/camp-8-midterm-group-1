@@ -6,7 +6,7 @@ import MoviesPageButton from "../components/MoviesPageButton";
 import { Movie } from "../types/api";
 import { Link, useLoaderData } from "react-router-dom";
 
-export async function moviesLoader() {
+export async function moviesArrayLoader() {
   return API.fourByFour();
 }
 export function Movies() {
@@ -47,7 +47,7 @@ export function Movies() {
                   <div className="grid grid-rows-2 grid-cols-2 gap-x-5 gap-y-5">
                     {card.map((card) => {
                       return (
-                        <Link to={`movie/${String(card.id)}`}>
+                        <Link to={`/movie/${String(card.id)}`}>
                           <img
                             src={`https://image.tmdb.org/t/p/w500${card?.poster_path}`}
                             alt=""
