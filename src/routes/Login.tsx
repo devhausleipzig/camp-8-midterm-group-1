@@ -1,17 +1,33 @@
 import { EnvelopeIcon, KeyIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button, ButtonVariant } from "../components/Button";
 import { Hash } from "../components/HashPassword";
 import { Input } from "../components/Input";
+import { useAuthStore } from "./authStore"; 
+
 
 export function Login() {
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { token, setEmail, setToken } = useAuthStore();
+  const [emailInput, setEmailInput] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
   function onSubmit(event: React.FormEvent<HTMLButtonElement>) {
     event.preventDefault();
     console.log("Sumbmit Button Pressed");
     const salt = Hash.salt();
     const hashedPassword = Hash.hashSync(password, salt);
+
+    if (emailInput === "dan@devhausleipzig.de" && password === "test123") {
+      setToken("test-token");
+      setEmail(emailInput);
+      navigate("/");
+    }
+    setError("Incorrect Credentials");
+  }
   }
 
   return (
@@ -29,7 +45,7 @@ export function Login() {
             icon={<EnvelopeIcon />}
             type="email"
             placeholder="your@email.com"
-            onChange={(event) => setEmail(event.target.value)}
+            onChange={(event) => useAuthStore.setState.  (event.target.value)}
           />
           <Input
             icon={<KeyIcon />}

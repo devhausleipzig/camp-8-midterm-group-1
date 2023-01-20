@@ -7,8 +7,14 @@ type AuthStore = {
   token: string;
   setUser: (inputUser: User) => void;
   setToken: (tokenResponse: string) => void;
+  setInfos: (inputInfos: Infos) => void;
   clearAuth: () => void;
 };
+
+type Infos = {
+  password: string;
+  email: string;
+}
 
 type User = {
   username: string;
@@ -18,14 +24,17 @@ type User = {
 const initState = {
   user: { username: "", avatar: "" },
   token: "",
+  infos: { password:"", email: ""},
 };
 export const useAuthStore = create<AuthStore>()(
   persist(
     (set) => ({
       user: { username: "", avatar: "" },
       token: "",
+      infos: { password: "", email: ""},
       setUser: (inputUser: User) => set({ user: inputUser }),
       setToken: (tokenResponse: string) => set({ token: tokenResponse }),
+      setInfos: (inputInfos: Infos) => set ({infos: inputInfos}),
       clearAuth: () => set({ ...initState }),
     }),
     {
