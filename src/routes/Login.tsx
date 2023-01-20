@@ -4,30 +4,35 @@ import { useNavigate } from "react-router-dom";
 import { Button, ButtonVariant } from "../components/Button";
 import { Hash } from "../components/HashPassword";
 import { Input } from "../components/Input";
-import { useAuthStore } from "./authStore"; 
-
+import { useAuthStore } from "./authStore";
 
 export function Login() {
-  // const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { token, setEmail, setToken } = useAuthStore();
-  const [emailInput, setEmailInput] = useState("");
+  const [emailInput, setEmailInput] = useState<string>("");
+  const { infos, setInfos } = useAuthStore();
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
   function onSubmit(event: React.FormEvent<HTMLButtonElement>) {
     event.preventDefault();
     console.log("Sumbmit Button Pressed");
-    const salt = Hash.salt();
+    const salt = infos.salt;
     const hashedPassword = Hash.hashSync(password, salt);
+    console.log(hashedPassword);
+    console.log(infos.email);
+    console.log(infos.hash);
+    console.log(hashedPassword === infos.hash);
 
-    if (emailInput === "dan@devhausleipzig.de" && password === "test123") {
-      setToken("test-token");
-      setEmail(emailInput);
+    if (emailInput === infos.email && hashedPassword === infos.hash) {
+      setInfos({
+        email: emailInput,
+        hash: hashedPassword,
+        salt: salt,
+        avatar: "",
+      });
       navigate("/");
     }
     setError("Incorrect Credentials");
-  }
   }
 
   return (
@@ -45,7 +50,7 @@ export function Login() {
             icon={<EnvelopeIcon />}
             type="email"
             placeholder="your@email.com"
-            onChange={(event) => useAuthStore.setState.  (event.target.value)}
+            onChange={(event) => setEmailInput(event.target.value)}
           />
           <Input
             icon={<KeyIcon />}
