@@ -12,11 +12,16 @@ const Object: Record<Input, number> = {
 // export function SeatsLocationPrice({ [{Front:2}, {Middle:5}, {Back"6}] }: Input) {
 //   return (
 //     {Object.Front}
+
 //   );
 // }
 
 export function 
-
+const SeatsLocationPrice =new Map<string,string |number>([
+ ["Seat Front"],$12.95 / each"],
+ ["Seat"],["Middle"] , Middle,$12.95 / each"],
+["Seat" ,Back,$12.95 / each"]'
+]);
 //const map1 = new Map<string, string | number>([
 //   ['name', 'Tom'],
 //   ['country', 'Germany'],
