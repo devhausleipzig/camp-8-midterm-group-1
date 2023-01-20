@@ -1,39 +1,28 @@
 import { EnvelopeIcon, KeyIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { Button, ButtonVariant } from "../components/Button";
-import { Hash } from "../components/HashPassword";
 import { Input } from "../components/Input";
 import { useAuthStore } from "./authStore";
 
 export function Login() {
   const [password, setPassword] = useState("");
   const [emailInput, setEmailInput] = useState<string>("");
-  const { infos, setInfos } = useAuthStore();
+  const { token, setToken, infos, setInfos } = useAuthStore();
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
   function onSubmit(event: React.FormEvent<HTMLButtonElement>) {
     event.preventDefault();
-    console.log("Sumbmit Button Pressed");
-    const salt = infos.salt;
-    const hashedPassword = Hash.hashSync(password, salt);
-    console.log(hashedPassword);
-    console.log(infos.email);
-    console.log(infos.hash);
-    console.log(hashedPassword === infos.hash);
-
-    if (emailInput === infos.email && hashedPassword === infos.hash) {
-      setInfos({
-        email: emailInput,
-        hash: hashedPassword,
-        salt: salt,
-        avatar: "",
-      });
+    if (emailInput === infos.email && password === infos.password) {
+      setToken("token-token");
+      setEmailInput(emailInput);
       navigate("/");
     }
-    setError("Incorrect Credentials");
+    setError("Incorrect, try again");
   }
+
+  if (token) return <Navigate to="/" replace />;
 
   return (
     <form className="h-screen flex flex-col justify-between py-8 px-5">
@@ -59,6 +48,7 @@ export function Login() {
             onChange={(event) => setPassword(event.target.value)}
           />
         </div>
+        {error && <p>{error}</p>}
       </div>
       <Button
         variant={ButtonVariant.primary}
