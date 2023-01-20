@@ -6,7 +6,8 @@ import {
   HomeIcon,
   UserIcon,
 } from "@heroicons/react/24/solid";
-import { useAuthStore } from "../routes/authStore";
+import { useAuthStore } from "../stores/authStore";
+
 
 const routes = [
   {

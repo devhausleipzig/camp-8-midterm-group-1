@@ -2,7 +2,7 @@ import { EnvelopeIcon, KeyIcon } from "@heroicons/react/24/solid";
 import { Navigate } from "react-router-dom";
 import { Button, ButtonVariant } from "../components/Button";
 import { Input } from "../components/Input";
-import { useAuthStore } from "./authStore";
+import { useAuthStore } from "../stores/authStore";
 
 export function Login() {
   const { token } = useAuthStore();
