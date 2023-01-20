@@ -14,8 +14,10 @@ export function timesLoader() {
 export function SelectDateTime() {
   const data = useLoaderData() as Days;
   const [selectedDates, setSelectedDates] = useState<string>("");
+  console.log(selectedDates);
+
   function clickDate(toCheck: string) {
-    if (selectedDates.includes(toCheck)) {
+    if (selectedDates == toCheck) {
       return setSelectedDates("");
     } else {
       setSelectedDates(toCheck);
