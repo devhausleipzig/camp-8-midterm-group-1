@@ -1,7 +1,11 @@
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Navigate, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
+import { useAuthStore } from "../stores/authStore";
 
 export function MovieDetailLayout() {
+  const { token } = useAuthStore();
+  if (!token) return <Navigate to="/login" replace />;
+
   const navigate = useNavigate();
   const handleClick = () => {
     navigate(-1);
