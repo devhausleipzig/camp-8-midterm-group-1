@@ -1,6 +1,7 @@
 import { SeatSquares } from "../components/SeatSquares";
 
 export function SelectSeats() {
+
   type SeatInfo = {
     fill: boolean;
     id: string;
@@ -41,5 +42,6 @@ export function SelectSeats() {
         </div>
       </div>
     </>
+
   );
 }
