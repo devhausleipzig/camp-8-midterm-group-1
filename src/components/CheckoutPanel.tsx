@@ -32,7 +32,7 @@ export function CheckoutPanel({ seats, click }: InputProps) {
   return (
     <Transition
       show={seats.length > 0}
-      className="py-6 px-5 flex flex-col gap-4 bg-dark-light rounded-t-3xl"
+      className="py-6 px-5 flex flex-col gap-4 bg-dark-light rounded-t-3xl w-screen"
       enter="transition transform translate-y duration-[750ms]"
       enterFrom="translate-y-60"
       enterTo=""
