@@ -8,17 +8,8 @@ interface ButtonProps
     HTMLButtonElement
   > {
   square: Options;
-  setSquare: React.Dispatch<React.SetStateAction<Options>>;
 }
-export function SeatSquares({ square, setSquare, ...props }: ButtonProps) {
-  function clickFunction() {
-    if (square === "Available") {
-      setSquare("Selected");
-    }
-    if (square === "Selected") {
-      setSquare("Available");
-    }
-  }
+export function SeatSquares({ square, ...props }: ButtonProps) {
   return (
     <button
       disabled={square === "Reserved" ? true : false}
@@ -34,7 +25,6 @@ export function SeatSquares({ square, setSquare, ...props }: ButtonProps) {
           ? "flex-none w-7 h-7 bg-yellow rounded-sm justify-center items-center"
           : ""
       )}
-      onClick={clickFunction}
     ></button>
   );
 }
