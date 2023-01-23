@@ -4,7 +4,7 @@ import { useAuthStore } from "../stores/authStore";
 
 export function MovieDetailLayout() {
   const { token } = useAuthStore();
-  // if (!token) return <Navigate to="/login" replace />;
+  if (!token) return <Navigate to="/login" replace />;
 
   const navigate = useNavigate();
   const handleClick = () => {

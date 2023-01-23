@@ -1,5 +1,6 @@
 import create from "zustand";
 import { persist } from "zustand/middleware";
+import zustand from "zustand";
 
 type AuthStore = {
   user: User;
