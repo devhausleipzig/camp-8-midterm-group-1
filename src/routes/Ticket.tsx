@@ -1,16 +1,34 @@
 import { CodeBar } from "../components/Barcode";
-import { LoaderFunctionArgs, useLoaderData } from "react-router-dom";
+import {
+  LoaderFunctionArgs,
+  useLoaderData,
+  useNavigate,
+} from "react-router-dom";
 import { API } from "../components/API";
 import { Button, ButtonVariant } from "../components/Button";
 import { MovieDetail } from "../types/api";
 import { useState } from "react";
+import { useAuthStore } from "../stores/authStore";
+import { useTicketStore } from "../stores/BookingStore";
 
 export async function ticketLoader({ params }: LoaderFunctionArgs) {
+  const date = useTicketStore();
+  date.setDate("ssioeiz");
   return API.movieDetail(Number(params.movieId));
 }
 
 export function Ticket() {
   const data = useLoaderData() as MovieDetail;
+  const navigate = useNavigate();
+  const { clearAuth } = useAuthStore();
+  const date = useTicketStore();
+
+  function onSubmit(event: React.FormEvent<HTMLButtonElement>) {
+    event.preventDefault();
+    navigate("/");
+    clearAuth;
+  }
+
   return (
     <div className="h-screen flex-col flex px-5 py-8 border-white border rounded-3xl">
       <div className="flex flex-col flex-grow justify-between relative rounded-xl  bg-white-dimmed-heavy">
@@ -23,7 +41,7 @@ export function Ticket() {
             <p className=" py-2 text-titleticket text-white">{data.title}</p>
             <div className="flex justify-between">
               <div>
-                <p className=" mt-6 text-description text-dark">Date</p>
+                <p className=" mt-6 text-description text-dark">{date.date}</p>
                 <p className="mt-1 text-primary text-white">08 Jan</p>
               </div>
               <div>
@@ -51,7 +69,11 @@ export function Ticket() {
         </div>
       </div>
       <div className="mt-6">
-        <Button variant={ButtonVariant.primary} label="Back to Home"></Button>
+        <Button
+          variant={ButtonVariant.primary}
+          label="Back to Home"
+          onClick={onSubmit}
+        ></Button>
       </div>
     </div>
   );
