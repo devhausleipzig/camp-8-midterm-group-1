@@ -29,7 +29,7 @@ export const useTicketStore = create<TicketStore>()(
       movieID: 0,
       date: "24.01.2023",
       time: "13:40",
-      seats: ["C - 3", ", ", "C - 5", ", ", "A - 10"],
+      seats: ["C-3", ", ", "C-5", ", ", "A-10"],
       totalPrice: "43.30$",
       setMovieID: (movieInput: number) => set({ movieID: movieInput }),
       setDate: (dateInput: string) => set({ date: dateInput }),
