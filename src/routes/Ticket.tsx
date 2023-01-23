@@ -58,7 +58,9 @@ export function Ticket() {
             </div>
             <div>
               <p className=" mt-4 text-description text-dark">Seats</p>
-              <p className="mt-1 text-primary text-white">{store.seats}</p>
+              <p className="mt-1 text-primary text-white">
+                {store.seats.join(" , ")}
+              </p>
             </div>
           </div>
         </div>
