@@ -17,7 +17,7 @@ export function SeatsLocationPrice({ type, number }: InputParams) {
   return (
     <div className="flex gap-36 justify-center">
       <div className="flex gap-4">
-        <p className="text-description">{number}</p>
+        <p className="text-description">{number} x</p>
         <p className="text-description text-white">Seat - {type}</p>
       </div>
       <div className="flex gap-1 text-description ">
