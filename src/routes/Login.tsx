@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Button, ButtonVariant } from "../components/Button";
 import { Input } from "../components/Input";
-import { useAuthStore } from "./authStore";
+import { useAuthStore } from "../stores/authStore";
 
 export function Login() {
   const [password, setPassword] = useState("");
@@ -21,9 +21,7 @@ export function Login() {
     }
     setError("Incorrect, try again");
   }
-
   if (token) return <Navigate to="/" replace />;
-
   return (
     <form className="h-screen flex flex-col justify-between py-8 px-5">
       <div className="flex flex-col gap-8">
