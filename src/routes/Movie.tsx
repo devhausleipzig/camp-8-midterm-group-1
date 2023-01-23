@@ -8,17 +8,32 @@ import { MovieDetail } from "../types/api";
 import { API } from "../components/API";
 import clsx from "clsx";
 import { Button, ButtonVariant } from "../components/Button";
+import { HeartIcon as HeartOut } from "@heroicons/react/24/outline";
+import { HeartIcon as HearFill } from "@heroicons/react/24/solid";
+import { useState } from "react";
+import { useFavStore } from "../stores/FavouriteStore";
 
 export async function movieLoader({ params }: LoaderFunctionArgs) {
   return API.movieDetail(Number(params.movieId));
 }
 
 export function Movie() {
+  const { movie, setMovie } = useFavStore();
   function minutesToHours(minutes: number) {
     const hours = Math.floor(minutes / 60);
     const Minutes = minutes % 60;
     return `${hours}h ${Minutes}m`;
   }
+
+  function onClick() {
+    if (favourite) {
+      setMovie(mov.id);
+    }
+    console.log(movie);
+
+    navigate("selecttime");
+  }
+  const [favourite, setFavourite] = useState(false);
 
   const navigate = useNavigate();
 
@@ -29,11 +44,21 @@ export function Movie() {
   return (
     <div className="flex flex-col justify-between h-screen px-5">
       <div className="flex flex-col ">
-        <div className="flex flex-col gap-y-6">
+        <div className="flex flex-col gap-y-6 relative">
           <img
-            className="w-full h-52 border rounded-lg object-fit"
+            className="w-full h-52 border rounded-lg object-cover relative"
             src={"https://image.tmdb.org/t/p/w500" + mov.poster_path}
           />
+          <div
+            className="absolute bottom-16 right-2 "
+            onClick={() => setFavourite(!favourite)}
+          >
+            {favourite ? (
+              <HearFill className="h-10 text-pink" />
+            ) : (
+              <HeartOut className="h-10 text-pink" />
+            )}
+          </div>
           <p className="text-supertitle text-white pb-3">{mov.title}</p>
         </div>
 
@@ -96,7 +121,7 @@ export function Movie() {
         <Button
           variant={ButtonVariant.primary}
           label="Get Reservation"
-          onClick={() => navigate("selecttime")}
+          onClick={onClick}
         />
       </div>
     </div>
