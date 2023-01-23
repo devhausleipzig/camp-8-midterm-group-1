@@ -12,8 +12,6 @@ import { useAuthStore } from "../stores/authStore";
 import { useTicketStore } from "../stores/BookingStore";
 
 export async function ticketLoader({ params }: LoaderFunctionArgs) {
-  const date = useTicketStore();
-  date.setDate("ssioeiz");
   return API.movieDetail(Number(params.movieId));
 }
 
@@ -21,7 +19,7 @@ export function Ticket() {
   const data = useLoaderData() as MovieDetail;
   const navigate = useNavigate();
   const { clearAuth } = useAuthStore();
-  const date = useTicketStore();
+  const date = useTicketStore((state) => state.date);
 
   function onSubmit(event: React.FormEvent<HTMLButtonElement>) {
     event.preventDefault();
@@ -41,7 +39,7 @@ export function Ticket() {
             <p className=" py-2 text-titleticket text-white">{data.title}</p>
             <div className="flex justify-between">
               <div>
-                <p className=" mt-6 text-description text-dark">{date.date}</p>
+                <p className=" mt-6 text-description text-dark">{date}</p>
                 <p className="mt-1 text-primary text-white">08 Jan</p>
               </div>
               <div>
