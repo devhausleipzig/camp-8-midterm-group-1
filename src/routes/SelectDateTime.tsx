@@ -7,6 +7,7 @@ import { eo } from "date-fns/locale";
 import { SelectButton, SelectButtonVariant } from "../components/SelectButton";
 import { Days } from "../components/MockData";
 import { useLoaderData } from "react-router-dom";
+import { MovieDetailLayout } from "../layouts";
 export function timesLoader() {
   return new Days();
 }
@@ -15,8 +16,6 @@ export function SelectDateTime() {
   const data = useLoaderData() as Days;
   const [selectedDates, setSelectedDates] = useState<string>("");
   const [selectedTimes, setSelectedTimes] = useState<string>("");
-  // console.log(selectedDates);
-  console.log(selectedTimes);
 
   function clickDate(toCheck: string) {
     if (selectedDates == toCheck) {
@@ -35,13 +34,13 @@ export function SelectDateTime() {
   }
 
   return (
-    <div className="flex justify-center items-center bg-dark">
-      <div className="w-96 h-full flex justify-center flex-col ">
-        <div className="px-3 py-3 divide-y divide-white-dimmed outline-1 ">
+    <div className="flex flex-col justify-between items-center bg-dark h-full">
+      <div className="w-full h-full flex flex-col justify-between items-stretch">
+        <div className="flex flex-col justify-between px-3  divide-y divide-white-dimmed outline-1">
           <div>
             <p className="text-white-dimmed text-description">DATE</p>
             <br />
-            <div className="grid grid-flow-row-dense gap-x-2 gap-y-3 grid-cols-4 p-2 text-description text-center ">
+            <div className="grid grid-flow-row-dense gap-x-2 gap-y-3 grid-cols-4 py-6 text-description text-center ">
               {data.days.map((day) => {
                 return (
                   <SelectButton
