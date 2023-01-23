@@ -1,13 +1,9 @@
-import clsx from "clsx";
 import React, { useState } from "react";
 import { Button, ButtonVariant } from "../components/Button";
-import { format, compareAsc } from "date-fns";
-import { formatWithOptions } from "date-fns/fp";
-import { eo } from "date-fns/locale";
 import { SelectButton, SelectButtonVariant } from "../components/SelectButton";
 import { Days } from "../components/MockData";
-import { useLoaderData } from "react-router-dom";
-import { MovieDetailLayout } from "../layouts";
+import { useParams } from "react-router-dom";
+import { Navigate, useLoaderData, useNavigate } from "react-router-dom";
 export function timesLoader() {
   return new Days();
 }
@@ -16,6 +12,8 @@ export function SelectDateTime() {
   const data = useLoaderData() as Days;
   const [selectedDates, setSelectedDates] = useState<string>("");
   const [selectedTimes, setSelectedTimes] = useState<string>("");
+  const navigate = useNavigate();
+  const { movieId } = useParams();
 
   function clickDate(toCheck: string) {
     if (selectedDates == toCheck) {
@@ -86,9 +84,16 @@ export function SelectDateTime() {
         </div>
 
         <div className="p-2">
-          <Button variant={ButtonVariant.primary} label={"Select Seat"} />
+          <Button
+            variant={ButtonVariant.primary}
+            label={"Select Seat"}
+            onClick={() => navigate(`/movie/${movieId}/selectseats`)}
+          />
         </div>
       </div>
     </div>
   );
+}
+function useRouter() {
+  throw new Error("Function not implemented.");
 }
