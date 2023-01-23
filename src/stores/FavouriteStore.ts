@@ -15,12 +15,20 @@ export const useFavStore = create<FavStore>()(
   persist(
     (set) => ({
       movie: [],
-      setMovie: (inputMov) =>
-        set((state) => ({ movie: [...state.movie, inputMov] })),
-      removeMov: (inputMov) =>
+      setMovie: (inputMov) => {
+        set((state) =>
+          state.movie.includes(inputMov)
+            ? { movie: [...state.movie, inputMov] }
+            : { movie: [...state.movie] }
+        );
+        console.log("added");
+      },
+      removeMov: (inputMov) => {
         set((state) => ({
           movie: state.movie.filter((todo) => todo !== inputMov),
-        })),
+        }));
+        console.log("removed");
+      },
       clearAuth: () => set({ ...initState }),
     }),
     {

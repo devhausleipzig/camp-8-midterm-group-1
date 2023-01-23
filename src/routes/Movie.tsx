@@ -18,7 +18,7 @@ export async function movieLoader({ params }: LoaderFunctionArgs) {
 }
 
 export function Movie() {
-  const { movie, setMovie } = useFavStore();
+  const { movie, setMovie, removeMov } = useFavStore();
   function minutesToHours(minutes: number) {
     const hours = Math.floor(minutes / 60);
     const Minutes = minutes % 60;
@@ -26,13 +26,14 @@ export function Movie() {
   }
 
   function onClick() {
-    if (favourite) {
+    setFavourite(!favourite);
+    if (!favourite) {
       setMovie(mov.id);
+    } else {
+      removeMov(mov.id);
     }
-    console.log(movie);
-
-    navigate("selecttime");
   }
+
   const [favourite, setFavourite] = useState(false);
 
   const navigate = useNavigate();
@@ -49,10 +50,7 @@ export function Movie() {
             className="w-full h-52 border rounded-lg object-cover relative"
             src={"https://image.tmdb.org/t/p/w500" + mov.poster_path}
           />
-          <div
-            className="absolute bottom-16 right-2 "
-            onClick={() => setFavourite(!favourite)}
-          >
+          <div className="absolute bottom-16 right-2 " onClick={onClick}>
             {favourite ? (
               <HearFill className="h-10 text-pink" />
             ) : (
@@ -121,7 +119,7 @@ export function Movie() {
         <Button
           variant={ButtonVariant.primary}
           label="Get Reservation"
-          onClick={onClick}
+          onClick={() => navigate("selecttime")}
         />
       </div>
     </div>
