@@ -10,14 +10,12 @@ export function SelectSeats() {
   let data = new Days();
   const seatInfo = data.days[0].screenings[0].seats;
 
-  const [seats, setSelectedSeats] = useState<String[]>([]);
+  const [seats, setSelectedSeats] = useState<string[]>([]);
 
-  function toggle(selected: String[]) {
-    setSelectedSeats((preValue) => {
-      return preValue.map((seatid:String[]) => {
-        return seatid === selected ? "" : "";
-      });
-    });
+  function toggle(seatNum: number) {
+    if (seats.includes(String(seatNum))) {
+    } else {
+    }
   }
 
   let arrayofseats = [];
@@ -51,8 +49,8 @@ export function SelectSeats() {
               <Seat
                 id={String(seat.id)}
                 reserved={seatInfo[seat.id].ocupied}
-                selected={false}
-                onClick={toggle}
+                selected={seats.includes(String(seat.id))}
+                onClick={() => toggle(seat.id)}
               />
             ) : (
               <div></div>
