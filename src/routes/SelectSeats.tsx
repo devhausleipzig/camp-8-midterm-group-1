@@ -1,6 +1,3 @@
-import { useState } from "react";
-import { CheckoutPanel, PTags } from "../components/CheckoutPanel";
-
 export function SelectSeats() {
   return (
     <div>
