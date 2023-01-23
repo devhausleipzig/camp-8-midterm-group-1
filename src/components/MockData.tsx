@@ -24,7 +24,7 @@ type DayType = {
 
 class Seats {
   seats: SeatsType[];
-  seatnum = 4;
+  seatnum = 44;
   constructor() {
     this.seats = this.populateSeats();
   }
