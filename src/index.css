@@ -40,4 +40,21 @@
     font-weight: 700;
     line-height: 32px;
   }
+  .text-supertitle {      
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+  }
+
+  .image-center {
+    object-fit: cover;
+    object-position: 25% 25%;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }

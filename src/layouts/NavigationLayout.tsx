@@ -1,4 +1,4 @@
-import { Outlet, NavLink } from "react-router-dom";
+import { Outlet, NavLink, Navigate } from "react-router-dom";
 import clsx from "clsx";
 import {
   Bars4Icon,
@@ -6,6 +6,8 @@ import {
   HomeIcon,
   UserIcon,
 } from "@heroicons/react/24/solid";
+import { useAuthStore } from "../stores/authStore";
+
 
 const routes = [
   {
@@ -27,12 +29,15 @@ const routes = [
 ];
 
 export function NavigationLayout() {
+  const { token } = useAuthStore();
+  if (!token) return <Navigate to="/login" replace />;
+
   return (
-    <>
-      <main className="flex-1">
+    <div className="h-screen flex flex-col">
+      <main className="flex h-full">
         <Outlet />
       </main>
-      <nav className=" flex justify-center py-8 gap-12">
+      <nav className=" flex justify-center py-8 gap-12 bg-dark">
         {routes.map((item) => (
           <NavLink
             className={({ isActive }) =>
@@ -45,6 +50,6 @@ export function NavigationLayout() {
           </NavLink>
         ))}
       </nav>
-    </>
+    </div>
   );
 }
