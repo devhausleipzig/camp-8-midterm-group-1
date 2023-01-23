@@ -19,13 +19,16 @@ export function Ticket() {
   const data = useLoaderData() as MovieDetail;
   const navigate = useNavigate();
   const { clearAuth } = useAuthStore();
-  const date = useTicketStore((state) => state.date);
+  // const { clear } = useTicketStore();
+  const store = useTicketStore();
 
   function onSubmit(event: React.FormEvent<HTMLButtonElement>) {
     event.preventDefault();
     navigate("/");
     clearAuth;
   }
+
+  localStorage.clear();
 
   return (
     <div className="h-screen flex-col flex px-5 py-8 border-white border rounded-3xl">
@@ -39,21 +42,23 @@ export function Ticket() {
             <p className=" py-2 text-titleticket text-white">{data.title}</p>
             <div className="flex justify-between">
               <div>
-                <p className=" mt-6 text-description text-dark">{date}</p>
-                <p className="mt-1 text-primary text-white">08 Jan</p>
+                <p className=" mt-6 text-description text-dark">Date</p>
+                <p className="mt-1 text-primary text-white">{store.date}</p>
               </div>
               <div>
                 <p className=" mt-6 text-description text-dark">Time</p>
-                <p className=" mt-1 text-primary text-white">14:30</p>
+                <p className=" mt-1 text-primary text-white">{store.time}</p>
               </div>
               <div>
                 <p className=" mt-6 text-description text-dark">Price</p>
-                <p className="mt-1 text-primary text-white">$42.85</p>
+                <p className="mt-1 text-primary text-white">
+                  {store.totalPrice}
+                </p>
               </div>
             </div>
             <div>
               <p className=" mt-4 text-description text-dark">Seats</p>
-              <p className="mt-1 text-primary text-white">C-3, C-5, A-4</p>
+              <p className="mt-1 text-primary text-white">{store.seats}</p>
             </div>
           </div>
         </div>
