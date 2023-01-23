@@ -1,5 +1,6 @@
 import { Days } from "../components/MockData";
 import { Seat } from "../components/Seat";
+import { useState } from "react";
 
 export function SelectSeats() {
   type SeatInfo = {
@@ -8,6 +9,16 @@ export function SelectSeats() {
   };
   let data = new Days();
   const seatInfo = data.days[0].screenings[0].seats;
+
+  const [seats, setSelectedSeats] = useState<String[]>([]);
+
+  function toggle(selected: String[]) {
+    setSelectedSeats((preValue) => {
+      return preValue.map((seatid:String[]) => {
+        return seatid === selected ? "" : "";
+      });
+    });
+  }
 
   let arrayofseats = [];
 
@@ -41,6 +52,7 @@ export function SelectSeats() {
                 id={String(seat.id)}
                 reserved={seatInfo[seat.id].ocupied}
                 selected={false}
+                onClick={toggle}
               />
             ) : (
               <div></div>
