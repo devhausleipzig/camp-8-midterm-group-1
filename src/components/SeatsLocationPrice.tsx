@@ -3,7 +3,7 @@ type SeatsLocationPriceProps = {
   Location: string;
   Price: number;
 };
-type Seats = "Front" | "Middle" | "Back";
+export type Seats = "Front" | "Middle" | "Back";
 type InputParams = {
   type: Seats;
   number: number;
@@ -15,7 +15,7 @@ const prices: Record<Seats, number> = {
 };
 export function SeatsLocationPrice({ type, number }: InputParams) {
   return (
-    <div className="flex gap-36 justify-center">
+    <div className="flex gap-36 justify-between w-full">
       <div className="flex gap-4">
         <p className="text-description">{number} x</p>
         <p className="text-description text-white">Seat - {type}</p>

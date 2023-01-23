@@ -1,19 +1,22 @@
 import { Transition } from "@headlessui/react";
+import { useNavigate, useParams, useRoutes } from "react-router-dom";
 import { Button, ButtonVariant } from "./Button";
+import { Seats, SeatsLocationPrice } from "./SeatsLocationPrice";
 export type PTags = {
   type: string;
 };
 type InputProps = {
   seats: PTags[];
-  click: () => void;
 };
-const pricesObject: Record<string, number> = {
+const pricesObject: Record<Seats, number> = {
   Front: 12.95,
   Middle: 14.95,
   Back: 16.95,
 };
 
-export function CheckoutPanel({ seats, click }: InputProps) {
+export function CheckoutPanel({ seats }: InputProps) {
+  const navigate = useNavigate();
+  const { movieId } = useParams();
   const typesOfSeats: string[] = [];
   seats.map((seat) => {
     if (!typesOfSeats.includes(seat.type)) {
@@ -24,7 +27,8 @@ export function CheckoutPanel({ seats, click }: InputProps) {
     let price: number = 0;
     typesOfSeats.map((type) => {
       price +=
-        input.filter((seat) => seat.type == type).length * pricesObject[type];
+        input.filter((seat) => seat.type == type).length *
+        pricesObject[type as Seats];
     });
     return Math.trunc(price * 100) / 100;
   }
@@ -37,13 +41,14 @@ export function CheckoutPanel({ seats, click }: InputProps) {
       enterFrom="translate-y-60"
       enterTo=""
     >
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 items-start">
         {typesOfSeats.map((type) => {
           return (
-            <p key={type}>
-              Number: {seats.filter((seat) => seat.type == type).length} type:{" "}
-              {type}
-            </p>
+            <SeatsLocationPrice
+              number={seats.filter((seat) => seat.type == type).length}
+              type={type as Seats}
+              key={type}
+            />
           );
         })}
       </div>
@@ -51,7 +56,9 @@ export function CheckoutPanel({ seats, click }: InputProps) {
       <div className="grid grid-cols-3">
         <div>
           <p className="text-description">Total Price</p>
-          <p className="text-title">{String(calculateTotalPrice(seats))}</p>
+          <p className="text-title">
+            {"$" + String(calculateTotalPrice(seats))}
+          </p>
         </div>
         <div className="col-span-2">
           <Button
@@ -59,7 +66,7 @@ export function CheckoutPanel({ seats, click }: InputProps) {
               seats.length > 0 ? ButtonVariant.primary : ButtonVariant.secondary
             }
             label="Book Tickets"
-            onClick={click}
+            onClick={() => navigate(`/movie/${movieId}/ticket`)}
           />
         </div>
       </div>
