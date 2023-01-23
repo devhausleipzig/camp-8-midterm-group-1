@@ -16,18 +16,16 @@ export const useFavStore = create<FavStore>()(
     (set) => ({
       movie: [],
       setMovie: (inputMov) => {
-        set((state) =>
-          state.movie.includes(inputMov)
+        set((state) => {
+          return !state.movie.includes(inputMov)
             ? { movie: [...state.movie, inputMov] }
-            : { movie: [...state.movie] }
-        );
-        console.log("added");
+            : { movie: [...state.movie] };
+        });
       },
       removeMov: (inputMov) => {
         set((state) => ({
           movie: state.movie.filter((todo) => todo !== inputMov),
         }));
-        console.log("removed");
       },
       clearAuth: () => set({ ...initState }),
     }),
@@ -36,3 +34,44 @@ export const useFavStore = create<FavStore>()(
     }
   )
 );
+
+/*
+
+
+(set, get) => {
+
+  return {
+    cats: [],
+    updateCats: (value) => {
+      get().cats
+      set((state) => {
+        const cats = [...state.cats, "white"]
+        return {cats: cats}
+      })
+    }
+  }
+}
+
+======
+
+
+// ver1 state
+{
+  cats: [],
+  amHungry: true
+}
+
+// ver2 state
+{
+  cats: ["black"],
+  amHungry: true
+}
+
+
+// ver3 state
+{
+  cats: [],
+  amHungry: false
+}
+
+*/

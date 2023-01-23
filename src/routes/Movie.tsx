@@ -10,7 +10,7 @@ import clsx from "clsx";
 import { Button, ButtonVariant } from "../components/Button";
 import { HeartIcon as HeartOut } from "@heroicons/react/24/outline";
 import { HeartIcon as HearFill } from "@heroicons/react/24/solid";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useFavStore } from "../stores/FavouriteStore";
 
 export async function movieLoader({ params }: LoaderFunctionArgs) {
@@ -19,6 +19,11 @@ export async function movieLoader({ params }: LoaderFunctionArgs) {
 
 export function Movie() {
   const { movie, setMovie, removeMov } = useFavStore();
+  const navigate = useNavigate();
+  const mov = useLoaderData() as MovieDetail;
+  const [favourite, setFavourite] = useState(movie.includes(mov.id));
+  const score = Math.floor(mov.vote_average * 10);
+
   function minutesToHours(minutes: number) {
     const hours = Math.floor(minutes / 60);
     const Minutes = minutes % 60;
@@ -26,21 +31,13 @@ export function Movie() {
   }
 
   function onClick() {
-    setFavourite(!favourite);
     if (!favourite) {
       setMovie(mov.id);
     } else {
       removeMov(mov.id);
     }
+    setFavourite(!favourite);
   }
-
-  const [favourite, setFavourite] = useState(false);
-
-  const navigate = useNavigate();
-
-  const mov = useLoaderData() as MovieDetail;
-
-  const score = Math.floor(mov.vote_average * 10);
 
   return (
     <div className="flex flex-col justify-between h-screen px-5">
