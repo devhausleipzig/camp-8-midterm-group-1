@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { CheckoutPanel, PTags } from "../components/CheckoutPanel";
 
 export function SelectSeats() {
+
   const navigate = useNavigate();
   const [input, setInput] = useState<PTags[]>([]);
   const temporary: PTags = {
