@@ -13,6 +13,7 @@ export function Carroussel({ selection }: InputProps) {
           <Link
             to={"/movie/" + String(film.id)}
             className="object-cover snap-center"
+            key={film.id}
           >
             <div className="w-44 h-56 rounded-lg flex-grow-0">
               <img

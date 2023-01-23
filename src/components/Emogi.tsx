@@ -1,3 +1,6 @@
+import clsx from "clsx";
+import { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
+
 export type EmojiLib =
   | "Romance"
   | "Crime"
@@ -90,17 +93,39 @@ export const emojiIcons: Record<string, Emoji> = {
     icon: "❓",
   },
 };
-type InputProps = {
-  id: number;
-};
-export function Emogi({ id }: InputProps) {
+
+interface InputProps
+  extends DetailedHTMLProps<
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
+  num: number;
+  selected: number[];
+  setSelected: React.Dispatch<React.SetStateAction<number[]>>;
+}
+export function Emogi({ num, selected, setSelected, ...props }: InputProps) {
+  function clickEm(num: number) {
+    if (selected.includes(num)) {
+      setSelected((x) => x.filter((y) => y !== num));
+    } else {
+      setSelected([...selected, num]);
+    }
+  }
   return (
-    <div className="gap-2 flex flex-col justify-center w-14">
-      <p className="text-3xl flex justify-center items-center w-14 h-14 bg-dark-light rounded-xl">
-        {emojiIcons[id].icon}
+    <div
+      className="gap-2 flex flex-col justify-center w-14"
+      onClick={() => clickEm(num)}
+    >
+      <p
+        className={clsx(
+          "text-3xl flex justify-center items-center w-14 h-14 rounded-xl",
+          selected.includes(num) ? "bg-yellow" : "bg-dark-light"
+        )}
+      >
+        {emojiIcons[num].icon}
       </p>
       <p className="text-white-dimmed text-secondary flex justify-center">
-        {emojiIcons[id].name}
+        {emojiIcons[num].name}
       </p>
     </div>
   );
