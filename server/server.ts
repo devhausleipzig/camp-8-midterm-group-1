@@ -1,6 +1,5 @@
 import { PrismaClient } from "@prisma/client";
 import Fastify from "fastify";
-import { read, readFileSync, writeFileSync } from "fs";
 import cors from "@fastify/cors";
 import models from "./models";
 
@@ -25,44 +24,8 @@ async function init() {
 
   fastify.register(cors, { origin: ["*"] });
 
-  fastify.get(
-    "/movie/:movieID/showings",
-    {
-      schema: {
-        // querystring: $ref(`showingQueryModel`),
-        params: $ref(`showingParamModel`),
-      },
-    },
-    async (request, reply) => {
-      const { movieID } = request.params as { movieID: string };
-      const { datetime } = request.query as { datetime: string };
-      if (!datetime) {
-        return await prisma.showing.findMany({
-          where: {
-            movieID: movieID,
-          },
-        });
-      } else {
-        const showing = await prisma.showing.findUnique({
-          where: {
-            movieID_dateTime: {
-              movieID: movieID,
-              dateTime: new Date(datetime),
-            },
-          },
-          include: {
-            seats: true,
-          },
-        });
-        if (!showing) {
-          reply.status(404).send("Bruv, no poi found!");
-          return;
-        } else {
-          return showing;
-        }
-      }
-    }
-  );
+  //EndPoints Go here
+
   await fastify.listen({ port: 3999, host: "127.0.0.1" });
 }
 try {
