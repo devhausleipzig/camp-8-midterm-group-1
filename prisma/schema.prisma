@@ -8,9 +8,21 @@ generator client {
 }
 
 model User {
-  indentifier String  @id @unique @default(uuid())
+  indentifier String   @id @unique @default(uuid())
   name        String
-  tickets     Seats[]
+  bookmark    String[]
+  password    String
+  email       String
+  photo       String
+  tickets     Ticket[]
+}
+
+model Ticket {
+  indentifier String  @id @unique @default(uuid())
+  seats       Seats[]
+  price       String
+  ownedBy     User?   @relation(fields: [userID], references: [indentifier])
+  userID      String
 }
 
 model Showing {
@@ -27,6 +39,6 @@ model Seats {
   seatIn     Showing  @relation(fields: [movieID, dateTime], references: [movieID, dateTime])
   movieID    String
   dateTime   DateTime
-  reservedBy User?    @relation(fields: [userID], references: [indentifier])
-  userID     String?
+  reservedBy Ticket?  @relation(fields: [ticketID], references: [indentifier])
+  ticketID   String?
 }

@@ -1,0 +1,26 @@
+POST http://127.0.0.1:3999/users/
+Content-Type: application/json
+
+{
+  "userEmail": "ben@gmail.com",
+  "userPassword": "hello"
+}
+
+###
+
+PATCH http://127.0.0.1:3999/41a7f03d-0fe8-49c3-8486-acdde40618ee
+Content-Type: application/json
+
+{
+  "newName": "Big Ben"
+}
+
+###
+
+PATCH http://127.0.0.1:3999/41a7f03d-0fe8-49c3-8486-acdde40618ee/addTickets
+Content-Type: application/json
+
+{
+  "seatIDs":["132ab587-c0e4-460b-a88e-c541bbc40592","18991844-1e54-447c-bea1-71d0da9e7f51","48f8cd57-3105-433d-a67f-0ec1d6d84d72"],
+  "price": "45.78"
+}
