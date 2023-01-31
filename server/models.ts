@@ -16,9 +16,22 @@ const patchTicketInfo = z.object({
   seatIDs: z.array(z.string()),
   price: z.string(),
 });
+
+const registerInfo = z.object({
+  email: z.string(),
+  name: z.string(),
+  password: z.string(),
+});
+
+const postTikenBodyModel = z.object({
+  username: z.string(),
+  passworf: z.string(),
+});
 export default {
   emailTestType,
   patchUserInfo,
   indentifierType,
   patchTicketInfo,
+  registerInfo,
+  postTikenBodyModel,
 };

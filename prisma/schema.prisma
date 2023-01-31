@@ -11,10 +11,10 @@ model User {
   indentifier String   @id @unique @default(uuid())
   name        String
   bookmark    String[]
-  password    String
   email       String
   photo       String
   tickets     Ticket[]
+  saltAndHash String
 }
 
 model Ticket {
