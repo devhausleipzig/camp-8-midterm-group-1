@@ -9,7 +9,6 @@ import dotenv from "dotenv";
 
 dotenv.config();
 const requieredEnvs = ["SECRET_KEY", "DATABASE_URL"];
-const secretKey = process.env["SECRET_KEY"];
 for (const requieredEnv of requieredEnvs) {
   if (!process.env[requieredEnv]) {
     throw new Error(`Missing enviroument variable`);
@@ -34,8 +33,6 @@ declare module "fastify" {
 const prisma = new PrismaClient();
 
 async function init() {
-  console.log("Hello, world");
-
   const { schemas, $ref } = buildJsonSchemas(models);
 
   // Require the framework and instantiate it
@@ -85,15 +82,18 @@ async function init() {
     }
     const match = await bcrypt.compare(UserData.passworf, user.saltAndHash);
 
-    const token = jwt.sign(
-      {
-        user_id: user.indentifier,
-        email: user.email,
-      } as TokenPayload,
-      requieredEnvs[0],
-      { expiresIn: "24h" }
-    );
-    return token;
+    if (match) {
+      const token = jwt.sign(
+        {
+          user_id: user.indentifier,
+          email: user.email,
+        } as TokenPayload,
+        requieredEnvs[0],
+        { expiresIn: "24h" }
+      );
+      return token;
+    }
+    return false;
   });
 
   fastify.post("/users/", async (request, response) => {
@@ -106,22 +106,17 @@ async function init() {
           email: userEmail,
         },
       });
-      if (matchingEmails && userPassword == matchingEmails.password) {
-        response.status(202).send("User Exists");
-        return;
-      } else if (matchingEmails) {
+      if (matchingEmails) {
+        const match = await bcrypt.compare(
+          userPassword,
+          matchingEmails.saltAndHash
+        );
+        if (match) {
+          response.status(202).send("User Exists");
+          return;
+        }
         response.status(406).send("Wrong Password");
-      } else {
-        response.status(201).send("New User Created");
-        await prisma.user.create({
-          data: {
-            email: userEmail,
-            password: userPassword,
-            name: "John Doe",
-            photo:
-              "https://img.freepik.com/free-icon/user_318-804790.jpg?w=2000",
-          },
-        });
+        return;
       }
     } catch (error) {
       if (error instanceof ZodError) {
@@ -144,7 +139,6 @@ async function init() {
         },
         data: {
           name: newName,
-          password: newPassword,
           photo: newPhoto,
         },
       });
