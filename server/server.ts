@@ -195,24 +195,6 @@ async function init() {
     return data;
   });
 
-  fastify.get("/movie/:movieId/:showing", async (request, response) => {
-    const { movieId, showing } = models.movieIdInfo.parse(request.params);
-   const date = showing?.split("T")
-
-    const data = await prisma.showing.findMany({
-      where: {
-        movieID: movieId,
-        dateTime:{
-          where: {
-            isSameDay(dateTime, showing)
-          }
-        }
-      },
-    });
-
-    return data;
-  });
-
   await fastify.listen({ port: 3999, host: "127.0.0.1" });
 }
 try {
