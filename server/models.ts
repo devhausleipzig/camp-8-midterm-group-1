@@ -27,6 +27,12 @@ const postTikenBodyModel = z.object({
   username: z.string(),
   passworf: z.string(),
 });
+
+const movieIdInfo = z.object({
+  movieId: z.string(),
+  showing: z.optional(z.string().datetime()),
+});
+
 export default {
   emailTestType,
   patchUserInfo,
@@ -34,4 +40,5 @@ export default {
   patchTicketInfo,
   registerInfo,
   postTikenBodyModel,
+  movieIdInfo,
 };

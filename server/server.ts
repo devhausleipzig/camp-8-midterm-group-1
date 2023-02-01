@@ -106,7 +106,7 @@ async function init() {
           email: userEmail,
         },
       });
-      if (matchingEmails && userPassword == matchingEmails.password) {
+      if (matchingEmails && userPassword == matchingEmails.saltAndHash) {
         response.status(202).send("User Exists");
         return;
       } else if (matchingEmails) {
@@ -116,7 +116,7 @@ async function init() {
         await prisma.user.create({
           data: {
             email: userEmail,
-            password: userPassword,
+            saltAndHash: userPassword,
             name: "John Doe",
             photo:
               "https://img.freepik.com/free-icon/user_318-804790.jpg?w=2000",
@@ -144,7 +144,7 @@ async function init() {
         },
         data: {
           name: newName,
-          password: newPassword,
+          saltAndHash: newPassword,
           photo: newPhoto,
         },
       });
@@ -183,6 +183,36 @@ async function init() {
       response.status(500).send("Wierd error");
     }
   });
+
+  fastify.get("/movie/:movieId/showing", async (request, response) => {
+    const { movieId } = models.movieIdInfo.parse(request.params);
+    const data = await prisma.showing.findMany({
+      where: {
+        movieID: movieId,
+      },
+    });
+
+    return data;
+  });
+
+  fastify.get("/movie/:movieId/:showing", async (request, response) => {
+    const { movieId, showing } = models.movieIdInfo.parse(request.params);
+   const date = showing?.split("T")
+
+    const data = await prisma.showing.findMany({
+      where: {
+        movieID: movieId,
+        dateTime:{
+          where: {
+            isSameDay(dateTime, showing)
+          }
+        }
+      },
+    });
+
+    return data;
+  });
+
   await fastify.listen({ port: 3999, host: "127.0.0.1" });
 }
 try {

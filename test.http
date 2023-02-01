@@ -24,3 +24,7 @@ Content-Type: application/json
   "seatIDs":["132ab587-c0e4-460b-a88e-c541bbc40592","18991844-1e54-447c-bea1-71d0da9e7f51","48f8cd57-3105-433d-a67f-0ec1d6d84d72"],
   "price": "45.78"
 }
+
+
+###
+GET http://127.0.0.1:3999/movie/4321/showing
