@@ -22,6 +22,9 @@ const registerInfo = z.object({
   name: z.string(),
   password: z.string(),
 });
+const tokenCheckInfo = z.object({
+  token: z.string(),
+});
 
 const postTikenBodyModel = z.object({
   username: z.string(),
@@ -34,4 +37,5 @@ export default {
   patchTicketInfo,
   registerInfo,
   postTikenBodyModel,
+  tokenCheckInfo,
 };

@@ -2,8 +2,8 @@ POST http://127.0.0.1:3999/users/
 Content-Type: application/json
 
 {
-  "userEmail": "ben@gmail.com",
-  "userPassword": "hello"
+  "userEmail": "ben1@gmail.com",
+  "userPassword": "password"
 }
 
 ###
@@ -42,6 +42,15 @@ Content-Type: application/json
 {
   "username": "hello@gmail.com",
     "passworf": "password"
+}
+
+###
+
+POST http://127.0.0.1:3999/checkToken/
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZTMwYmQwNzItYTdiZi00YTQzLTkzMjEtMWU0Zjg0NjAzZTUyIiwiZW1haWwiOiJoZWxsb0BnbWFpbC5jb20iLCJpYXQiOjE2NzUzMzU0MDgsImV4cCI6MTY3NTQyMTgwOH0.r3cBCLwbZgQWo0AUbGnTwWpXbbRPRlJ27MNJ3CyZOWw"
 }
 
 ###

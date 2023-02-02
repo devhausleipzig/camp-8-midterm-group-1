@@ -6,25 +6,37 @@ import { Button, ButtonVariant } from "../components/Button";
 import { Input } from "../components/Input";
 import { useAuthStore } from "../stores/authStore";
 import _ from "lodash";
-import { eachWeekOfInterval } from "date-fns/esm";
+import { string } from "zod";
 
 export function Login() {
-  const { token } = useAuthStore();
+  const { token, setToken } = useAuthStore();
 
   ////////
+  type DataState = {
+    usermail: string;
+    password: string;
+  };
 
-  const [data, setData] = useState({
+  const [data, setData] = useState<DataState>({
     usermail: "",
     password: "",
-  } as { usermail?: string });
+  });
 
-  function Input(event: React.ChangeEvent<HTMLInputElement>, type: string) {
-    if ((type = "email")) {
-      setData(_.pick(data, ["usermail"]));
+  function inputFunction(
+    event: React.ChangeEvent<HTMLInputElement>,
+    type: string
+  ) {
+    if (type == "email") {
+      setData({
+        ...data,
+        usermail: event.target.value as string,
+      });
     } else {
-      setData(_.pick(data, ["password"]));
+      setData({
+        ...data,
+        password: event.target.value as string,
+      });
     }
-    console.log(data);
   }
 
   ////////
@@ -45,17 +57,13 @@ export function Login() {
             icon={<EnvelopeIcon />}
             type="email"
             placeholder="your@email.com"
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-              Input(event, "email")
-            }
+            onChange={(event) => inputFunction(event, "email")}
           />
           <Input
             icon={<KeyIcon />}
             placeholder="Enter your Password"
             type="password"
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-              Input(event, "password")
-            }
+            onChange={(event) => inputFunction(event, "password")}
           />
         </div>
       </div>
@@ -63,7 +71,21 @@ export function Login() {
         variant={ButtonVariant.primary}
         label="Login"
         type="submit"
-        // onClick={Test}
+        onClick={async (event) => {
+          event.preventDefault();
+          const token = await axios
+            .post("http://127.0.0.1:3999/auth/login", {
+              username: data.usermail,
+              passworf: data.password,
+            })
+            .then((res) => {
+              if (res.status == 200) {
+                setToken(res.data);
+              } else {
+                console.log("Bigg Boo Boo can't remember his password");
+              }
+            });
+        }}
       />
     </form>
   );

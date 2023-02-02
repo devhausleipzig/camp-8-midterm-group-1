@@ -81,6 +81,7 @@ async function init() {
       return;
     }
     const match = await bcrypt.compare(UserData.passworf, user.saltAndHash);
+    console.log(match);
 
     if (match) {
       const token = jwt.sign(
@@ -88,12 +89,27 @@ async function init() {
           user_id: user.indentifier,
           email: user.email,
         } as TokenPayload,
-        requieredEnvs[0],
+        //@ts-ignore
+        process.env["SECRET_KEY"],
         { expiresIn: "24h" }
       );
+      console.log("SecretKey is here", process.env["SECRET_KEY"]);
+
       return token;
     }
     return false;
+  });
+
+  fastify.post("/checkToken/", async (request, responce) => {
+    const { token } = models.tokenCheckInfo.parse(request.body);
+    try {
+      //@ts-ignore
+      return jwt.verify(process.env["SECRET_KEY"], token, {
+        algorithms: ["RS256"],
+      });
+    } catch (error) {
+      return false;
+    }
   });
 
   fastify.post("/users/", async (request, response) => {
