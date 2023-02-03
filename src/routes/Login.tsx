@@ -14,6 +14,7 @@ export function Login() {
 
   function onSubmit(event: React.FormEvent<HTMLButtonElement>) {
     event.preventDefault();
+    console.log(infos.email);
     if (emailInput === infos.email && password === infos.password) {
       setToken("token-token");
       setEmailInput(emailInput);

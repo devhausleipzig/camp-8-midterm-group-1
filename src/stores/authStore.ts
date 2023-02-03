@@ -22,7 +22,7 @@ export const useAuthStore = create<AuthStore>()(
     (set) => ({
       token: "",
       infos: {
-        password: "passpass",
+        password: "passpasstest",
         email: "peel@peel.de",
       },
       setToken: (tokenResponse) => set({ token: tokenResponse }),
