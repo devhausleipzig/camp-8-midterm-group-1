@@ -17,6 +17,7 @@ import {
   movieLoader,
   ticketLoader,
   moviesArrayLoader,
+  timesLoader,
 } from "./routes";
 import { NavigationLayout } from "./layouts/NavigationLayout";
 import { MovieDetailLayout } from "./layouts/MovieDetailLayout";
@@ -69,6 +70,7 @@ const router = createBrowserRouter([
       {
         path: ":movieId/selecttime",
         element: <SelectDateTime />,
+        loader: timesLoader,
       },
       {
         path: ":movieId/selectseats",

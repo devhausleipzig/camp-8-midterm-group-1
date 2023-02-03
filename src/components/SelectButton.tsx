@@ -6,9 +6,9 @@ import React, {
 } from "react";
 
 export enum SelectButtonVariant {
-  primary = "unselected",
-  secondary = "selected",
-  tertiary = "disabled",
+  available = "unselected",
+  selected = "selected",
+  reserved = "disabled",
 }
 
 interface SelectButtonProps
@@ -22,7 +22,7 @@ interface SelectButtonProps
 }
 
 export function SelectButton({
-  type = "submit",
+  type,
   label,
   variant,
   ...props
@@ -33,15 +33,15 @@ export function SelectButton({
         type="button"
         className={clsx(
           "text-center rounded-md w-16 h-7",
-          variant == SelectButtonVariant.primary
-            ? "text-description bg-dark text-white-dimmed"
+          variant == SelectButtonVariant.available
+            ? "text-description text-white-dimmed"
             : "",
 
-          variant == SelectButtonVariant.secondary
+          variant == SelectButtonVariant.selected
             ? "text-description bg-yellow text-dark-light"
             : "",
-          variant == SelectButtonVariant.tertiary
-            ? "disabled:curser-not-allowed text-description bg-dark text-white-dimmed-heavy "
+          variant == SelectButtonVariant.reserved
+            ? "disabled:curser-not-allowed text-description text-white-dimmed-heavy "
             : ""
         )}
         {...props}
