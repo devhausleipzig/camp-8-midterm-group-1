@@ -4,11 +4,13 @@ import { SelectButton, SelectButtonVariant } from "../components/SelectButton";
 import { Days } from "../components/MockData";
 import { useParams } from "react-router-dom";
 import { Navigate, useLoaderData, useNavigate } from "react-router-dom";
+import { useTicketStore } from "../stores/BookingStore";
 export function timesLoader() {
   return new Days();
 }
 
 export function SelectDateTime() {
+  const { setDate, setTime } = useTicketStore();
   const data = useLoaderData() as Days;
   const [selectedDates, setSelectedDates] = useState<string>("");
   const [selectedTimes, setSelectedTimes] = useState<string>("");
@@ -87,7 +89,11 @@ export function SelectDateTime() {
           <Button
             variant={ButtonVariant.primary}
             label={"Select Seat"}
-            onClick={() => navigate(`/movie/${movieId}/selectseats`)}
+            onClick={() => {
+              setDate(selectedDates);
+              setTime(selectedTimes);
+              navigate(`/movie/${movieId}/selectseats`);
+            }}
           />
         </div>
       </div>
