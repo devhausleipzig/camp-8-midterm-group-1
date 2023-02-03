@@ -1,23 +1,29 @@
 import { Days } from "../components/MockData";
 import { Seat } from "../components/Seat";
 import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
+
+export function seatsLoader() {
+  let data = new Days();
+  return data.days[0].screenings[0].seats;
+}
 
 export function SelectSeats() {
   type SeatInfo = {
-    fill: boolean;
+    ocupied: boolean;
     id: string;
   };
-  let data = new Days();
-  const seatInfo = data.days[0].screenings[0].seats;
 
   const [seats, setSelectedSeats] = useState<string[]>([]);
 
   function toggle(seatNum: number) {
     if (seats.includes(String(seatNum))) {
+      //use setter to remove item from state.
     } else {
+      setSelectedSeats([...seats, String(seatNum)]);
     }
   }
-
+  const seatInfo = useLoaderData() as SeatInfo[];
   let arrayofseats = [];
 
   function seatFill(i: number) {
