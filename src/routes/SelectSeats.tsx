@@ -19,9 +19,19 @@ export function SelectSeats() {
 
   function seatsToObjects(possibleSeats: string[]) {
     return possibleSeats.map((seat) => {
-      return {
-        type: "Front",
-      };
+      if (Number(seat) < 15) {
+        return {
+          type: "Front",
+        };
+      } else if (Number(seat) < 30) {
+        return {
+          type: "Middle",
+        };
+      } else {
+        return {
+          type: "Back",
+        };
+      }
     });
   }
 
