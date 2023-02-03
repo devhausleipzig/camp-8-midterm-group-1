@@ -22,14 +22,17 @@ export function SelectSeats() {
       if (Number(seat) < 15) {
         return {
           type: "Front",
+          num: Number(seat),
         };
       } else if (Number(seat) < 30) {
         return {
           type: "Middle",
+          num: Number(seat),
         };
       } else {
         return {
           type: "Back",
+          num: Number(seat),
         };
       }
     });

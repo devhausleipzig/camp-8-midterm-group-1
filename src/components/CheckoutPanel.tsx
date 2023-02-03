@@ -1,9 +1,11 @@
 import { Transition } from "@headlessui/react";
 import { useNavigate, useParams, useRoutes } from "react-router-dom";
+import { useTicketStore } from "../stores/BookingStore";
 import { Button, ButtonVariant } from "./Button";
 import { Seats, SeatsLocationPrice } from "./SeatsLocationPrice";
 export type PTags = {
   type: string;
+  num: number;
 };
 type InputProps = {
   seats: PTags[];
@@ -16,6 +18,7 @@ const pricesObject: Record<Seats, number> = {
 
 export function CheckoutPanel({ seats }: InputProps) {
   const navigate = useNavigate();
+  const { setTotalPrice, setSeats } = useTicketStore();
   const { movieId } = useParams();
   const typesOfSeats: string[] = [];
   seats.map((seat) => {
@@ -66,7 +69,15 @@ export function CheckoutPanel({ seats }: InputProps) {
               seats.length > 0 ? ButtonVariant.primary : ButtonVariant.secondary
             }
             label="Book Tickets"
-            onClick={() => navigate(`/movie/${movieId}/ticket`)}
+            onClick={() => {
+              setTotalPrice(String(calculateTotalPrice(seats)));
+              setSeats(
+                seats.map((seat) => {
+                  return String(seat.num);
+                })
+              );
+              navigate(`/movie/${movieId}/ticket`);
+            }}
           />
         </div>
       </div>
