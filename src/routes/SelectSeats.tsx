@@ -2,6 +2,7 @@ import { Days } from "../components/MockData";
 import { Seat } from "../components/Seat";
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import { CheckoutPanel } from "../components/CheckoutPanel";
 
 export function seatsLoader() {
   let data = new Days();
@@ -15,6 +16,14 @@ export function SelectSeats() {
   };
 
   const [seats, setSelectedSeats] = useState<string[]>([]);
+
+  function seatsToObjects(possibleSeats: string[]) {
+    return possibleSeats.map((seat) => {
+      return {
+        type: "Front",
+      };
+    });
+  }
 
   function toggle(seatNum: number) {
     if (seats.includes(String(seatNum))) {
@@ -48,7 +57,7 @@ export function SelectSeats() {
 
   return (
     <>
-      <div className="flex items-center justify-center mt-8 mx-5 my-5">
+      <div className="flex flex-col items-center justify-around mt-8 mx-5 my-5">
         <div
           className="grid grid-cols-9 grid-rows-6 gap-3 gap-y-3 mt-4 rounded"
           id="seatcontainer"
@@ -66,6 +75,7 @@ export function SelectSeats() {
             );
           })}
         </div>
+        <CheckoutPanel seats={seatsToObjects(seats)} />
       </div>
     </>
   );
