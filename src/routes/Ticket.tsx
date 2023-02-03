@@ -31,7 +31,7 @@ export function Ticket() {
   localStorage.clear();
 
   return (
-    <div className="h-screen flex-col flex px-5 py-8 border-white border rounded-3xl">
+    <div className="h-screen flex-col flex px-5 py-8">
       <div className="flex flex-col flex-grow justify-between relative rounded-xl  bg-white-dimmed-heavy">
         <div>
           <img
@@ -68,7 +68,7 @@ export function Ticket() {
         <div className=" justify-self-end flex border-dashed h-28 border-white border-t-2">
           <div className="absolute rounded-full bg-dark w-12 h-12 bottom-[90px] -left-6"></div>
           <div className="absolute rounded-full bg-dark w-12 h-12 bottom-[90px] -right-6"></div>
-          <div className=" ml-6 mt-4">
+          <div className="flex justify-center w-full h-full items-center">
             <CodeBar></CodeBar>
           </div>
         </div>
