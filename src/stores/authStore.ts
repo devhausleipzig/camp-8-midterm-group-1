@@ -1,31 +1,32 @@
 import create from "zustand";
 import { persist } from "zustand/middleware";
-import zustand from "zustand";
 
-type AuthStore = {
-  user: User;
-  token: string;
-  setUser: (inputUser: User) => void;
-  setToken: (tokenResponse: string) => void;
-  clearAuth: () => void;
+type Infos = {
+  password: string;
+  email: string;
 };
-
-type User = {
-  username: string;
-  avatar: string;
+type AuthStore = {
+  infos: Infos;
+  setInfos: (inputInfos: Infos) => void;
+  clearAuth: () => void;
+  token: string;
+  setToken: (tokenResponse: string) => void;
 };
 
 const initState = {
-  user: { username: "", avatar: "" },
+  infos: { password: "", email: "" },
   token: "",
 };
 export const useAuthStore = create<AuthStore>()(
   persist(
     (set) => ({
-      user: { username: "", avatar: "" },
       token: "",
-      setUser: (inputUser: User) => set({ user: inputUser }),
-      setToken: (tokenResponse: string) => set({ token: tokenResponse }),
+      infos: {
+        password: "passpasstest",
+        email: "peel@peel.de",
+      },
+      setToken: (tokenResponse) => set({ token: tokenResponse }),
+      setInfos: (inputInfos: Infos) => set({ infos: inputInfos }),
       clearAuth: () => set({ ...initState }),
     }),
     {
