@@ -4,6 +4,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { Button, ButtonVariant } from "../components/Button";
 import { Input } from "../components/Input";
 import { useAuthStore } from "../stores/authStore";
+import _ from "lodash";
 
 export function Login() {
   const [password, setPassword] = useState("");

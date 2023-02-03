@@ -1,0 +1,50 @@
+POST http://127.0.0.1:3999/users/
+Content-Type: application/json
+
+{
+  "userEmail": "ben@gmail.com",
+  "userPassword": "hello"
+}
+
+###
+
+PATCH http://127.0.0.1:3999/41a7f03d-0fe8-49c3-8486-acdde40618ee
+Content-Type: application/json
+
+{
+  "newName": "Big Ben"
+}
+
+###
+
+PATCH http://127.0.0.1:3999/41a7f03d-0fe8-49c3-8486-acdde40618ee/addTickets
+Content-Type: application/json
+
+{
+  "seatIDs":["132ab587-c0e4-460b-a88e-c541bbc40592","18991844-1e54-447c-bea1-71d0da9e7f51","48f8cd57-3105-433d-a67f-0ec1d6d84d72"],
+  "price": "45.78"
+}
+
+###
+POST http://127.0.0.1:3999/auth/register
+Content-Type: application/json
+
+{
+  "email":"hello@gmail.com",
+  "name":"John Baeson",
+  "password":"password"
+}
+
+###
+POST http://127.0.0.1:3999/auth/login
+Content-Type: application/json
+
+{
+  "username": "hello@gmail.com",
+    "passworf": "password"
+}
+
+###
+GET http://127.0.0.1:3999/movie/1234/showings?datetime=1970-01-01T00:00:00.000Z
+
+###

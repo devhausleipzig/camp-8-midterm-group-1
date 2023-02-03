@@ -6,12 +6,12 @@ type TicketStore = {
   date: string;
   time: string;
   seats: string[];
-  totalPrice: number;
+  totalPrice: string;
   setMovieID: (movieSelected: number) => void;
   setDate: (dateSelected: string) => void;
   setTime: (timeSelected: string) => void;
   setSeats: (seatsSelected: string[]) => void;
-  setTotalPrice: (totalPriceSelected: number) => void;
+  setTotalPrice: (totalPriceSelected: string) => void;
   clear: () => void;
 };
 
@@ -20,7 +20,7 @@ const initialState = {
   date: "",
   time: "",
   seats: [],
-  totalPrice: 0,
+  totalPrice: "",
 };
 
 export const useTicketStore = create<TicketStore>()(
@@ -35,7 +35,7 @@ export const useTicketStore = create<TicketStore>()(
       setDate: (dateInput: string) => set({ date: dateInput }),
       setTime: (timeInput: string) => set({ time: timeInput }),
       setSeats: (seatsInput: string[]) => set({ seats: seatsInput }),
-      setTotalPrice: (totalPriceInput: number) =>
+      setTotalPrice: (totalPriceInput: string) =>
         set({ totalPrice: totalPriceInput }),
       clear: () => set({ ...initialState }),
     }),
