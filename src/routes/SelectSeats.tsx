@@ -69,27 +69,25 @@ export function SelectSeats() {
   }
 
   return (
-    <>
-      <div className="h-full flex flex-col items-center justify-around mt-8 mx-5 my-5">
-        <div
-          className="grid grid-cols-9 grid-rows-6 gap-3 gap-y-3 mt-4 rounded"
-          id="seatcontainer"
-        >
-          {arrayofseats.map((seat) => {
-            return seat.fill == true ? (
-              <Seat
-                id={String(seat.id)}
-                reserved={seatInfo[seat.id].ocupied}
-                selected={seats.includes(String(seat.id))}
-                onClick={() => toggle(seat.id)}
-              />
-            ) : (
-              <div></div>
-            );
-          })}
-        </div>
-        <CheckoutPanel seats={seatsToObjects(seats)} />
+    <div className="h-full flex flex-col items-center justify-between mt-8 mx-5 my-5 mb-0">
+      <div
+        className="grid grid-cols-9 grid-rows-6 gap-3 gap-y-3 mt-4 rounded"
+        id="seatcontainer"
+      >
+        {arrayofseats.map((seat) => {
+          return seat.fill == true ? (
+            <Seat
+              id={String(seat.id)}
+              reserved={seatInfo[seat.id].ocupied}
+              selected={seats.includes(String(seat.id))}
+              onClick={() => toggle(seat.id)}
+            />
+          ) : (
+            <div></div>
+          );
+        })}
       </div>
-    </>
+      <CheckoutPanel seats={seatsToObjects(seats)} />
+    </div>
   );
 }
