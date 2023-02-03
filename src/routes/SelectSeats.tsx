@@ -19,6 +19,9 @@ export function SelectSeats() {
   function toggle(seatNum: number) {
     if (seats.includes(String(seatNum))) {
       //use setter to remove item from state.
+      setSelectedSeats((preItems) =>
+        preItems.filter((seat) => seat !== String(seatNum))
+      );
     } else {
       setSelectedSeats([...seats, String(seatNum)]);
     }
