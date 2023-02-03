@@ -70,7 +70,7 @@ export function SelectSeats() {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-around mt-8 mx-5 my-5">
+      <div className="h-full flex flex-col items-center justify-around mt-8 mx-5 my-5">
         <div
           className="grid grid-cols-9 grid-rows-6 gap-3 gap-y-3 mt-4 rounded"
           id="seatcontainer"
