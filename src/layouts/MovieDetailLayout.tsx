@@ -23,7 +23,7 @@ export function MovieDetailLayout() {
   }
 
   return (
-    <div className="h-screen">
+    <div className="h-screen flex flex-col justify-between">
       <div className="w-screen h-20 flex items-center justify-between px-6  bg-dark">
         <ChevronLeftIcon
           className="w-3 h-3  text-white"
