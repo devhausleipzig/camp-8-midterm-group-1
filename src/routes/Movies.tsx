@@ -14,8 +14,7 @@ export function Movies() {
   const [number, setNumber] = useState(0);
   const [previousValue, setPreviousValue] = useState(0);
   return (
-    <div className="flex flex-col justify-between">
-      <div></div>
+    <div className="flex flex-col justify-around">
       <div className="relative bg-dark overflow-hidden">
         {movies.map((card, index) => {
           return (

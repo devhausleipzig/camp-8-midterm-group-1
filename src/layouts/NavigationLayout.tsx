@@ -29,7 +29,7 @@ const routes = [
 
 export function NavigationLayout() {
   const { token } = useAuthStore();
-  // if (!token) return <Navigate to="/login" replace />;
+  if (!token) return <Navigate to="/login" replace />;
 
   return (
     <div className="h-screen flex flex-col">

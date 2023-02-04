@@ -21,9 +21,7 @@ import {
 } from "./routes";
 import { NavigationLayout } from "./layouts/NavigationLayout";
 import { MovieDetailLayout } from "./layouts/MovieDetailLayout";
-
 import { SelectSeats } from "./routes/SelectSeats";
-
 import { castLoader } from "./routes/Cast";
 
 const router = createBrowserRouter([
